@@ -16,7 +16,7 @@
 
 ### 🚀 About My Journey
 
-- 🎓 **Education:** Studying Software Engineering at **FPT University** & Advanced Diploma at **FPT Aptech**.
+- 🎓 **Education:** Studying Software Engineering at **FPT University** & Advanced Diploma at **Aptech Việt Nam**.
 - 🔭 **Current Focus:** **Artificial Intelligence, Multi-Agent Systems**, and **Local LLM Deployment**.
 - 🛡️ **Cybersecurity:** Researching dynamic behavior analysis and automated malware sandboxes.
 - ⚙️ **Active Projects:** Building **LIVA**, a personal AI assistant focused on self-evolution, and developing dynamic systems.
