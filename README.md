@@ -16,7 +16,7 @@
 
 ### 🚀 About My Journey
 
-- 🎓 **Education:** Studying Software Engineering at **FPT University** & Advanced Diploma at **Aptech Việt Nam**.
+- 🎓 **Education:** Studying Software Engineering at **FPT University** & Advanced Diploma at **Aptech Hà Nội**.
 - 🔭 **Current Focus:** **Artificial Intelligence, Multi-Agent Systems**, and **Local LLM Deployment**.
 - 🛡️ **Cybersecurity:** Researching dynamic behavior analysis and automated malware sandboxes.
 - ⚙️ **Active Projects:** Building **LIVA**, a personal AI assistant focused on self-evolution, and developing dynamic systems.
@@ -41,7 +41,7 @@
 
 <div align="center">
   <img src="https://streak-stats.demolab.com?user=DuongNAD&theme=radical&hide_border=true&background=0D1117" alt="GitHub Streak" width="48%" />
-  <img src="https://github-readme-stats.demolab.com/api/top-langs/?username=DuongNAD&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" alt="Top Languages" width="48%" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DuongNAD&theme=radical" alt="Top Languages" width="48%" />
 </div>
 
 <br>
