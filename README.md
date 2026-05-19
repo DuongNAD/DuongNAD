@@ -63,10 +63,16 @@
 ### 🤝 Let's Connect!
 
 <div align="center">
-  <a href="mailto:contact@example.com">
+  <a href="duonganhdn2000@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
-  <a href="https://linkedin.com/in/DuongNAD">
+  <a href="https://www.linkedin.com/in/dương-nguyễn-anh-021b6a39b/">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://www.coursera.org/?skipBrowseRedirect=true">
+    <img src="https://img.shields.io/badge/Coursera-0056D2?style=for-the-badge&logo=coursera&logoColor=white" />
+  </a>
+  <a href="https://www.facebook.com/duong.nguyen.834473">
+    <img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white" />
   </a>
 </div>
