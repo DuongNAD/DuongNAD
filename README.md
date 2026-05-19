@@ -40,8 +40,7 @@
 ### 📊 Performance Metrics
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=DuongNAD&theme=radical&hide_border=true&background=0D1117" alt="GitHub Streak" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&cache_seconds=3600" alt="Top Languages" width="48%" />
+  <img src="https://streak-stats.demolab.com?user=DuongNAD&theme=radical&hide_border=true&background=0D1117" alt="GitHub Streak" width="100%" />
 </div>
 
 <br>
