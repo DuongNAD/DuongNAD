@@ -40,8 +40,8 @@
 ### 📊 Performance Metrics
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=DuongNAD&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117" alt="GitHub Stats" width="48%" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=radical&hide_border=true&bg_color=0D1117" alt="Top Languages" width="48%" />
+  <img src="https://streak-stats.demolab.com?user=DuongNAD&theme=radical&hide_border=true&background=0D1117" alt="GitHub Streak" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&cache_seconds=3600" alt="Top Languages" width="48%" />
 </div>
 
 <br>
@@ -63,7 +63,7 @@
 ### 🤝 Let's Connect!
 
 <div align="center">
-  <a href="duonganhdn2000@gmail.com">
+  <a href="mailto:duonganhdn2000@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
   <a href="https://www.linkedin.com/in/dương-nguyễn-anh-021b6a39b/">
