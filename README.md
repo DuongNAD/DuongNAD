@@ -31,6 +31,38 @@
 
 ---
 
+<!-- ═══════════════════════════════ FEATURED PROJECT ═══════════════════════════════ -->
+
+## ⭐ Featured Project
+
+<div align="center">
+  <a href="https://github.com/DuongNAD/LIVA">
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=DuongNAD&repo=LIVA&theme=radical&hide_border=true&bg_color=0D1117&icon_color=00FF99" alt="LIVA Repository Card" />
+  </a>
+</div>
+
+<table align="center">
+  <tr>
+    <td>
+
+**🧬 LIVA — Self-Evolving Personal AI Assistant**
+
+A personal AI assistant designed to **learn, adapt, and evolve** over time. LIVA explores agentic architectures and self-improvement loops to grow beyond a static assistant into an autonomous companion.
+
+- 🤖 **Focus:** Autonomous agents & self-evolution
+- 🧠 **Core:** LLM orchestration + memory-driven reasoning
+- 🎯 **Vision:** An AI that improves itself with every interaction
+
+<a href="https://github.com/DuongNAD/LIVA">
+  <img src="https://img.shields.io/badge/View_Repository-00FF99?style=for-the-badge&logo=github&logoColor=0D1117" alt="View Repository" />
+</a>
+
+  </td>
+  </tr>
+</table>
+
+---
+
 <!-- ═══════════════════════════════ TECH STACK ═══════════════════════════════ -->
 
 ## 💻 Tech Stack & Tools
