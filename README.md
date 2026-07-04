@@ -35,55 +35,11 @@
 
 ## ⭐ Featured Projects
 
-<div align="center">
-  <a href="https://github.com/DuongNAD/LIVA">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=DuongNAD&repo=LIVA&theme=radical&hide_border=true&bg_color=0D1117&icon_color=00FF99" alt="LIVA Repository Card" />
-  </a>
-  <a href="https://github.com/DuongNAD/Anima-Engine">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=DuongNAD&repo=Anima-Engine&theme=radical&hide_border=true&bg_color=0D1117&icon_color=00FF99" alt="Anima-Engine Repository Card" />
-  </a>
-  <a href="https://github.com/DuongNAD/datathon-2026-submission">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=DuongNAD&repo=datathon-2026-submission&theme=radical&hide_border=true&bg_color=0D1117&icon_color=00FF99" alt="Datathon 2026 Repository Card" />
-  </a>
-</div>
-
-<table align="center">
-  <tr>
-    <td width="33%" valign="top">
-
-**🧬 LIVA**
-
-*Self-Evolving Personal AI Assistant*
-
-A personal AI designed to **learn, adapt, and evolve** — exploring agentic architectures and self-improvement loops to grow beyond a static assistant.
-
-`AI Agents` · `LLM` · `Self-Evolution`
-
-    </td>
-    <td width="33%" valign="top">
-
-**🌱 Anima-Engine**
-
-*Artificial Life & Evolution Simulator*
-
-A **real-time, GPU-accelerated** simulator for artificial life — modeling emergent behavior and evolution at scale in the browser.
-
-`TypeScript` · `WebGPU` · `Simulation`
-
-    </td>
-    <td width="33%" valign="top">
-
-**📈 Datathon 2026**
-
-*The Gridbreakers — Revenue Forecasting*
-
-**LightGBM** revenue forecasting (**R² = 0.80**) with full **EDA** and **SHAP** explainability — Round 1 competition submission.
-
-`Python` · `LightGBM` · `SHAP`
-
-    </td>
-  </tr>
-</table>
+| 🧬 [**LIVA**](https://github.com/DuongNAD/LIVA) | 🌱 [**Anima-Engine**](https://github.com/DuongNAD/Anima-Engine) | 📈 [**Datathon 2026**](https://github.com/DuongNAD/datathon-2026-submission) |
+| :--- | :--- | :--- |
+| *Self-Evolving Personal AI Assistant* | *Artificial Life & Evolution Simulator* | *The Gridbreakers — Revenue Forecasting* |
+| A personal AI designed to **learn, adapt, and evolve** — exploring agentic architectures and self-improvement loops to grow beyond a static assistant. | A **real-time, GPU-accelerated** simulator for artificial life, modeling emergent behavior and evolution at scale in the browser. | **LightGBM** revenue forecasting (**R² = 0.80**) with full **EDA** and **SHAP** explainability from the Round 1 submission. |
+| `AI Agents` `LLM` `Self-Evolution` | `TypeScript` `WebGPU` `Simulation` | `Python` `LightGBM` `SHAP` |
 
 ---
 
@@ -118,9 +74,16 @@ A **real-time, GPU-accelerated** simulator for artificial life — modeling emer
 
 ## 📊 Performance Metrics
 
+<!--
+  NOTE: Stats/Top-langs use a community mirror because the official
+  github-readme-stats.vercel.app is frequently rate-limited (HTTP 503).
+  For a permanent, rate-limit-free fix, self-host your own instance and
+  find/replace the domain below with YOUR-INSTANCE.vercel.app.
+-->
+
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=DuongNAD&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&count_private=true&include_all_commits=true" alt="GitHub Stats" height="180" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&langs_count=8" alt="Top Languages" height="180" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=DuongNAD&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&count_private=true&include_all_commits=true" alt="GitHub Stats" height="180" />
+  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=radical&hide_border=true&bg_color=0D1117&langs_count=8" alt="Top Languages" height="180" />
 </div>
 
 <div align="center">
@@ -140,7 +103,7 @@ A **real-time, GPU-accelerated** simulator for artificial life — modeling emer
 ## 🏆 GitHub Trophies
 
 <div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=DuongNAD&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" alt="Trophies" width="100%" />
+  <img src="https://github-profile-trophy-eight.vercel.app/?username=DuongNAD&theme=radical&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" alt="Trophies" width="100%" />
 </div>
 
 ---
