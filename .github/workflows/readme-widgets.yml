@@ -1,0 +1,52 @@
+name: Refresh README widgets
+
+on:
+  schedule:
+    - cron: "30 18 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: readme-widgets
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and sanitize widgets
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+
+          fetch() {
+            local url="$1" dest="$2"
+            local tmp
+            tmp="$(mktemp)"
+            if curl -fsSL --retry 4 --retry-delay 8 --max-time 45 -o "$tmp" "$url" \
+              && python3 scripts/sanitize-widget.py "$tmp" "$dest"; then
+              echo "updated $dest"
+            else
+              echo "skip $dest (kept previous snapshot)"
+            fi
+            rm -f "$tmp"
+          }
+
+          fetch "https://github-readme-stats-eight-theta.vercel.app/api?username=DuongNAD&show_icons=true&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB&ring_color=2563EB&count_private=true&include_all_commits=true&disable_animations=true" assets/stats.svg
+          fetch "https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&text_color=E5E7EB&langs_count=8&disable_animations=true" assets/top-langs.svg
+          fetch "https://streak-stats.demolab.com?user=DuongNAD&theme=transparent&hide_border=true&background=0B1220&ring=2563EB&fire=60A5FA&currStreakLabel=60A5FA&sideLabels=E5E7EB&dates=94A3B8&sideNums=E5E7EB&currStreakNum=60A5FA" assets/streak.svg
+          fetch "https://github-profile-trophy-eight.vercel.app/?username=DuongNAD&theme=algolia&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" assets/trophies.svg
+          fetch "https://github-readme-activity-graph.vercel.app/graph?username=DuongNAD&theme=react-dark&hide_border=true&bg_color=0B1220&color=60A5FA&line=2563EB&point=ffffff" assets/activity-graph.svg
+
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add assets/stats.svg assets/top-langs.svg assets/streak.svg assets/trophies.svg assets/activity-graph.svg
+          git commit -m "Refresh README widgets" || exit 0
+          git pull --rebase origin main
+          git push

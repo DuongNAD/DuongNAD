@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="220" viewBox="0 0 1100 220" role="img" aria-label="Nguyen Anh Duong">
+  <defs>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#0B1220"/>
+    </linearGradient>
+  </defs>
+  <rect width="1100" height="220" fill="#0B1220"/>
+  <path fill="url(#band)" d="M0 0h1100v155c-100 30-200-10-300 5s-200 35-300 10-200-25-300-5S100 190 0 170V0z"/>
+  <path fill="url(#band)" opacity="0.4" d="M0 0h1100v170c-110 26-210-8-320 10s-210 36-320 12-210-20-320 0S90 205 0 186V0z"/>
+  <text x="550" y="88" text-anchor="middle" fill="#FFFFFF" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700">NGUYEN ANH DUONG</text>
+  <text x="550" y="126" text-anchor="middle" fill="#E5E7EB" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="500">AI/ML &amp; Software Engineer · Hanoi, Vietnam</text>
+</svg>

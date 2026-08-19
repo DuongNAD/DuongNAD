@@ -1,7 +1,7 @@
 <!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:2563EB,100:0B1220&height=200&section=header&text=NGUYEN%20ANH%20DUONG&fontSize=38&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=AI%2FML%20%26%20Software%20Engineer%20%E2%80%A2%20Hanoi%2C%20Vietnam&descAlignY=56&descSize=16" width="100%" alt="Header" />
+  <img src="./assets/header.svg" width="100%" alt="Nguyen Anh Duong — AI/ML and Software Engineer" />
 </div>
 
 <div align="center">
@@ -15,7 +15,7 @@
   <br><br>
 
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1000&color=60A5FA&center=true&vCenter=true&width=720&lines=AI%2FML+%26+Software+Engineer;Team+Lead+of+MindSync+%40+VAIC+2026;Building+LIVA+%E2%80%94+Agentic+AI+Assistant;Rust+%C2%B7+TypeScript+%C2%B7+Python;Local+LLMs+%C2%B7+Simulation+%C2%B7+Robotics" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=60A5FA&center=true&vCenter=true&width=850&height=40&lines=AI%2FML+%26+Software+Engineer;Team+Lead+of+MindSync+%40+VAIC+2026;Building+LIVA+%E2%80%94+Agentic+AI+Assistant;Rust+%C2%B7+TypeScript+%C2%B7+Python;Local+LLMs+%C2%B7+Simulation+%C2%B7+Robotics" alt="Typing SVG" width="850" />
   </a>
 
   <p><i>"Turning data and machine learning into scalable, user-centered products."</i></p>
@@ -41,62 +41,44 @@ I ship end-to-end work across **agentic AI**, **local LLM inference**, **reinfor
 
 ## Featured Projects
 
+<!-- GFM treats 4-space indent after a blank line as a code block. Keep table tags flush-left. -->
 <table>
-  <tr>
-    <td width="50%" valign="top">
-
-### [LIVA](https://github.com/DuongNAD/LIVA) — Agentic AI Assistant
-
-`TypeScript` `Python` `Rust` `Tauri` `Llama.cpp`
-
-Personal cognitive assistant with a **5-tier memory system** — from working context to a persistent knowledge graph — and **SQLite-Vec** retrieval for long-running workflows.
-
-Unifies native Python/C++ inference, a Node.js gateway, and a Tauri/Rust desktop UI. **91 MCP tools** for OS control, browser RPA, web intelligence, and autonomous engineering loops.
-
-    </td>
-    <td width="50%" valign="top">
-
-### [Anima Engine](https://github.com/DuongNAD/Anima-Engine) — Artificial Life
-
-`Rust` `Bevy ECS` `Burn` `Tauri v2` `React` `Three.js`
-
-Deterministic artificial-life engine: procedural terrain, hydrology, climate and soil fields, closed energy flows, predator–prey ecology, and **MAP-Elites** evolution.
-
-Reproducibility via versioned world artifacts, seeded RNG, and zero-allocation Rust tick paths. The living world is rendered in **React**, **PixiJS**, and **Three.js**.
-
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-
-### [Darwin Lab](https://github.com/DuongNAD/Darwin-core) — Natural Selection Sandbox
-
-`TypeScript` `Next.js` `Web Workers` `MCP` `Statistics`
-
-Research-grade browser lab for natural selection: **7 trade-off genes**, **8 environmental scenarios**, seeded replay, A/B controls, and repeatable multi-run experiments.
-
-Ships **95% CIs**, Welch tests, intervention audit trails, regression / golden-master coverage, and an MCP interface for agent-driven experimentation.
-
-    </td>
-    <td width="50%" valign="top">
-
-### [AI Public Service Assistant](https://github.com/DuongNAD/VN_AI_Innovation) — VAIC 2026
-
-`Next.js 16` `Prisma` `PostgreSQL` `FPT AI` `Docker`
-
-**Team Lead · MindSync.** Owned architecture, split the 48-hour national final into workstreams, and integrated one deployable product.
-
-Grounded three-stage assistant: identify public procedures, generate legally sourced document checklists, collect dynamic form data, and block invalid submissions with deterministic rules. Vietnamese voice I/O, PDF forms, citizen–officer review, CI, Docker / Render / PostgreSQL.
-
-    </td>
-  </tr>
+<tr>
+<td width="50%" valign="top">
+<h3><a href="https://github.com/DuongNAD/LIVA">LIVA</a> — Agentic AI Assistant</h3>
+<p><code>TypeScript</code> <code>Python</code> <code>Rust</code> <code>Tauri</code> <code>Llama.cpp</code></p>
+<p>Personal cognitive assistant with a <strong>5-tier memory system</strong> — from working context to a persistent knowledge graph — and <strong>SQLite-Vec</strong> retrieval for long-running workflows.</p>
+<p>Unifies native Python/C++ inference, a Node.js gateway, and a Tauri/Rust desktop UI. <strong>91 MCP tools</strong> for OS control, browser RPA, web intelligence, and autonomous engineering loops.</p>
+</td>
+<td width="50%" valign="top">
+<h3><a href="https://github.com/DuongNAD/Anima-Engine">Anima Engine</a> — Artificial Life</h3>
+<p><code>Rust</code> <code>Bevy ECS</code> <code>Burn</code> <code>Tauri v2</code> <code>React</code> <code>Three.js</code></p>
+<p>Deterministic artificial-life engine: procedural terrain, hydrology, climate and soil fields, closed energy flows, predator–prey ecology, and <strong>MAP-Elites</strong> evolution.</p>
+<p>Reproducibility via versioned world artifacts, seeded RNG, and zero-allocation Rust tick paths. The living world is rendered in <strong>React</strong>, <strong>PixiJS</strong>, and <strong>Three.js</strong>.</p>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<h3><a href="https://github.com/DuongNAD/Darwin-core">Darwin Lab</a> — Natural Selection Sandbox</h3>
+<p><code>TypeScript</code> <code>Next.js</code> <code>Web Workers</code> <code>MCP</code> <code>Statistics</code></p>
+<p>Research-grade browser lab for natural selection: <strong>7 trade-off genes</strong>, <strong>8 environmental scenarios</strong>, seeded replay, A/B controls, and repeatable multi-run experiments.</p>
+<p>Ships <strong>95% CIs</strong>, Welch tests, intervention audit trails, regression / golden-master coverage, and an MCP interface for agent-driven experimentation.</p>
+</td>
+<td width="50%" valign="top">
+<h3><a href="https://github.com/DuongNAD/VN_AI_Innovation">AI Public Service Assistant</a> — VAIC 2026</h3>
+<p><code>Next.js 16</code> <code>Prisma</code> <code>PostgreSQL</code> <code>FPT AI</code> <code>Docker</code></p>
+<p><strong>Team Lead · MindSync.</strong> Owned architecture, split the 48-hour national final into workstreams, and integrated one deployable product.</p>
+<p>Grounded three-stage assistant: identify public procedures, generate legally sourced document checklists, collect dynamic form data, and block invalid submissions with deterministic rules. Vietnamese voice I/O, PDF forms, citizen–officer review, CI, Docker / Render / PostgreSQL.</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top">
+<h3>Vision-Guided Robotic Arm — DENSO Factory Hacks 2025</h3>
+<p><code>Python</code> <code>ROS</code> <code>Computer Vision</code> <code>Robotics</code></p>
+<p>6-DOF robotic arm with a perception-to-motion pipeline for autonomous package detection, pick-and-place, and factory sorting. Designed around industrial ROI (<strong>~30% productivity</strong>). <strong>Top 4</strong> and <strong>Promising Award</strong> from DENSO &amp; FPT — <a href="https://drive.google.com/file/d/1K1Sfw4AnxBfi7deHBIaIqpH9cJ-G3ti9/view">certificate</a>.</p>
+</td>
+</tr>
 </table>
-
-### Vision-Guided Robotic Arm — DENSO Factory Hacks 2025
-
-`Python` `ROS` `Computer Vision` `Robotics`
-
-6-DOF robotic arm with a perception-to-motion pipeline for autonomous package detection, pick-and-place, and factory sorting. Designed around industrial ROI (**~30% productivity**). **Top 4** and **Promising Award** from DENSO & FPT — [certificate](https://drive.google.com/file/d/1K1Sfw4AnxBfi7deHBIaIqpH9cJ-G3ti9/view).
 
 ---
 
@@ -119,24 +101,24 @@ Grounded three-stage assistant: identify public procedures, generate legally sou
 ## Tech Stack
 
 <table>
-  <tr>
-    <td align="center" width="22%"><b>Languages</b></td>
-    <td>
-      <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=python,ts,js,rust,cpp,c,html,css" alt="Languages" /></a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>Frameworks</b></td>
-    <td>
-      <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=nodejs,react,nextjs,threejs,pytorch,opencv,prisma,vite" alt="Frameworks" /></a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>Data & Infra</b></td>
-    <td>
-      <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=postgres,sqlite,docker,git,github,linux,vscode,cloudflare" alt="Data and Infra" /></a>
-    </td>
-  </tr>
+<tr>
+<td align="center" width="22%"><b>Languages</b></td>
+<td>
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=python,ts,js,rust,cpp,c,html,css" alt="Languages" /></a>
+</td>
+</tr>
+<tr>
+<td align="center"><b>Frameworks</b></td>
+<td>
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=nodejs,react,nextjs,threejs,pytorch,opencv,prisma,vite" alt="Frameworks" /></a>
+</td>
+</tr>
+<tr>
+<td align="center"><b>Data &amp; Infra</b></td>
+<td>
+<a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=postgres,sqlite,docker,git,github,linux,vscode,cloudflare" alt="Data and Infra" /></a>
+</td>
+</tr>
 </table>
 
 <br>
@@ -159,24 +141,19 @@ Grounded three-stage assistant: identify public procedures, generate legally sou
 
 ## GitHub
 
-<!--
-  Stats/Top-langs use a community mirror because the official
-  github-readme-stats.vercel.app is frequently rate-limited (HTTP 503).
--->
-
 <div align="center">
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=DuongNAD&show_icons=true&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB&ring_color=2563EB&count_private=true&include_all_commits=true" alt="GitHub Stats" height="180" />
-  <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&text_color=E5E7EB&langs_count=8" alt="Top Languages" height="180" />
+  <img src="./assets/stats.svg" alt="GitHub Stats" height="180" />
+  <img src="./assets/top-langs.svg" alt="Top Languages" height="180" />
 </div>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=DuongNAD&theme=transparent&hide_border=true&background=0B1220&ring=2563EB&fire=60A5FA&currStreakLabel=60A5FA&sideLabels=E5E7EB&dates=94A3B8&sideNums=E5E7EB&currStreakNum=60A5FA" alt="GitHub Streak" height="180" />
+  <img src="./assets/streak.svg" alt="GitHub Streak" height="180" />
 </div>
 
 <br>
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=DuongNAD&theme=react-dark&hide_border=true&bg_color=0B1220&color=60A5FA&line=2563EB&point=ffffff" alt="Activity Graph" width="100%" />
+  <img src="./assets/activity-graph.svg" alt="Activity Graph" width="100%" />
 </div>
 
 ---
@@ -186,7 +163,7 @@ Grounded three-stage assistant: identify public procedures, generate legally sou
 ## Trophies
 
 <div align="center">
-  <img src="https://github-profile-trophy-eight.vercel.app/?username=DuongNAD&theme=algolia&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" alt="Trophies" width="100%" />
+  <img src="./assets/trophies.svg" alt="Trophies" width="100%" />
 </div>
 
 ---
@@ -217,5 +194,5 @@ Grounded three-stage assistant: identify public procedures, generate legally sou
 </div>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1220,50:2563EB,100:0B1220&height=120&section=footer" width="100%" alt="Footer" />
+  <img src="./assets/footer.svg" width="100%" alt="Footer" />
 </div>

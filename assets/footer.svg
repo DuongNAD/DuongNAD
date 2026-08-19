@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="120" viewBox="0 0 1100 120" role="img" aria-label="Footer">
+  <defs>
+    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#0B1220"/>
+    </linearGradient>
+  </defs>
+  <rect width="1100" height="120" fill="#0B1220"/>
+  <path fill="url(#band)" d="M0 120h1100V45c-100-30-200 10-300-5s-200-35-300-10-200 25-300 5S100 10 0 30v90z"/>
+  <path fill="url(#band)" opacity="0.4" d="M0 120h1100V30c-110-26-210 8-320-10s-210-36-320-12-210 20-320 0S90 6 0 18v102z"/>
+</svg>
