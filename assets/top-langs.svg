@@ -64,17 +64,7 @@
             data-testid="lang-progress"
             x="0" 
             y="0"
-            width="66.81" 
-            height="8"
-            fill="#dea584"
-          />
-        
-          <rect
-            mask="url(#rect-mask)" 
-            data-testid="lang-progress"
-            x="66.81" 
-            y="0"
-            width="66.56" 
+            width="66.86" 
             height="8"
             fill="#3572A5"
           />
@@ -82,9 +72,19 @@
           <rect
             mask="url(#rect-mask)" 
             data-testid="lang-progress"
-            x="133.37" 
+            x="66.86" 
             y="0"
-            width="62.51" 
+            width="66.60" 
+            height="8"
+            fill="#dea584"
+          />
+        
+          <rect
+            mask="url(#rect-mask)" 
+            data-testid="lang-progress"
+            x="133.45999999999998" 
+            y="0"
+            width="62.32" 
             height="8"
             fill="#3178c6"
           />
@@ -92,9 +92,9 @@
           <rect
             mask="url(#rect-mask)" 
             data-testid="lang-progress"
-            x="195.88" 
+            x="195.77999999999997" 
             y="0"
-            width="45.57" 
+            width="45.43" 
             height="8"
             fill="#e34c26"
           />
@@ -102,9 +102,9 @@
           <rect
             mask="url(#rect-mask)" 
             data-testid="lang-progress"
-            x="241.45" 
+            x="241.20999999999998" 
             y="0"
-            width="27.50" 
+            width="27.82" 
             height="8"
             fill="#f1e05a"
           />
@@ -112,9 +112,9 @@
           <rect
             mask="url(#rect-mask)" 
             data-testid="lang-progress"
-            x="268.95" 
+            x="269.03" 
             y="0"
-            width="19.97" 
+            width="19.91" 
             height="8"
             fill="#663399"
           />
@@ -122,9 +122,9 @@
           <rect
             mask="url(#rect-mask)" 
             data-testid="lang-progress"
-            x="288.91999999999996" 
+            x="288.94" 
             y="0"
-            width="15.76" 
+            width="15.75" 
             height="8"
             fill="#41b883"
           />
@@ -132,53 +132,53 @@
           <rect
             mask="url(#rect-mask)" 
             data-testid="lang-progress"
-            x="294.67999999999995" 
+            x="294.69" 
             y="0"
-            width="15.32" 
+            width="15.3" 
             height="8"
             fill="#555555"
           />
         
       
     <g transform="translate(0, 25)">
-      <circle cx="5" cy="6" r="5" fill="#dea584" />
+      <circle cx="5" cy="6" r="5" fill="#3572A5" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Rust (22.27%)
+        Python (22.29%)
       </text>
     </g>
   
     <g transform="translate(150, 25)">
-      <circle cx="5" cy="6" r="5" fill="#3572A5" />
+      <circle cx="5" cy="6" r="5" fill="#dea584" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        Python (22.19%)
+        Rust (22.20%)
       </text>
     </g>
   
     <g transform="translate(0, 50)">
       <circle cx="5" cy="6" r="5" fill="#3178c6" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        TypeScript (20.84%)
+        TypeScript (20.77%)
       </text>
     </g>
   
     <g transform="translate(150, 50)">
       <circle cx="5" cy="6" r="5" fill="#e34c26" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        HTML (15.19%)
+        HTML (15.14%)
       </text>
     </g>
   
     <g transform="translate(0, 75)">
       <circle cx="5" cy="6" r="5" fill="#f1e05a" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        JavaScript (9.17%)
+        JavaScript (9.27%)
       </text>
     </g>
   
     <g transform="translate(150, 75)">
       <circle cx="5" cy="6" r="5" fill="#663399" />
       <text data-testid="lang-name" x="15" y="10" class='lang-name'>
-        CSS (6.66%)
+        CSS (6.64%)
       </text>
     </g>
   
