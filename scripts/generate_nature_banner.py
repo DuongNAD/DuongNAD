@@ -1,4 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%" role="img" aria-label="Nguyen Anh Duong - Nature &amp; Landscape Banner">
+#!/usr/bin/env python3
+"""Generate a breathtaking, serene nature & landscape SVG header banner for GitHub profile."""
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+def generate_svg() -> str:
+    # 1200 x 260 widescreen banner
+    width = 1200
+    height = 260
+    
+    # We will build layers of:
+    # 1. Gradient Sky (Twilight Midnight -> Forest Emerald Horizon)
+    # 2. Stars & Fireflies
+    # 3. Soft Glowing Moon / Celestial Crescent
+    # 4. Birds flying in twilight
+    # 5. Distant Mountain Range
+    # 6. Midground Mountain Range with pine forest crest
+    # 7. Foreground Misty Ridge with majestic Stag/Deer silhouette
+    # 8. Foreground Pine conifers & botanical silhouettes
+    # 9. Elegant, readable typography
+    
+    svg = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="100%" height="100%" role="img" aria-label="Nguyen Anh Duong - Nature &amp; Landscape Banner">
   <defs>
     <!-- Sky Gradient -->
     <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -47,44 +68,44 @@
     </linearGradient>
 
     <style>
-      .title-text {
+      .title-text {{
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
         font-weight: 700;
         fill: #f0fdf4;
         letter-spacing: 2px;
-      }
-      .subtitle-text {
+      }}
+      .subtitle-text {{
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
         font-weight: 500;
         fill: #a7f3d0;
         letter-spacing: 0.8px;
-      }
-      .meta-text {
+      }}
+      .meta-text {{
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
         font-weight: 400;
         fill: #6ee7b7;
         letter-spacing: 0.5px;
         opacity: 0.85;
-      }
-      @keyframes floatParticle {
-        0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
-        50% { transform: translateY(-8px) scale(1.15); opacity: 1; }
-      }
-      .firefly-anim {
+      }}
+      @keyframes floatParticle {{
+        0%, 100% {{ transform: translateY(0px) scale(1); opacity: 0.7; }}
+        50% {{ transform: translateY(-8px) scale(1.15); opacity: 1; }}
+      }}
+      .firefly-anim {{
         animation: floatParticle 5s ease-in-out infinite;
-      }
-      .firefly-anim-2 {
+      }}
+      .firefly-anim-2 {{
         animation: floatParticle 7s ease-in-out infinite reverse;
-      }
+      }}
     </style>
   </defs>
 
   <!-- Sky Canvas with rounded corners -->
-  <rect width="1200" height="260" rx="12" fill="url(#skyGrad)" />
-  <rect width="1200" height="260" rx="12" fill="none" stroke="#1b4d3e" stroke-width="1" stroke-opacity="0.6" />
+  <rect width="{width}" height="{height}" rx="12" fill="url(#skyGrad)" />
+  <rect width="{width}" height="{height}" rx="12" fill="none" stroke="#1b4d3e" stroke-width="1" stroke-opacity="0.6" />
   
   <!-- Subtle Emerald Top Border Line -->
-  <rect x="0" y="0" width="1200" height="3" rx="1.5" fill="url(#topBorder)" />
+  <rect x="0" y="0" width="{width}" height="3" rx="1.5" fill="url(#topBorder)" />
 
   <!-- Stars in upper night sky -->
   <g fill="#ecfdf5" opacity="0.65">
@@ -225,4 +246,24 @@
     <!-- Academic & Location -->
     <text x="600" y="184" class="meta-text" font-size="13">FPT University · Hanoi, Vietnam · Evolving Artificial Life &amp; Autonomous Agents</text>
   </g>
-</svg>
+</svg>"""
+    return svg
+
+def main():
+    target = Path("assets/header.svg")
+    content = generate_svg()
+    
+    # Verify XML well-formedness
+    try:
+        ET.fromstring(content)
+        print("XML validation passed successfully!")
+    except ET.ParseError as e:
+        print(f"XML Parse Error: {e}")
+        return 1
+        
+    target.write_text(content, encoding="utf-8", newline="\n")
+    print(f"Successfully generated {target} ({len(content)} bytes)")
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())

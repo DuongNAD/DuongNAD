@@ -1,52 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 140" width="100%" height="100%" role="img" aria-label="Footer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" width="100%" height="90" role="img" aria-label="Footer">
   <defs>
     <linearGradient id="footer-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#040711" />
-      <stop offset="50%" stop-color="#080F24" />
-      <stop offset="100%" stop-color="#040711" />
+      <stop offset="0%" stop-color="#05120f" />
+      <stop offset="50%" stop-color="#0b241e" />
+      <stop offset="100%" stop-color="#05120f" />
     </linearGradient>
 
-    <linearGradient id="footer-line" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#040711" />
-      <stop offset="20%" stop-color="#38BDF8" />
-      <stop offset="50%" stop-color="#818CF8" />
-      <stop offset="80%" stop-color="#38BDF8" />
-      <stop offset="100%" stop-color="#040711" />
+    <linearGradient id="leaf-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#05120f" />
+      <stop offset="20%" stop-color="#10b981" stop-opacity="0.4" />
+      <stop offset="50%" stop-color="#6ee7b7" stop-opacity="0.8" />
+      <stop offset="80%" stop-color="#10b981" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#05120f" />
     </linearGradient>
-
-    <filter id="f-glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
 
     <style>
-      .mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
-      .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif; }
+      .quote-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+        font-style: italic;
+        fill: #d1fae5;
+        letter-spacing: 0.5px;
+      }
+      .author-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+        fill: #6ee7b7;
+        letter-spacing: 1px;
+      }
     </style>
   </defs>
 
-  <!-- Background -->
-  <rect width="1200" height="140" fill="url(#footer-bg)" rx="10" />
+  <!-- Clean rounded background -->
+  <rect width="1200" height="90" rx="10" fill="url(#footer-bg)" stroke="#134236" stroke-width="1" stroke-opacity="0.5" />
+  
+  <!-- Subtle organic divider line -->
+  <line x1="80" y1="12" x2="1120" y2="12" stroke="url(#leaf-accent)" stroke-width="1.2" />
 
-  <!-- Top Accent Laser Line -->
-  <line x1="50" y1="20" x2="1150" y2="20" stroke="url(#footer-line)" stroke-width="1.5" filter="url(#f-glow)" />
-
-  <!-- Center Diamond Indicator -->
-  <polygon points="600,16 605,20 600,24 595,20" fill="#38BDF8" filter="url(#f-glow)" />
-
-  <!-- Text -->
-  <g transform="translate(600, 60)">
-    <text x="0" y="0" text-anchor="middle" class="sans" font-size="14.5" font-weight="600" fill="#E2E8F0" letter-spacing="1">
-      "Architecting autonomous cognitive intelligence &amp; scalable agentic infrastructure."
-    </text>
+  <!-- Nature Leaf Emblem in Center -->
+  <g transform="translate(600, 12) scale(0.7)">
+    <path d="M 0 -8 C 6 -4, 8 2, 0 8 C -8 2, -6 -4, 0 -8 Z" fill="#34d399" opacity="0.9" />
+    <line x1="0" y1="-5" x2="0" y2="6" stroke="#064e3b" stroke-width="1" />
   </g>
 
-  <g transform="translate(600, 95)">
-    <text x="0" y="0" text-anchor="middle" class="mono" font-size="11.5" font-weight="500" fill="#64748B" letter-spacing="1.5">
-      ENGINEERED BY <tspan fill="#38BDF8" font-weight="700">NGUYEN ANH DUONG (DuongNAD)</tspan> · HANOI, VIETNAM · 2026
+  <!-- Quote & Signature -->
+  <g text-anchor="middle">
+    <text x="600" y="45" class="quote-text" font-size="14">
+      "In nature as in software: complex, living intelligence emerges from simple, elegant rules."
+    </text>
+    <text x="600" y="70" class="author-text" font-size="11.5" font-weight="500">
+      CRAFTED BY <tspan fill="#a7f3d0" font-weight="700">NGUYEN ANH DUONG (DuongNAD)</tspan> · FPT UNIVERSITY · HANOI, VIETNAM
     </text>
   </g>
 </svg>
