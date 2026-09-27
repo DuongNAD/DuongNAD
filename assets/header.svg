@@ -1,14 +1,210 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="220" viewBox="0 0 1100 220" role="img" aria-label="Nguyen Anh Duong">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="100%" height="100%" role="img" aria-label="Nguyen Anh Duong - AI Engineer Header">
   <defs>
-    <linearGradient id="band" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0B1220"/>
-      <stop offset="50%" stop-color="#2563EB"/>
-      <stop offset="100%" stop-color="#0B1220"/>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-canvas" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040711" />
+      <stop offset="40%" stop-color="#080F24" />
+      <stop offset="70%" stop-color="#0B1536" />
+      <stop offset="100%" stop-color="#03060F" />
     </linearGradient>
+
+    <radialGradient id="glow-cyan" cx="20%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#00F2FE" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#00F2FE" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glow-blue" cx="80%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glow-purple" cx="50%" cy="85%" r="45%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#4F46E5" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Text Gradients -->
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#F0F6FF" />
+      <stop offset="75%" stop-color="#93C5FD" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F2FE" />
+      <stop offset="50%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#6366F1" />
+    </linearGradient>
+
+    <linearGradient id="pill-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Circuit Pattern -->
+    <pattern id="cyber-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1E293B" stroke-width="0.75" stroke-opacity="0.45" />
+      <circle cx="40" cy="40" r="1" fill="#38BDF8" fill-opacity="0.3" />
+    </pattern>
+
+    <!-- Filter for Glow -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="subtle-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      .font-mono {
+        font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+      }
+      .font-sans {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.02); }
+      }
+      @keyframes laserScan {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+      @keyframes blinker {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      .pulse-item {
+        animation: pulseGlow 4s ease-in-out infinite;
+      }
+      .blink-dot {
+        animation: blinker 2s ease-in-out infinite;
+      }
+    </style>
   </defs>
-  <rect width="1100" height="220" fill="#0B1220"/>
-  <path fill="url(#band)" d="M0 0h1100v155c-100 30-200-10-300 5s-200 35-300 10-200-25-300-5S100 190 0 170V0z"/>
-  <path fill="url(#band)" opacity="0.4" d="M0 0h1100v170c-110 26-210-8-320 10s-210 36-320 12-210-20-320 0S90 205 0 186V0z"/>
-  <text x="550" y="88" text-anchor="middle" fill="#FFFFFF" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="42" font-weight="700">NGUYEN ANH DUONG</text>
-  <text x="550" y="126" text-anchor="middle" fill="#E5E7EB" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="500">AI Engineer · Agentic Systems &amp; GenAI Automation · Hanoi, Vietnam</text>
+
+  <!-- Deep Canvas -->
+  <rect width="1200" height="320" fill="url(#bg-canvas)" rx="14" />
+  
+  <!-- Ambient Radiance -->
+  <rect width="1200" height="320" fill="url(#glow-cyan)" rx="14" />
+  <rect width="1200" height="320" fill="url(#glow-blue)" rx="14" />
+  <rect width="1200" height="320" fill="url(#glow-purple)" rx="14" />
+
+  <!-- Cyber Grid Overlay -->
+  <rect width="1200" height="320" fill="url(#cyber-grid)" rx="14" />
+
+  <!-- Tech HUD Outer Frame -->
+  <rect x="15" y="15" width="1170" height="290" fill="none" stroke="#1E293B" stroke-width="1.2" rx="10" stroke-opacity="0.8" />
+  
+  <!-- HUD Corner Accents -->
+  <path d="M 15 45 L 15 15 L 45 15" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+  <path d="M 1185 45 L 1185 15 L 1155 15" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+  <path d="M 15 275 L 15 305 L 45 305" fill="none" stroke="#6366F1" stroke-width="3" stroke-linecap="round" />
+  <path d="M 1185 275 L 1185 305 L 1155 305" fill="none" stroke="#6366F1" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Waveform / Vector Flow (Cyber Waves) -->
+  <g opacity="0.45">
+    <path d="M 15 230 C 250 180, 450 280, 650 210 C 850 140, 1000 250, 1185 190" fill="none" stroke="url(#accent-cyan)" stroke-width="2" stroke-dasharray="6,4" />
+    <path d="M 15 245 C 220 200, 420 295, 620 235 C 820 175, 1020 265, 1185 215" fill="none" stroke="#3B82F6" stroke-width="1" stroke-opacity="0.6" />
+  </g>
+
+  <!-- Top Status Bar -->
+  <g transform="translate(40, 42)">
+    <!-- Terminal ID -->
+    <text x="0" y="0" class="font-mono" font-size="12" font-weight="600" fill="#64748B" letter-spacing="1.5">
+      &gt; SYSTEM // <tspan fill="#38BDF8">DUONGNAD.AI</tspan> // NODE: COGNITIVE_v2.6
+    </text>
+
+    <!-- Location & Live Status -->
+    <g transform="translate(860, 0)">
+      <circle cx="-12" cy="-4" r="4" fill="#10B981" class="blink-dot" filter="url(#subtle-glow)" />
+      <text x="0" y="0" class="font-mono" font-size="12" font-weight="600" fill="#10B981" letter-spacing="1">
+        LIVE REASONING · HANOI (VN)
+      </text>
+    </g>
+  </g>
+
+  <!-- Central Hero Card Content -->
+  <!-- Category Pill -->
+  <g transform="translate(600, 84)">
+    <rect x="-215" y="-14" width="430" height="28" rx="14" fill="#0B132B" stroke="url(#pill-border)" stroke-width="1.2" />
+    <circle cx="-195" cy="0" r="4" fill="#38BDF8" filter="url(#subtle-glow)" />
+    <text x="-182" y="4" class="font-mono" font-size="11.5" font-weight="700" fill="#93C5FD" letter-spacing="2">
+      AGENTIC SYSTEMS &amp; COGNITIVE ARCHITECTURES
+    </text>
+  </g>
+
+  <!-- Main Identity Name -->
+  <g transform="translate(600, 150)">
+    <text x="0" y="0" text-anchor="middle" class="font-sans" font-size="48" font-weight="900" fill="url(#title-grad)" letter-spacing="4" filter="url(#neon-glow)">
+      NGUYEN ANH DUONG
+    </text>
+  </g>
+
+  <!-- Subtitle / High-Impact Role Definition -->
+  <g transform="translate(600, 192)">
+    <text x="0" y="0" text-anchor="middle" class="font-mono" font-size="15.5" font-weight="600" fill="#94A3B8" letter-spacing="2.5">
+      AI ENGINEER · MULTI-AGENT SYSTEMS · LOCAL LLMs · RUST &amp; BEVY ECS
+    </text>
+  </g>
+
+  <!-- Laser Divider Line -->
+  <g transform="translate(200, 222)">
+    <line x1="0" y1="0" x2="800" y2="0" stroke="url(#accent-cyan)" stroke-width="1.8" filter="url(#subtle-glow)" />
+    <polygon points="400,-4 406,0 400,4 394,0" fill="#38BDF8" filter="url(#subtle-glow)" />
+  </g>
+
+  <!-- Bottom Telemetry Chips -->
+  <g transform="translate(600, 262)">
+    <!-- Chip 1: Memory & Tools -->
+    <g transform="translate(-460, 0)">
+      <rect x="0" y="-13" width="168" height="26" rx="6" fill="#0A1128" stroke="#1E293B" stroke-width="1" />
+      <text x="84" y="4" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#60A5FA">
+        🧠 5-Tier Memory · 91 MCP
+      </text>
+    </g>
+
+    <!-- Chip 2: HackerRank Top 16% -->
+    <g transform="translate(-275, 0)">
+      <rect x="0" y="-13" width="180" height="26" rx="6" fill="#0A1128" stroke="#065F46" stroke-width="1" />
+      <text x="90" y="4" text-anchor="middle" class="font-mono" font-size="11" font-weight="700" fill="#34D399">
+        🏆 Top 16% HackerRank
+      </text>
+    </g>
+
+    <!-- Chip 3: VAIC 2026 MindSync -->
+    <g transform="translate(-78, 0)">
+      <rect x="0" y="-13" width="168" height="26" rx="6" fill="#0A1128" stroke="#1E3A8A" stroke-width="1" />
+      <text x="84" y="4" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#93C5FD">
+        🛡️ MindSync · VAIC '26
+      </text>
+    </g>
+
+    <!-- Chip 4: DENSO Factory Hacks -->
+    <g transform="translate(107, 0)">
+      <rect x="0" y="-13" width="175" height="26" rx="6" fill="#0A1128" stroke="#312E81" stroke-width="1" />
+      <text x="87" y="4" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#A5B4FC">
+        🦾 Top 4 DENSO Hacks
+      </text>
+    </g>
+
+    <!-- Chip 5: Education -->
+    <g transform="translate(299, 0)">
+      <rect x="0" y="-13" width="160" height="26" rx="6" fill="#0A1128" stroke="#831843" stroke-width="1" />
+      <text x="80" y="4" text-anchor="middle" class="font-mono" font-size="11" font-weight="600" fill="#F472B6">
+        🎓 FPTU × APTECH
+      </text>
+    </g>
+  </g>
 </svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 180" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg { fill: #0B1220; rx: 8px; }
+      .cell { width: 11px; height: 11px; rx: 2px; }
+      .c0 { fill: #161F30; }
+      .c1 { fill: #1E3A8A; }
+      .c2 { fill: #2563EB; }
+      .c3 { fill: #38BDF8; }
+      .c4 { fill: #60A5FA; }
+      @keyframes snakeMove {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(120px, 26px); }
+        50% { transform: translate(340px, -13px); }
+        75% { transform: translate(560px, 39px); }
+        100% { transform: translate(750px, 0); }
+      }
+      .snake-body {
+        animation: snakeMove 12s linear infinite alternate;
+      }
+    </style>
+  </defs>
+
+  <rect width="880" height="180" class="bg" />
+
+  <!-- Grid Header Text -->
+  <g transform="translate(30, 26)">
+    <text x="0" y="0" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600" fill="#94A3B8">
+      DuongNAD / Contribution Matrix (Live Activity Stream)
+    </text>
+  </g>
+
+  <!-- Contribution Grid Sample Pattern (7 rows x 52 cols) -->
+  <g transform="translate(30, 42)">
+    <!-- Generating representative matrix -->
+    <!-- Col 0-9 -->
+    <rect x="0" y="0" class="cell c1" /><rect x="0" y="14" class="cell c0" /><rect x="0" y="28" class="cell c2" /><rect x="0" y="42" class="cell c1" /><rect x="0" y="56" class="cell c0" /><rect x="0" y="70" class="cell c0" /><rect x="0" y="84" class="cell c1" />
+    <rect x="14" y="0" class="cell c0" /><rect x="14" y="14" class="cell c2" /><rect x="14" y="28" class="cell c3" /><rect x="14" y="42" class="cell c2" /><rect x="14" y="56" class="cell c1" /><rect x="14" y="70" class="cell c0" /><rect x="14" y="84" class="cell c0" />
+    <rect x="28" y="0" class="cell c1" /><rect x="28" y="14" class="cell c0" /><rect x="28" y="28" class="cell c1" /><rect x="28" y="42" class="cell c3" /><rect x="28" y="56" class="cell c2" /><rect x="28" y="70" class="cell c1" /><rect x="28" y="84" class="cell c0" />
+    <rect x="42" y="0" class="cell c0" /><rect x="42" y="14" class="cell c1" /><rect x="42" y="28" class="cell c0" /><rect x="42" y="42" class="cell c2" /><rect x="42" y="56" class="cell c3" /><rect x="42" y="70" class="cell c2" /><rect x="42" y="84" class="cell c1" />
+    <rect x="56" y="0" class="cell c2" /><rect x="56" y="14" class="cell c3" /><rect x="56" y="28" class="cell c1" /><rect x="56" y="42" class="cell c0" /><rect x="56" y="56" class="cell c2" /><rect x="56" y="70" class="cell c1" /><rect x="56" y="84" class="cell c2" />
+    <rect x="70" y="0" class="cell c1" /><rect x="70" y="14" class="cell c2" /><rect x="70" y="28" class="cell c4" /><rect x="70" y="42" class="cell c3" /><rect x="70" y="56" class="cell c2" /><rect x="70" y="70" class="cell c0" /><rect x="70" y="84" class="cell c1" />
+    <rect x="84" y="0" class="cell c0" /><rect x="84" y="14" class="cell c1" /><rect x="84" y="28" class="cell c2" /><rect x="84" y="42" class="cell c1" /><rect x="84" y="56" class="cell c0" /><rect x="84" y="70" class="cell c1" /><rect x="84" y="84" class="cell c3" />
+    <rect x="98" y="0" class="cell c3" /><rect x="98" y="14" class="cell c2" /><rect x="98" y="28" class="cell c1" /><rect x="98" y="42" class="cell c2" /><rect x="98" y="56" class="cell c4" /><rect x="98" y="70" class="cell c2" /><rect x="98" y="84" class="cell c1" />
+    <rect x="112" y="0" class="cell c1" /><rect x="112" y="14" class="cell c0" /><rect x="112" y="28" class="cell c2" /><rect x="112" y="42" class="cell c3" /><rect x="112" y="56" class="cell c2" /><rect x="112" y="70" class="cell c1" /><rect x="112" y="84" class="cell c0" />
+    <rect x="126" y="0" class="cell c0" /><rect x="126" y="14" class="cell c2" /><rect x="126" y="28" class="cell c3" /><rect x="126" y="42" class="cell c1" /><rect x="126" y="56" class="cell c0" /><rect x="126" y="70" class="cell c2" /><rect x="126" y="84" class="cell c1" />
+    
+    <!-- Col 10-19 -->
+    <rect x="140" y="0" class="cell c1" /><rect x="140" y="14" class="cell c3" /><rect x="140" y="28" class="cell c2" /><rect x="140" y="42" class="cell c4" /><rect x="140" y="56" class="cell c3" /><rect x="140" y="70" class="cell c1" /><rect x="140" y="84" class="cell c0" />
+    <rect x="154" y="0" class="cell c2" /><rect x="154" y="14" class="cell c1" /><rect x="154" y="28" class="cell c0" /><rect x="154" y="42" class="cell c2" /><rect x="154" y="56" class="cell c1" /><rect x="154" y="70" class="cell c3" /><rect x="154" y="84" class="cell c2" />
+    <rect x="168" y="0" class="cell c1" /><rect x="168" y="14" class="cell c2" /><rect x="168" y="28" class="cell c3" /><rect x="168" y="42" class="cell c1" /><rect x="168" y="56" class="cell c0" /><rect x="168" y="70" class="cell c1" /><rect x="168" y="84" class="cell c2" />
+    <rect x="182" y="0" class="cell c0" /><rect x="182" y="14" class="cell c1" /><rect x="182" y="28" class="cell c2" /><rect x="182" y="42" class="cell c3" /><rect x="182" y="56" class="cell c4" /><rect x="182" y="70" class="cell c2" /><rect x="182" y="84" class="cell c1" />
+    <rect x="196" y="0" class="cell c2" /><rect x="196" y="14" class="cell c0" /><rect x="196" y="28" class="cell c1" /><rect x="196" y="42" class="cell c2" /><rect x="196" y="56" class="cell c1" /><rect x="196" y="70" class="cell c0" /><rect x="196" y="84" class="cell c3" />
+    <rect x="210" y="0" class="cell c3" /><rect x="210" y="14" class="cell c4" /><rect x="210" y="28" class="cell c2" /><rect x="210" y="42" class="cell c1" /><rect x="210" y="56" class="cell c2" /><rect x="210" y="70" class="cell c3" /><rect x="210" y="84" class="cell c1" />
+    <rect x="224" y="0" class="cell c1" /><rect x="224" y="14" class="cell c2" /><rect x="224" y="28" class="cell c0" /><rect x="224" y="42" class="cell c3" /><rect x="224" y="56" class="cell c2" /><rect x="224" y="70" class="cell c1" /><rect x="224" y="84" class="cell c0" />
+    <rect x="238" y="0" class="cell c0" /><rect x="238" y="14" class="cell c1" /><rect x="238" y="28" class="cell c3" /><rect x="238" y="42" class="cell c2" /><rect x="238" y="56" class="cell c1" /><rect x="238" y="70" class="cell c0" /><rect x="238" y="84" class="cell c2" />
+    <rect x="252" y="0" class="cell c2" /><rect x="252" y="14" class="cell c3" /><rect x="252" y="28" class="cell c4" /><rect x="252" y="42" class="cell c3" /><rect x="252" y="56" class="cell c2" /><rect x="252" y="70" class="cell c1" /><rect x="252" y="84" class="cell c1" />
+    <rect x="266" y="0" class="cell c1" /><rect x="266" y="14" class="cell c2" /><rect x="266" y="28" class="cell c1" /><rect x="266" y="42" class="cell c0" /><rect x="266" y="56" class="cell c3" /><rect x="266" y="70" class="cell c2" /><rect x="266" y="84" class="cell c0" />
+
+    <!-- Col 20-35 -->
+    <rect x="280" y="0" class="cell c3" /><rect x="280" y="14" class="cell c2" /><rect x="280" y="28" class="cell c1" /><rect x="280" y="42" class="cell c4" /><rect x="280" y="56" class="cell c3" /><rect x="280" y="70" class="cell c2" /><rect x="280" y="84" class="cell c1" />
+    <rect x="294" y="0" class="cell c2" /><rect x="294" y="14" class="cell c1" /><rect x="294" y="28" class="cell c3" /><rect x="294" y="42" class="cell c2" /><rect x="294" y="56" class="cell c1" /><rect x="294" y="70" class="cell c0" /><rect x="294" y="84" class="cell c2" />
+    <rect x="308" y="0" class="cell c1" /><rect x="308" y="14" class="cell c0" /><rect x="308" y="28" class="cell c2" /><rect x="308" y="42" class="cell c1" /><rect x="308" y="56" class="cell c2" /><rect x="308" y="70" class="cell c3" /><rect x="308" y="84" class="cell c1" />
+    <rect x="322" y="0" class="cell c4" /><rect x="322" y="14" class="cell c3" /><rect x="322" y="28" class="cell c2" /><rect x="322" y="42" class="cell c3" /><rect x="322" y="56" class="cell c4" /><rect x="322" y="70" class="cell c2" /><rect x="322" y="84" class="cell c1" />
+    <rect x="336" y="0" class="cell c2" /><rect x="336" y="14" class="cell c1" /><rect x="336" y="28" class="cell c0" /><rect x="336" y="42" class="cell c2" /><rect x="336" y="56" class="cell c1" /><rect x="336" y="70" class="cell c3" /><rect x="336" y="84" class="cell c2" />
+    <rect x="350" y="0" class="cell c1" /><rect x="350" y="14" class="cell c2" /><rect x="350" y="28" class="cell c3" /><rect x="350" y="42" class="cell c1" /><rect x="350" y="56" class="cell c0" /><rect x="350" y="70" class="cell c1" /><rect x="350" y="84" class="cell c2" />
+    <rect x="364" y="0" class="cell c3" /><rect x="364" y="14" class="cell c2" /><rect x="364" y="28" class="cell c1" /><rect x="364" y="42" class="cell c2" /><rect x="364" y="56" class="cell c3" /><rect x="364" y="70" class="cell c2" /><rect x="364" y="84" class="cell c1" />
+    <rect x="378" y="0" class="cell c2" /><rect x="378" y="14" class="cell c3" /><rect x="378" y="28" class="cell c4" /><rect x="378" y="42" class="cell c3" /><rect x="378" y="56" class="cell c2" /><rect x="378" y="70" class="cell c1" /><rect x="378" y="84" class="cell c0" />
+    <rect x="392" y="0" class="cell c1" /><rect x="392" y="14" class="cell c0" /><rect x="392" y="28" class="cell c2" /><rect x="392" y="42" class="cell c1" /><rect x="392" y="56" class="cell c0" /><rect x="392" y="70" class="cell c2" /><rect x="392" y="84" class="cell c3" />
+    <rect x="406" y="0" class="cell c0" /><rect x="406" y="14" class="cell c2" /><rect x="406" y="28" class="cell c3" /><rect x="406" y="42" class="cell c2" /><rect x="406" y="56" class="cell c1" /><rect x="406" y="70" class="cell c0" /><rect x="406" y="84" class="cell c1" />
+    <rect x="420" y="0" class="cell c3" /><rect x="420" y="14" class="cell c4" /><rect x="420" y="28" class="cell c3" /><rect x="420" y="42" class="cell c2" /><rect x="420" y="56" class="cell c4" /><rect x="420" y="70" class="cell c3" /><rect x="420" y="84" class="cell c2" />
+    <rect x="434" y="0" class="cell c2" /><rect x="434" y="14" class="cell c1" /><rect x="434" y="28" class="cell c2" /><rect x="434" y="42" class="cell c3" /><rect x="434" y="56" class="cell c2" /><rect x="434" y="70" class="cell c1" /><rect x="434" y="84" class="cell c0" />
+    <rect x="448" y="0" class="cell c1" /><rect x="448" y="14" class="cell c2" /><rect x="448" y="28" class="cell c0" /><rect x="448" y="42" class="cell c1" /><rect x="448" y="56" class="cell c2" /><rect x="448" y="70" class="cell c3" /><rect x="448" y="84" class="cell c1" />
+    <rect x="462" y="0" class="cell c3" /><rect x="462" y="14" class="cell c2" /><rect x="462" y="28" class="cell c4" /><rect x="462" y="42" class="cell c3" /><rect x="462" y="56" class="cell c1" /><rect x="462" y="70" class="cell c0" /><rect x="462" y="84" class="cell c2" />
+    <rect x="476" y="0" class="cell c2" /><rect x="476" y="14" class="cell c3" /><rect x="476" y="28" class="cell c1" /><rect x="476" y="42" class="cell c2" /><rect x="476" y="56" class="cell c3" /><rect x="476" y="70" class="cell c2" /><rect x="476" y="84" class="cell c1" />
+    <rect x="490" y="0" class="cell c4" /><rect x="490" y="14" class="cell c3" /><rect x="490" y="28" class="cell c2" /><rect x="490" y="42" class="cell c4" /><rect x="490" y="56" class="cell c3" /><rect x="490" y="70" class="cell c2" /><rect x="490" y="84" class="cell c1" />
+
+    <!-- Col 36-52 -->
+    <rect x="504" y="0" class="cell c1" /><rect x="504" y="14" class="cell c2" /><rect x="504" y="28" class="cell c3" /><rect x="504" y="42" class="cell c2" /><rect x="504" y="56" class="cell c1" /><rect x="504" y="70" class="cell c0" /><rect x="504" y="84" class="cell c2" />
+    <rect x="518" y="0" class="cell c2" /><rect x="518" y="14" class="cell c1" /><rect x="518" y="28" class="cell c0" /><rect x="518" y="42" class="cell c3" /><rect x="518" y="56" class="cell c2" /><rect x="518" y="70" class="cell c1" /><rect x="518" y="84" class="cell c3" />
+    <rect x="532" y="0" class="cell c3" /><rect x="532" y="14" class="cell c4" /><rect x="532" y="28" class="cell c2" /><rect x="532" y="42" class="cell c1" /><rect x="532" y="56" class="cell c3" /><rect x="532" y="70" class="cell c2" /><rect x="532" y="84" class="cell c1" />
+    <rect x="546" y="0" class="cell c2" /><rect x="546" y="14" class="cell c1" /><rect x="546" y="28" class="cell c3" /><rect x="546" y="42" class="cell c2" /><rect x="546" y="56" class="cell c0" /><rect x="546" y="70" class="cell c1" /><rect x="546" y="84" class="cell c2" />
+    <rect x="560" y="0" class="cell c1" /><rect x="560" y="14" class="cell c2" /><rect x="560" y="28" class="cell c4" /><rect x="560" y="42" class="cell c3" /><rect x="560" y="56" class="cell c2" /><rect x="560" y="70" class="cell c1" /><rect x="560" y="84" class="cell c0" />
+    <rect x="574" y="0" class="cell c3" /><rect x="574" y="14" class="cell c2" /><rect x="574" y="28" class="cell c1" /><rect x="574" y="42" class="cell c2" /><rect x="574" y="56" class="cell c4" /><rect x="574" y="70" class="cell c3" /><rect x="574" y="84" class="cell c2" />
+    <rect x="588" y="0" class="cell c2" /><rect x="588" y="14" class="cell c3" /><rect x="588" y="28" class="cell c2" /><rect x="588" y="42" class="cell c1" /><rect x="588" y="56" class="cell c2" /><rect x="588" y="70" class="cell c1" /><rect x="588" y="84" class="cell c3" />
+    <rect x="602" y="0" class="cell c4" /><rect x="602" y="14" class="cell c3" /><rect x="602" y="28" class="cell c4" /><rect x="602" y="42" class="cell c2" /><rect x="602" y="56" class="cell c3" /><rect x="602" y="70" class="cell c2" /><rect x="602" y="84" class="cell c1" />
+    <rect x="616" y="0" class="cell c2" /><rect x="616" y="14" class="cell c1" /><rect x="616" y="28" class="cell c2" /><rect x="616" y="42" class="cell c3" /><rect x="616" y="56" class="cell c1" /><rect x="616" y="70" class="cell c0" /><rect x="616" y="84" class="cell c2" />
+    <rect x="630" y="0" class="cell c1" /><rect x="630" y="14" class="cell c2" /><rect x="630" y="28" class="cell c3" /><rect x="630" y="42" class="cell c1" /><rect x="630" y="56" class="cell c2" /><rect x="630" y="70" class="cell c3" /><rect x="630" y="84" class="cell c1" />
+    <rect x="644" y="0" class="cell c3" /><rect x="644" y="14" class="cell c4" /><rect x="644" y="28" class="cell c2" /><rect x="644" y="42" class="cell c3" /><rect x="644" y="56" class="cell c4" /><rect x="644" y="70" class="cell c2" /><rect x="644" y="84" class="cell c1" />
+    <rect x="658" y="0" class="cell c2" /><rect x="658" y="14" class="cell c1" /><rect x="658" y="28" class="cell c3" /><rect x="658" y="42" class="cell c2" /><rect x="658" y="56" class="cell c1" /><rect x="658" y="70" class="cell c0" /><rect x="658" y="84" class="cell c2" />
+    <rect x="672" y="0" class="cell c4" /><rect x="672" y="14" class="cell c3" /><rect x="672" y="28" class="cell c4" /><rect x="672" y="42" class="cell c3" /><rect x="672" y="56" class="cell c2" /><rect x="672" y="70" class="cell c1" /><rect x="672" y="84" class="cell c3" />
+    <rect x="686" y="0" class="cell c2" /><rect x="686" y="14" class="cell c1" /><rect x="686" y="28" class="cell c2" /><rect x="686" y="42" class="cell c4" /><rect x="686" y="56" class="cell c3" /><rect x="686" y="70" class="cell c2" /><rect x="686" y="84" class="cell c1" />
+    <rect x="700" y="0" class="cell c3" /><rect x="700" y="14" class="cell c2" /><rect x="700" y="28" class="cell c1" /><rect x="700" y="42" class="cell c2" /><rect x="700" y="56" class="cell c3" /><rect x="700" y="70" class="cell c1" /><rect x="700" y="84" class="cell c2" />
+    <rect x="714" y="0" class="cell c4" /><rect x="714" y="14" class="cell c4" /><rect x="714" y="28" class="cell c3" /><rect x="714" y="42" class="cell c2" /><rect x="714" y="56" class="cell c4" /><rect x="714" y="70" class="cell c3" /><rect x="714" y="84" class="cell c2" />
+    <rect x="728" y="0" class="cell c2" /><rect x="728" y="14" class="cell c3" /><rect x="728" y="28" class="cell c2" /><rect x="728" y="42" class="cell c1" /><rect x="728" y="56" class="cell c2" /><rect x="728" y="70" class="cell c1" /><rect x="728" y="84" class="cell c0" />
+    <rect x="742" y="0" class="cell c3" /><rect x="742" y="14" class="cell c2" /><rect x="742" y="28" class="cell c4" /><rect x="742" y="42" class="cell c3" /><rect x="742" y="56" class="cell c2" /><rect x="742" y="70" class="cell c1" /><rect x="742" y="84" class="cell c2" />
+    <rect x="756" y="0" class="cell c4" /><rect x="756" y="14" class="cell c3" /><rect x="756" y="28" class="cell c2" /><rect x="756" y="42" class="cell c4" /><rect x="756" y="56" class="cell c3" /><rect x="756" y="70" class="cell c2" /><rect x="756" y="84" class="cell c1" />
+    <rect x="770" y="0" class="cell c2" /><rect x="770" y="14" class="cell c4" /><rect x="770" y="28" class="cell c3" /><rect x="770" y="42" class="cell c2" /><rect x="770" y="56" class="cell c3" /><rect x="770" y="70" class="cell c4" /><rect x="770" y="84" class="cell c3" />
+    <rect x="784" y="0" class="cell c3" /><rect x="784" y="14" class="cell c2" /><rect x="784" y="28" class="cell c4" /><rect x="784" y="42" class="cell c3" /><rect x="784" y="56" class="cell c2" /><rect x="784" y="70" class="cell c1" /><rect x="784" y="84" class="cell c2" />
+    <rect x="798" y="0" class="cell c4" /><rect x="798" y="14" class="cell c3" /><rect x="798" y="28" class="cell c2" /><rect x="798" y="42" class="cell c4" /><rect x="798" y="56" class="cell c3" /><rect x="798" y="70" class="cell c2" /><rect x="798" y="84" class="cell c4" />
+
+    <!-- Animated Snake -->
+    <g class="snake-body">
+      <rect x="28" y="28" class="cell" fill="#F43F5E" rx="3" />
+      <rect x="14" y="28" class="cell" fill="#FB7185" rx="3" />
+      <rect x="0" y="28" class="cell" fill="#FDA4AF" rx="3" />
+      <!-- Snake Eyes -->
+      <circle cx="37" cy="31" r="1.5" fill="#FFFFFF" />
+      <circle cx="37" cy="36" r="1.5" fill="#FFFFFF" />
+    </g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(680, 155)">
+    <text x="0" y="10" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748B">Less</text>
+    <rect x="30" y="0" class="cell c0" />
+    <rect x="44" y="0" class="cell c1" />
+    <rect x="58" y="0" class="cell c2" />
+    <rect x="72" y="0" class="cell c3" />
+    <rect x="86" y="0" class="cell c4" />
+    <text x="104" y="10" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748B">More</text>
+  </g>
+</svg>
