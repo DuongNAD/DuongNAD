@@ -1,18 +1,29 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" width="100%" height="90" role="img" aria-label="Footer">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Nguyen Anh Duong - Nature &amp; Living Systems Profile Footer">
   <defs>
+    <!-- Background Gradient: Deep Twilight Forest to Pine Shadow -->
     <linearGradient id="footer-bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#05120f" />
       <stop offset="50%" stop-color="#0b241e" />
       <stop offset="100%" stop-color="#05120f" />
     </linearGradient>
 
+    <!-- Living Systems Axis / Organic Divider Gradient (Contract: leaf-accent) -->
     <linearGradient id="leaf-accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#05120f" />
-      <stop offset="20%" stop-color="#10b981" stop-opacity="0.4" />
-      <stop offset="50%" stop-color="#6ee7b7" stop-opacity="0.8" />
-      <stop offset="80%" stop-color="#10b981" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#05120f" />
+      <stop offset="0%" stop-color="#05120f" stop-opacity="0" />
+      <stop offset="15%" stop-color="#064e3b" stop-opacity="0.4" />
+      <stop offset="35%" stop-color="#059669" stop-opacity="0.7" />
+      <stop offset="50%" stop-color="#34d399" stop-opacity="0.95" />
+      <stop offset="65%" stop-color="#059669" stop-opacity="0.7" />
+      <stop offset="85%" stop-color="#064e3b" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#05120f" stop-opacity="0" />
     </linearGradient>
+
+    <!-- Central Botanical Glow -->
+    <radialGradient id="leaf-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.35" />
+      <stop offset="45%" stop-color="#10b981" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#05120f" stop-opacity="0" />
+    </radialGradient>
 
     <style>
       .quote-text {
@@ -26,27 +37,60 @@
         fill: #6ee7b7;
         letter-spacing: 1px;
       }
+      @keyframes softPulse {
+        0%, 100% { opacity: 0.45; transform: scale(1); }
+        50% { opacity: 0.85; transform: scale(1.08); }
+      }
+      .glow-spore {
+        animation: softPulse 4s ease-in-out infinite;
+        transform-origin: 600px 14px;
+      }
     </style>
   </defs>
 
-  <!-- Clean rounded background -->
+  <!-- Clean rounded card background -->
   <rect width="1200" height="90" rx="10" fill="url(#footer-bg)" stroke="#134236" stroke-width="1" stroke-opacity="0.5" />
-  
-  <!-- Subtle organic divider line -->
-  <line x1="80" y1="12" x2="1120" y2="12" stroke="url(#leaf-accent)" stroke-width="1.2" />
 
-  <!-- Nature Leaf Emblem in Center -->
-  <g transform="translate(600, 12) scale(0.7)">
-    <path d="M 0 -8 C 6 -4, 8 2, 0 8 C -8 2, -6 -4, 0 -8 Z" fill="#34d399" opacity="0.9" />
-    <line x1="0" y1="-5" x2="0" y2="6" stroke="#064e3b" stroke-width="1" />
+  <!-- Organic network axis line -->
+  <line x1="80" y1="14" x2="1120" y2="14" stroke="url(#leaf-accent)" stroke-width="1.2" />
+
+  <!-- Botanical / Living Network Nodes along Axis -->
+  <g fill="#10b981" opacity="0.6">
+    <circle cx="280" cy="14" r="1.5" />
+    <circle cx="420" cy="14" r="2.0" />
+    <circle cx="520" cy="14" r="1.5" />
+    <circle cx="680" cy="14" r="1.5" />
+    <circle cx="780" cy="14" r="2.0" />
+    <circle cx="920" cy="14" r="1.5" />
   </g>
 
-  <!-- Quote & Signature -->
+  <!-- Ambient Botanical Glow behind Central Motif -->
+  <circle cx="600" cy="14" r="28" fill="url(#leaf-glow)" class="glow-spore" />
+
+  <!-- Natural Emergent Intelligence: Minimalist Leaf Sprig Emblem -->
+  <g transform="translate(600, 14)">
+    <!-- Central upright shoot / bud -->
+    <path d="M 0 -11 C 3 -6, 3 0, 0 5 C -3 0, -3 -6, 0 -11 Z" fill="#34d399" opacity="0.95" />
+    <line x1="0" y1="-8" x2="0" y2="4" stroke="#064e3b" stroke-width="0.8" />
+
+    <!-- Left leaf: gentle curving arc -->
+    <path d="M -1 1 C -7 -1, -12 -5, -14 -9 C -11 -4, -6 -1, 0 3 Z" fill="#10b981" opacity="0.9" />
+    <path d="M -1 1 C -7 0, -11 -3, -13 -7" fill="none" stroke="#064e3b" stroke-width="0.6" />
+
+    <!-- Right leaf: symmetrical emergent arc -->
+    <path d="M 1 1 C 7 -1, 12 -5, 14 -9 C 11 -4, 6 -1, 0 3 Z" fill="#10b981" opacity="0.9" />
+    <path d="M 1 1 C 7 0, 11 -3, 13 -7" fill="none" stroke="#064e3b" stroke-width="0.6" />
+
+    <!-- Root seed node -->
+    <circle cx="0" cy="5" r="1.2" fill="#6ee7b7" />
+  </g>
+
+  <!-- Quote & Living Systems Signature -->
   <g text-anchor="middle">
-    <text x="600" y="45" class="quote-text" font-size="14">
+    <text x="600" y="47" class="quote-text" font-size="14">
       "In nature as in software: complex, living intelligence emerges from simple, elegant rules."
     </text>
-    <text x="600" y="70" class="author-text" font-size="11.5" font-weight="500">
+    <text x="600" y="72" class="author-text" font-size="11.5" font-weight="500">
       CRAFTED BY <tspan fill="#a7f3d0" font-weight="700">NGUYEN ANH DUONG (DuongNAD)</tspan> · FPT UNIVERSITY · HANOI, VIETNAM
     </text>
   </g>

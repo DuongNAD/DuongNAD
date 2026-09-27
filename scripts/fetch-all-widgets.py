@@ -8,16 +8,16 @@ from pathlib import Path
 BAD = ("failed to retrieve", "something went wrong", "deployment_paused")
 
 WIDGETS = {
-    "assets/stats.svg": "https://github-readme-stats-eight-theta.vercel.app/api?username=DuongNAD&show_icons=true&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB&ring_color=2563EB&count_private=true&include_all_commits=true&disable_animations=true",
-    "assets/top-langs.svg": "https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&text_color=E5E7EB&langs_count=8&disable_animations=true",
-    "assets/streak.svg": "https://streak-stats.demolab.com?user=DuongNAD&theme=transparent&hide_border=true&background=0B1220&ring=2563EB&fire=60A5FA&currStreakLabel=60A5FA&sideLabels=E5E7EB&dates=94A3B8&sideNums=E5E7EB&currStreakNum=60A5FA",
+    "assets/stats.svg": "https://github-readme-stats-eight-theta.vercel.app/api?username=DuongNAD&show_icons=true&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB&ring_color=0D9488&count_private=true&include_all_commits=true&disable_animations=true",
+    "assets/top-langs.svg": "https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=DuongNAD&layout=compact&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&text_color=E5E7EB&langs_count=8&disable_animations=true",
+    "assets/streak.svg": "https://streak-stats.demolab.com?user=DuongNAD&theme=transparent&hide_border=true&background=0B1220&ring=0D9488&fire=10B981&currStreakLabel=10B981&sideLabels=E5E7EB&dates=94A3B8&sideNums=E5E7EB&currStreakNum=10B981",
     "assets/trophies.svg": "https://github-profile-trophy-eight.vercel.app/?username=DuongNAD&theme=algolia&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8",
-    "assets/activity-graph.svg": "https://github-readme-activity-graph.vercel.app/graph?username=DuongNAD&theme=react-dark&hide_border=true&bg_color=0B1220&color=60A5FA&line=2563EB&point=ffffff",
-    "assets/pin-liva.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=LIVA&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB",
-    "assets/pin-smart-drive-os.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=smart-drive-os&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB",
-    "assets/pin-vn-ai.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=VN_AI_Innovation&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB",
-    "assets/pin-anima.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=Anima-Engine&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB",
-    "assets/pin-mcp-agy.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=mcp-agy&theme=transparent&hide_border=true&bg_color=0B1220&title_color=60A5FA&icon_color=3B82F6&text_color=E5E7EB",
+    "assets/activity-graph.svg": "https://github-readme-activity-graph.vercel.app/graph?username=DuongNAD&theme=react-dark&hide_border=true&bg_color=0B1220&color=10B981&line=059669&point=ffffff",
+    "assets/pin-liva.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=LIVA&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
+    "assets/pin-smart-drive-os.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=smart-drive-os&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
+    "assets/pin-vn-ai.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=VN_AI_Innovation&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
+    "assets/pin-anima.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=Anima-Engine&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
+    "assets/pin-mcp-agy.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=mcp-agy&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
 }
 
 
@@ -38,9 +38,13 @@ def sanitize(text: str) -> str | None:
         "opacity: 1",
         text,
     )
-    # Sanitize stark light-mode borders to subtle dark slate cyberpunk borders
+    # Sanitize stark light-mode borders to subtle dark slate living systems borders
     text = re.sub(r'stroke=[\'"]#E4E2E2[\'"]', 'stroke="#1E293B"', text, flags=re.IGNORECASE)
     text = re.sub(r'stroke-opacity=[\'"]1[\'"]', 'stroke-opacity="0.7"', text)
+    # Defensive palette sanitization: map any remaining legacy blues to living systems tokens
+    text = re.sub(r'#60A5FA', '#10B981', text, flags=re.IGNORECASE)
+    text = re.sub(r'#3B82F6', '#059669', text, flags=re.IGNORECASE)
+    text = re.sub(r'#2563EB', '#0D9488', text, flags=re.IGNORECASE)
     return text
 
 

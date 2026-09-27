@@ -10,6 +10,11 @@ on:
     paths-ignore:
       - 'assets/**'
       - 'profile-3d-contrib/**'
+      - '.agents/**'
+
+concurrency:
+  group: profile-3d-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -31,4 +36,4 @@ jobs:
           git add profile-3d-contrib/
           git commit -m "Auto-generated 3D contribution graph" || exit 0
           git pull --rebase origin main
-          git push
+          git push || (git pull --rebase origin main && git push)

@@ -10,6 +10,11 @@ on:
     paths-ignore:
       - 'assets/**'
       - 'profile-3d-contrib/**'
+      - '.agents/**'
+
+concurrency:
+  group: snake-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -29,7 +34,7 @@ jobs:
           github_user_name: DuongNAD
           outputs: |
             assets/github-contribution-grid-snake.svg
-            assets/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#38BDF8&color_dots=#0F172A,#1E3A8A,#2563EB,#3B82F6,#60A5FA
+            assets/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#10B981&color_dots=#0F172A,#064E3B,#047857,#059669,#34D399
 
       - name: Commit & Push Snake SVGs
         run: |
@@ -38,4 +43,4 @@ jobs:
           git add assets/github-contribution-grid-snake.svg assets/github-contribution-grid-snake-dark.svg
           git commit -m "Auto-generate contribution snake grid" || exit 0
           git pull --rebase origin main
-          git push
+          git push || (git pull --rebase origin main && git push)

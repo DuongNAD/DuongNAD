@@ -1,49 +1,98 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%" role="img" aria-label="Nguyen Anh Duong - Nature &amp; Landscape Banner">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="100%" height="100%" role="img" aria-label="Nguyen Anh Duong - Nature &amp; Living Systems Banner">
   <defs>
-    <!-- Sky Gradient -->
+    <!-- Sky Gradient: Deep Nordic Twilight to Pine Horizon -->
     <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#050c12" />
-      <stop offset="45%" stop-color="#0b2223" />
-      <stop offset="75%" stop-color="#113630" />
-      <stop offset="100%" stop-color="#16463d" />
+      <stop offset="0%" stop-color="#03080d" />
+      <stop offset="28%" stop-color="#06181d" />
+      <stop offset="60%" stop-color="#0b2e28" />
+      <stop offset="85%" stop-color="#12443a" />
+      <stop offset="100%" stop-color="#185246" />
     </linearGradient>
 
-    <!-- Celestial Moon Glow -->
-    <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#d1fae5" stop-opacity="0.85" />
-      <stop offset="35%" stop-color="#a7f3d0" stop-opacity="0.4" />
-      <stop offset="70%" stop-color="#34d399" stop-opacity="0.12" />
+    <!-- Aurora Borealis Curving Ribbons -->
+    <linearGradient id="auroraGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0" />
+      <stop offset="25%" stop-color="#059669" stop-opacity="0.16" />
+      <stop offset="50%" stop-color="#34d399" stop-opacity="0.25" />
+      <stop offset="75%" stop-color="#0d9488" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="auroraGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#065f46" stop-opacity="0" />
+      <stop offset="35%" stop-color="#10b981" stop-opacity="0.18" />
+      <stop offset="68%" stop-color="#6ee7b7" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#0f766e" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Celestial Moon & Ambient Aurora Halo -->
+    <radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ecfdf5" stop-opacity="0.95" />
+      <stop offset="22%" stop-color="#a7f3d0" stop-opacity="0.5" />
+      <stop offset="55%" stop-color="#34d399" stop-opacity="0.2" />
+      <stop offset="78%" stop-color="#059669" stop-opacity="0.06" />
       <stop offset="100%" stop-color="#064e3b" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Warm Firefly Glow -->
+    <!-- Valley Mist Gradient -->
+    <linearGradient id="valleyMist" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0" />
+      <stop offset="50%" stop-color="#6ee7b7" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Bioluminescent Fireflies -->
     <radialGradient id="firefly" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
-      <stop offset="40%" stop-color="#fde047" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#ca8a04" stop-opacity="0" />
+      <stop offset="0%" stop-color="#fef9c3" stop-opacity="1" />
+      <stop offset="35%" stop-color="#fde047" stop-opacity="0.7" />
+      <stop offset="70%" stop-color="#10b981" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#047857" stop-opacity="0" />
     </radialGradient>
 
-    <!-- Mountain Gradients for atmospheric depth -->
-    <linearGradient id="distantMtn" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#18433b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0d2823" stop-opacity="0.9" />
+    <!-- Mountain Layers Gradients -->
+    <linearGradient id="mtnFar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#184a3f" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#123b32" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0c2923" />
     </linearGradient>
 
-    <linearGradient id="midMtn" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#123831" />
-      <stop offset="100%" stop-color="#091d19" />
+    <linearGradient id="mtnMid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#133a31" />
+      <stop offset="60%" stop-color="#0c2721" />
+      <stop offset="100%" stop-color="#061a15" />
     </linearGradient>
 
-    <linearGradient id="foreRidge" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0b2420" />
-      <stop offset="100%" stop-color="#05120f" />
+    <linearGradient id="mtnNear" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0b241e" />
+      <stop offset="100%" stop-color="#03100c" />
     </linearGradient>
 
-    <!-- Subtle border highlight -->
+    <!-- Foreground Forest Floor Base -->
+    <linearGradient id="forestFloor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#061813" />
+      <stop offset="100%" stop-color="#020806" />
+    </linearGradient>
+
+    <!-- Subtle Emerald Top Border Line -->
     <linearGradient id="topBorder" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#34d399" stop-opacity="0.3" />
-      <stop offset="50%" stop-color="#6ee7b7" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0.3" />
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.1" />
+      <stop offset="25%" stop-color="#10b981" stop-opacity="0.75" />
+      <stop offset="50%" stop-color="#6ee7b7" stop-opacity="0.95" />
+      <stop offset="75%" stop-color="#10b981" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.1" />
+    </linearGradient>
+
+    <!-- Frosted Mist Backdrop for Typography -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#03110e" stop-opacity="0.80" />
+      <stop offset="100%" stop-color="#020a08" stop-opacity="0.86" />
+    </linearGradient>
+
+    <!-- Card Border Gradient -->
+    <linearGradient id="cardBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.5" />
+      <stop offset="50%" stop-color="#059669" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.45" />
     </linearGradient>
 
     <style>
@@ -51,178 +100,173 @@
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
         font-weight: 700;
         fill: #f0fdf4;
-        letter-spacing: 2px;
+        letter-spacing: 2.2px;
       }
       .subtitle-text {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
         font-weight: 500;
         fill: #a7f3d0;
-        letter-spacing: 0.8px;
+        letter-spacing: 0.6px;
       }
       .meta-text {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
         font-weight: 400;
         fill: #6ee7b7;
-        letter-spacing: 0.5px;
-        opacity: 0.85;
+        letter-spacing: 0.4px;
+        opacity: 0.92;
+      }
+      .badge-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+        font-weight: 600;
+        font-size: 9.5px;
+        fill: #34d399;
+        letter-spacing: 1.5px;
       }
       @keyframes floatParticle {
-        0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
-        50% { transform: translateY(-8px) scale(1.15); opacity: 1; }
+        0%, 100% { transform: translateY(0px) scale(1); opacity: 0.65; }
+        50% { transform: translateY(-7px) scale(1.2); opacity: 1; }
       }
-      .firefly-anim {
-        animation: floatParticle 5s ease-in-out infinite;
-      }
-      .firefly-anim-2 {
-        animation: floatParticle 7s ease-in-out infinite reverse;
-      }
+      .firefly-1 { animation: floatParticle 5s ease-in-out infinite; }
+      .firefly-2 { animation: floatParticle 7s ease-in-out infinite reverse; }
     </style>
   </defs>
 
   <!-- Sky Canvas with rounded corners -->
   <rect width="1200" height="260" rx="12" fill="url(#skyGrad)" />
-  <rect width="1200" height="260" rx="12" fill="none" stroke="#1b4d3e" stroke-width="1" stroke-opacity="0.6" />
+  <rect width="1200" height="260" rx="12" fill="none" stroke="#164e3f" stroke-width="1" stroke-opacity="0.5" />
   
   <!-- Subtle Emerald Top Border Line -->
   <rect x="0" y="0" width="1200" height="3" rx="1.5" fill="url(#topBorder)" />
 
+  <!-- Aurora Borealis Curving Ribbons -->
+  <path d="M -50 75 Q 250 15 550 50 T 1150 35 L 1250 85 L 1250 0 L -50 0 Z" fill="url(#auroraGrad1)" />
+  <path d="M 50 85 Q 350 40 700 70 T 1250 45 L 1250 0 L 50 0 Z" fill="url(#auroraGrad2)" />
+
   <!-- Stars in upper night sky -->
-  <g fill="#ecfdf5" opacity="0.65">
-    <circle cx="95" cy="42" r="1" />
-    <circle cx="160" cy="28" r="1.3" opacity="0.9" />
-    <circle cx="240" cy="55" r="0.8" />
-    <circle cx="310" cy="35" r="1.2" />
-    <circle cx="380" cy="62" r="0.9" />
-    <circle cx="450" cy="25" r="1" />
-    <circle cx="530" cy="48" r="0.7" />
-    <circle cx="620" cy="30" r="1.1" />
-    <circle cx="710" cy="52" r="0.9" />
-    <circle cx="790" cy="22" r="1.4" opacity="0.95" />
-    <circle cx="860" cy="45" r="0.8" />
-    <circle cx="940" cy="32" r="1.2" />
-    <circle cx="1020" cy="58" r="1" />
-    <circle cx="1110" cy="38" r="1.5" opacity="0.9" />
-    <circle cx="1165" cy="70" r="0.8" />
-    <circle cx="65" cy="85" r="0.9" />
-    <circle cx="1125" cy="95" r="1.1" />
+  <g fill="#ecfdf5">
+    <circle cx="75" cy="35" r="1.1" opacity="0.75" />
+    <circle cx="140" cy="22" r="1.4" opacity="0.9" />
+    <circle cx="210" cy="45" r="0.8" opacity="0.65" />
+    <circle cx="280" cy="28" r="1.2" opacity="0.8" />
+    <circle cx="340" cy="52" r="0.9" opacity="0.7" />
+    <circle cx="410" cy="20" r="1.0" opacity="0.85" />
+    <circle cx="480" cy="40" r="0.7" opacity="0.6" />
+    <circle cx="540" cy="24" r="1.1" opacity="0.8" />
+    <circle cx="670" cy="22" r="1.2" opacity="0.85" />
+    <circle cx="730" cy="42" r="0.9" opacity="0.7" />
+    <circle cx="800" cy="18" r="1.5" opacity="0.95" />
+    <circle cx="870" cy="38" r="0.8" opacity="0.65" />
+    <circle cx="940" cy="25" r="1.3" opacity="0.9" />
+    <circle cx="1020" cy="48" r="1.0" opacity="0.8" />
+    <circle cx="1090" cy="30" r="1.4" opacity="0.9" />
+    <circle cx="1150" cy="58" r="0.8" opacity="0.7" />
+    <circle cx="50" cy="72" r="0.9" opacity="0.6" />
+    <circle cx="1120" cy="82" r="1.1" opacity="0.75" />
+    <circle cx="240" cy="78" r="0.7" opacity="0.5" />
+    <circle cx="980" cy="72" r="0.9" opacity="0.6" />
+    <!-- 4-point sparkle stars -->
+    <path d="M 800 13 L 801.5 17 L 805.5 18 L 801.5 19 L 800 23 L 798.5 19 L 794.5 18 L 798.5 17 Z" fill="#ffffff" opacity="0.85" />
+    <path d="M 140 17 L 141.2 20.8 L 145 22 L 141.2 23.2 L 140 27 L 138.8 23.2 L 135 22 L 138.8 20.8 Z" fill="#ffffff" opacity="0.8" />
   </g>
 
-  <!-- Serene Moon & Soft Halo -->
-  <circle cx="600" cy="55" r="32" fill="url(#moonGlow)" />
-  <circle cx="600" cy="55" r="12" fill="#ecfdf5" opacity="0.9" />
+  <!-- Glowing Moon & Soft Halo in Upper Sky -->
+  <circle cx="600" cy="42" r="36" fill="url(#moonHalo)" />
+  <circle cx="600" cy="42" r="12" fill="#ecfdf5" opacity="0.95" />
 
-  <!-- Silhouette of Soaring Birds in Twilight -->
+  <!-- Soaring Birds in Twilight Sky (Natural gliding formation) -->
   <g fill="#a7f3d0" opacity="0.45">
-    <!-- Bird 1 -->
-    <path d="M 460 65 Q 466 60 472 63 Q 478 60 484 65 Q 478 62 472 66 Q 466 62 460 65 Z" />
-    <!-- Bird 2 -->
-    <path d="M 488 56 Q 493 52 498 54 Q 503 52 508 56 Q 503 54 498 57 Q 493 54 488 56 Z" transform="scale(0.85) translate(80, 5)" />
-    <!-- Bird 3 -->
-    <path d="M 440 76 Q 444 73 448 74 Q 452 73 456 76 Q 452 74 448 77 Q 444 74 440 76 Z" transform="scale(0.7) translate(195, 20)" />
-    <!-- Bird 4 & 5 right side -->
-    <path d="M 720 60 Q 726 55 732 58 Q 738 55 744 60 Q 738 57 732 61 Q 726 57 720 60 Z" transform="scale(0.8) translate(180, 10)" />
-    <path d="M 750 72 Q 755 68 760 70 Q 765 68 770 72 Q 765 70 760 73 Q 755 70 750 72 Z" transform="scale(0.65) translate(400, 30)" />
+    <path d="M 440 48 Q 448 41 456 46 Q 464 41 472 48 Q 464 44 456 49 Q 448 44 440 48 Z" />
+    <path d="M 465 38 Q 472 32 479 36 Q 486 32 493 38 Q 486 35 479 39 Q 472 35 465 38 Z" transform="scale(0.82) translate(110, 10)" />
+    <path d="M 425 58 Q 431 53 437 56 Q 443 53 449 58 Q 443 56 437 60 Q 431 56 425 58 Z" transform="scale(0.72) translate(185, 25)" />
+    <path d="M 725 45 Q 732 39 739 43 Q 746 39 753 45 Q 746 42 739 46 Q 732 42 725 45 Z" transform="scale(0.8) translate(195, 12)" />
+    <path d="M 750 54 Q 756 49 762 52 Q 768 49 774 54 Q 768 51 762 55 Q 756 51 750 54 Z" transform="scale(0.68) translate(370, 30)" />
   </g>
 
-  <!-- Layer 1: Distant Majestic Mountain Range -->
-  <path fill="url(#distantMtn)" d="M 0 175 L 0 260 L 1200 260 L 1200 160 L 1140 172 L 1060 145 L 980 168 L 910 138 L 840 165 L 760 148 L 680 172 L 600 135 L 530 165 L 450 142 L 370 170 L 290 148 L 210 168 L 130 145 L 60 168 Z" />
+  <!-- Far Mountain Peaks (Majestic Sharp Nordic Fjell) -->
+  <path fill="url(#mtnFar)" d="M 0 162 L 0 260 L 1200 260 L 1200 148 L 1150 162 L 1075 132 L 1010 156 L 935 125 L 860 154 L 795 138 L 720 162 L 645 126 L 575 156 L 495 130 L 420 158 L 350 136 L 275 160 L 195 132 L 115 158 L 50 142 Z" />
 
-  <!-- Layer 2: Midground Mountain Ridges with Forest Mist -->
-  <path fill="url(#midMtn)" opacity="0.95" d="M 0 195 L 0 260 L 1200 260 L 1200 188 L 1150 198 L 1090 180 L 1020 200 L 940 178 L 870 195 L 790 175 L 710 198 L 620 172 L 540 194 L 460 174 L 380 196 L 310 176 L 230 195 L 150 175 L 70 194 Z" />
+  <!-- Ambient Valley Mist Layer 1 -->
+  <rect x="0" y="140" width="1200" height="40" fill="url(#valleyMist)" />
 
-  <!-- Layer 3: Foreground Atmospheric Foothill & Pine Crest -->
-  <path fill="url(#foreRidge)" d="M 0 215 L 0 260 L 1200 260 L 1200 210 Q 1050 195 900 215 Q 750 230 600 215 Q 450 200 300 220 Q 150 235 0 215 Z" />
+  <!-- Midground Misty Ridges -->
+  <path fill="url(#mtnMid)" opacity="0.96" d="M 0 185 L 0 260 L 1200 260 L 1200 178 L 1155 192 L 1095 170 L 1030 192 L 950 168 L 880 188 L 805 166 L 730 190 L 635 164 L 555 186 L 470 166 L 390 188 L 320 168 L 245 186 L 165 165 L 80 186 Z" />
 
-  <!-- Majestic Stag / Deer Silhouette on Left Hilltop (Symbol of wildlife & living systems) -->
-  <g fill="#061612" transform="translate(130, 138) scale(0.62)">
-    <!-- Body -->
-    <path d="M 45 65 C 40 55, 30 52, 20 54 C 12 55, 5 60, 2 68 C 0 74, 4 82, 10 84 C 18 86, 32 86, 42 82 C 45 80, 48 72, 45 65 Z" />
-    <!-- Neck and Head -->
-    <path d="M 38 66 C 42 54, 48 40, 52 30 C 53 26, 56 22, 60 20 C 64 19, 68 22, 67 26 C 66 30, 60 38, 55 48 C 50 56, 46 64, 44 68 Z" />
-    <!-- Muzzle / Head details -->
-    <ellipse cx="64" cy="22" rx="6" ry="4" transform="rotate(-15, 64, 22)" />
-    <path d="M 68 20 L 73 22 L 67 25 Z" />
-    <!-- Ears -->
-    <path d="M 58 19 L 55 12 L 60 16 Z" />
-    <path d="M 62 18 L 65 11 L 65 17 Z" />
-    <!-- Antlers (Intricate majestic branches) -->
-    <!-- Main Left Beam -->
-    <path d="M 59 17 Q 56 5 50 -2 Q 46 -7 40 -10 Q 45 -5 49 0 Q 53 6 56 16 Z" fill="#061612" />
-    <!-- Left Tines -->
-    <path d="M 56 11 Q 48 9 44 11 Q 48 12 54 14 Z" />
-    <path d="M 52 3 Q 44 -1 38 2 Q 43 4 50 6 Z" />
-    <path d="M 46 -4 Q 40 -12 34 -15 Q 38 -9 44 -5 Z" />
-    <!-- Main Right Beam -->
-    <path d="M 62 17 Q 66 4 72 -3 Q 78 -9 85 -12 Q 79 -6 74 1 Q 69 8 65 16 Z" fill="#061612" />
-    <!-- Right Tines -->
-    <path d="M 65 10 Q 72 8 77 9 Q 71 11 65 13 Z" />
-    <path d="M 69 3 Q 78 -2 83 1 Q 77 4 70 6 Z" />
-    <path d="M 74 -4 Q 81 -11 88 -14 Q 82 -9 76 -5 Z" />
-    <!-- Front Legs -->
-    <path d="M 42 80 L 40 102 L 38 120 L 41 121 L 43 103 L 46 80 Z" />
-    <path d="M 37 81 L 34 100 L 32 119 L 35 120 L 38 101 L 41 81 Z" opacity="0.85" />
-    <!-- Back Legs -->
-    <path d="M 8 78 Q 6 92 10 106 L 12 122 L 15 122 L 13 105 Q 11 94 14 79 Z" />
-    <path d="M 15 79 Q 14 93 18 107 L 20 123 L 23 123 L 21 106 Q 18 94 20 80 Z" opacity="0.85" />
-    <!-- Little Tail -->
-    <path d="M 4 70 C 1 68, 0 74, 3 76 C 5 77, 6 74, 4 70 Z" />
+  <!-- Ambient Valley Mist Layer 2 -->
+  <rect x="0" y="172" width="1200" height="35" fill="url(#valleyMist)" />
+
+  <!-- Foreground Rolling Ridge -->
+  <path fill="url(#mtnNear)" d="M 0 212 L 0 260 L 1200 260 L 1200 205 Q 1060 188 920 208 Q 770 224 610 208 Q 460 194 310 214 Q 150 230 0 212 Z" />
+
+  <!-- Deep Forest Floor Base -->
+  <path fill="url(#forestFloor)" d="M 0 232 L 0 260 L 1200 260 L 1200 228 Q 950 220 700 235 Q 450 244 200 228 Q 90 230 0 232 Z" opacity="0.9" />
+
+  <!-- Left Evergreen Conifer Forest (Layered & Majestic) -->
+  <g fill="#082019">
+    <path d="M 28 148 L 20 170 L 24 170 L 15 194 L 20 194 L 10 222 L 15 222 L 5 254 L 52 254 L 42 222 L 47 222 L 37 194 L 42 194 L 33 170 L 37 170 Z" />
+    <path d="M 98 156 L 91 176 L 95 176 L 87 198 L 92 198 L 84 224 L 88 224 L 78 254 L 118 254 L 108 224 L 112 224 L 104 198 L 109 198 L 101 176 L 105 176 Z" />
+  </g>
+  <g fill="#03100c">
+    <path d="M 64 130 L 54 158 L 59 158 L 48 186 L 54 186 L 42 218 L 48 218 L 34 256 L 94 256 L 80 218 L 86 218 L 74 186 L 80 186 L 69 158 L 74 158 Z" />
+    <path d="M 10 166 L 2 189 L 6 189 L -2 215 L 3 215 L -5 246 L 25 246 L 17 215 L 22 215 L 14 189 L 18 189 Z" />
   </g>
 
-  <!-- Natural Pine Conifers Silhouettes Across Horizon -->
-  <!-- Left Pine Cluster -->
-  <g fill="#071b16">
-    <!-- Tree 1 -->
-    <polygon points="50,150 42,175 45,175 38,198 42,198 33,225 36,225 28,255 72,255 64,225 67,225 58,198 62,198 55,175 58,175" />
-    <!-- Tree 2 -->
-    <polygon points="90,165 83,185 86,185 79,205 83,205 75,230 78,230 70,255 110,255 102,230 105,230 97,205 101,205 94,185 97,185" />
-    <!-- Tree 3 -->
-    <polygon points="20,180 15,198 17,198 11,218 14,218 8,240 32,240 26,218 29,218 23,198 25,198" />
-    <!-- Tree near deer -->
-    <polygon points="230,170 224,190 227,190 220,210 224,210 216,235 244,235 236,210 240,210 233,190 236,190" />
-    <polygon points="260,185 255,202 257,202 252,220 268,220 263,202 265,202" />
+  <!-- Noble Stag Silhouette on Hilltop (Symbol of Living Systems) -->
+  <!-- Anatomically refined royal stag with branching rack and proud stance -->
+  <g fill="#03100c" fill-rule="evenodd" transform="translate(130, 112) scale(0.85)">
+    <path d="M 83.4 2.3 L 84.5 3.6 L 85.8 6.1 L 86.9 10.2 L 87.3 10.3 L 87.8 9.8 L 88.3 8.5 L 88.5 8.9 L 88.4 10.4 L 86.3 13.1 L 85.1 16.4 L 85.0 21.1 L 85.3 22.7 L 85.9 23.3 L 87.2 23.2 L 89.0 21.9 L 90.5 20.1 L 90.5 17.7 L 90.7 17.7 L 91.1 18.5 L 91.6 16.9 L 91.3 11.6 L 91.7 11.2 L 92.8 15.6 L 92.9 18.3 L 92.6 20.0 L 91.8 21.3 L 92.0 23.3 L 91.6 24.9 L 90.6 26.6 L 89.6 27.7 L 90.4 27.7 L 92.1 26.8 L 94.0 24.9 L 94.9 22.7 L 95.0 20.0 L 95.3 19.7 L 95.9 22.8 L 95.4 25.3 L 94.8 26.4 L 93.4 27.8 L 90.2 29.7 L 85.2 31.3 L 84.3 32.1 L 84.2 32.6 L 84.6 33.1 L 86.3 32.0 L 90.0 30.8 L 90.6 30.8 L 90.7 31.4 L 89.4 34.3 L 88.8 35.2 L 87.8 35.9 L 87.8 37.3 L 90.1 38.9 L 94.2 40.9 L 94.5 41.4 L 94.4 42.5 L 94.6 43.4 L 94.3 44.1 L 93.5 44.5 L 93.4 45.1 L 92.6 46.0 L 90.8 46.3 L 89.0 46.1 L 86.2 47.2 L 85.3 47.9 L 85.0 49.7 L 86.1 53.5 L 86.3 55.4 L 86.2 56.3 L 85.7 55.4 L 85.6 58.5 L 84.6 62.0 L 84.2 61.1 L 83.5 63.5 L 81.7 66.6 L 80.5 67.7 L 80.9 66.7 L 80.5 66.7 L 79.0 68.4 L 76.0 70.9 L 75.4 71.7 L 74.2 74.4 L 72.6 76.3 L 71.6 78.0 L 70.7 79.0 L 68.9 80.4 L 67.3 87.8 L 67.2 89.5 L 67.4 91.2 L 67.4 94.0 L 66.8 97.0 L 67.1 103.0 L 68.0 108.0 L 68.5 109.1 L 70.7 111.7 L 72.1 113.7 L 77.5 113.8 L 81.2 114.1 L 73.1 114.6 L 59.0 114.9 L 21.6 114.9 L 8.3 114.6 L 0.1 114.1 L 6.6 113.7 L 5.4 112.3 L 5.4 109.9 L 5.1 109.2 L 4.8 109.0 L 3.9 109.5 L 3.8 109.2 L 3.9 107.9 L 4.7 106.5 L 5.9 99.6 L 6.5 92.9 L 6.4 88.2 L 6.9 87.0 L 11.2 82.9 L 12.8 80.1 L 13.2 78.2 L 13.1 75.6 L 12.1 72.3 L 11.3 68.3 L 11.0 64.9 L 10.3 67.7 L 9.3 68.9 L 9.6 68.5 L 9.6 67.9 L 8.7 65.0 L 9.2 61.9 L 8.6 62.6 L 8.6 62.4 L 9.9 60.0 L 12.0 58.2 L 18.5 55.2 L 21.3 54.1 L 24.5 53.3 L 27.7 53.1 L 33.2 53.7 L 43.5 54.3 L 47.2 54.3 L 51.0 53.7 L 57.4 51.5 L 60.0 51.1 L 64.5 51.1 L 65.3 50.9 L 66.9 50.0 L 68.8 47.9 L 69.5 46.1 L 69.3 46.3 L 70.4 44.4 L 70.9 42.9 L 70.6 43.2 L 73.1 39.0 L 73.1 38.6 L 72.2 37.3 L 71.2 37.1 L 70.5 36.8 L 69.0 35.2 L 68.0 32.2 L 68.0 30.9 L 68.3 30.7 L 68.8 30.7 L 71.7 31.9 L 73.2 32.7 L 74.4 34.1 L 75.4 33.8 L 74.9 32.7 L 73.1 31.6 L 66.7 29.7 L 59.0 25.7 L 56.5 23.9 L 53.9 21.3 L 52.6 19.6 L 50.1 17.4 L 46.8 15.9 L 44.1 14.2 L 41.7 14.3 L 40.9 14.1 L 40.6 13.6 L 41.6 13.6 L 42.3 12.9 L 41.7 10.4 L 41.9 8.2 L 43.0 11.4 L 44.0 12.3 L 44.7 12.1 L 44.9 11.3 L 44.5 10.2 L 44.5 8.6 L 45.2 6.0 L 46.0 4.5 L 46.0 8.8 L 46.7 11.3 L 47.6 12.8 L 48.6 13.7 L 49.3 14.1 L 49.9 14.1 L 50.3 13.7 L 50.3 12.5 L 49.5 10.8 L 46.7 7.7 L 47.3 7.8 L 47.6 7.6 L 47.1 6.0 L 46.8 3.9 L 47.2 1.7 L 47.8 0.1 L 48.1 0.0 L 48.1 4.5 L 48.9 6.9 L 49.7 7.6 L 50.3 7.7 L 50.6 7.5 L 51.5 5.3 L 52.7 3.2 L 52.6 4.9 L 52.0 7.5 L 52.0 9.3 L 52.2 9.6 L 52.7 8.9 L 53.9 5.0 L 56.2 1.1 L 56.8 0.6 L 55.3 5.9 L 55.4 7.0 L 58.8 3.4 L 57.5 6.6 L 55.0 10.1 L 54.8 11.2 L 54.8 13.7 L 55.5 16.8 L 56.8 19.4 L 58.0 21.1 L 60.1 23.2 L 62.2 24.5 L 62.5 24.5 L 62.8 24.2 L 61.8 19.4 L 61.8 17.3 L 62.3 13.6 L 62.3 10.9 L 62.5 11.2 L 63.1 13.5 L 63.5 19.9 L 64.7 24.0 L 65.3 25.3 L 66.4 26.4 L 68.2 27.3 L 71.6 28.3 L 72.3 28.2 L 72.7 27.7 L 71.6 23.5 L 71.6 19.9 L 72.0 19.2 L 72.7 23.2 L 74.1 26.4 L 74.7 28.7 L 75.8 29.4 L 76.4 29.4 L 77.6 28.8 L 79.2 27.5 L 80.1 26.0 L 80.2 24.0 L 79.3 20.6 L 79.7 18.9 L 81.2 22.7 L 81.8 25.1 L 81.7 26.7 L 81.0 28.3 L 78.7 31.1 L 78.8 31.8 L 80.4 32.2 L 81.7 31.1 L 82.0 28.4 L 83.0 25.5 L 83.0 23.8 L 82.5 22.3 L 82.0 19.1 L 81.5 17.9 L 80.7 17.0 L 79.7 16.6 L 75.0 16.6 L 72.5 15.6 L 71.5 14.7 L 71.4 14.2 L 74.1 15.3 L 75.3 15.2 L 75.8 14.8 L 75.3 14.2 L 72.6 12.8 L 70.6 11.3 L 68.7 9.1 L 67.6 7.1 L 71.8 10.7 L 73.4 11.5 L 74.4 11.8 L 74.8 11.4 L 74.8 11.0 L 73.8 8.3 L 74.9 9.4 L 76.4 12.0 L 77.4 13.1 L 78.0 13.4 L 79.1 13.4 L 79.6 12.9 L 79.3 11.2 L 78.2 8.5 L 75.8 4.0 L 75.8 3.6 L 77.4 5.1 L 79.1 7.4 L 81.8 12.3 L 82.9 13.2 L 83.6 13.2 L 84.3 12.5 L 84.8 11.4 L 85.1 8.7 L 84.6 6.1 Z M 63.6 79.9 L 62.8 82.1 L 61.9 87.9 L 62.2 94.0 L 61.7 96.6 L 61.1 98.3 L 61.1 105.1 L 61.8 108.9 L 64.7 113.4 L 66.8 113.4 L 65.7 112.1 L 65.8 110.7 L 65.5 109.9 L 65.1 109.6 L 64.6 110.3 L 64.2 110.3 L 64.0 109.5 L 64.4 107.3 L 64.1 99.6 L 63.9 97.0 L 63.0 93.9 L 62.9 92.0 L 62.4 89.9 L 62.4 88.4 L 63.4 82.1 L 64.5 82.0 L 66.3 81.4 L 68.0 80.4 L 67.8 80.3 L 66.1 81.0 L 63.4 81.7 L 63.8 80.3 Z M 10.1 95.0 L 8.9 99.9 L 8.3 107.2 L 8.8 109.5 L 9.6 110.7 L 9.6 111.1 L 10.2 111.7 L 11.0 113.3 L 11.4 113.7 L 24.2 113.3 L 23.2 112.2 L 22.9 110.8 L 22.4 110.1 L 21.9 110.1 L 21.6 110.8 L 21.3 110.8 L 21.0 110.3 L 20.7 109.5 L 20.8 107.9 L 20.2 105.3 L 17.2 95.6 L 15.4 91.3 L 15.3 90.2 L 15.7 89.4 L 17.2 87.4 L 19.9 84.7 L 23.2 82.1 L 27.6 77.6 L 30.9 79.7 L 30.9 79.9 L 26.1 86.8 L 23.2 90.0 L 22.4 91.1 L 21.5 93.5 L 21.3 96.1 L 22.3 100.5 L 24.5 106.9 L 25.3 108.4 L 26.6 109.9 L 27.0 110.6 L 28.0 111.4 L 29.2 113.3 L 50.4 113.4 L 59.2 113.2 L 59.0 112.8 L 58.8 110.3 L 58.4 110.1 L 57.6 111.0 L 57.4 110.7 L 57.4 109.4 L 58.0 107.3 L 58.4 104.1 L 58.2 97.2 L 57.4 94.5 L 57.4 92.4 L 56.3 87.3 L 55.7 82.0 L 53.8 77.2 L 53.7 78.0 L 53.9 79.1 L 54.9 81.4 L 50.1 81.5 L 44.4 82.3 L 40.6 82.3 L 39.5 82.0 L 39.5 82.4 L 40.1 82.8 L 37.6 82.3 L 35.6 81.5 L 27.7 77.4 L 29.4 76.5 L 32.0 76.5 L 30.4 76.0 L 28.6 76.3 L 27.0 77.2 L 22.7 81.8 L 19.9 84.0 L 15.9 87.9 L 12.5 90.8 L 11.0 93.1 Z M 90.4 23.7 L 90.1 23.5 L 86.3 26.2 L 85.2 27.6 L 85.0 28.7 L 88.5 26.4 L 89.6 25.1 Z" />
   </g>
 
-  <!-- Right Pine Cluster -->
-  <g fill="#071b16">
-    <!-- Tree Right 1 -->
-    <polygon points="1130,145 1122,172 1125,172 1117,198 1121,198 1112,225 1115,225 1106,258 1154,258 1145,225 1148,225 1139,198 1143,198 1135,172 1138,172" />
-    <!-- Tree Right 2 -->
-    <polygon points="1080,160 1073,182 1076,182 1069,204 1073,204 1065,230 1068,230 1059,255 1101,255 1092,230 1095,230 1087,204 1091,204 1084,182 1087,182" />
-    <!-- Tree Right 3 -->
-    <polygon points="1035,175 1029,194 1032,194 1025,214 1029,214 1021,238 1049,238 1041,214 1045,214 1038,194 1041,194" />
-    <!-- Tree Right 4 -->
-    <polygon points="1175,170 1170,190 1172,190 1166,212 1184,212 1178,190 1180,190" />
-    <!-- Small trees -->
-    <polygon points="980,195 975,212 977,212 972,230 988,230 983,212 985,212" />
-    <polygon points="940,205 936,220 944,220" />
+  <!-- Mid-Left Ridge Accents (Behind and framing the stag) -->
+  <g fill="#03100c">
+    <path d="M 252 178 L 247 196 L 250 196 L 244 214 L 260 214 L 254 196 L 257 196 Z" />
+    <path d="M 276 190 L 272 206 L 280 206 Z" />
   </g>
 
-  <!-- Floating Forest Fireflies (Subtle warm glows) -->
-  <g class="firefly-anim">
-    <circle cx="110" cy="205" r="2.5" fill="url(#firefly)" />
-    <circle cx="215" cy="185" r="2" fill="url(#firefly)" />
-    <circle cx="280" cy="225" r="2.2" fill="url(#firefly)" />
-    <circle cx="950" cy="180" r="2.2" fill="url(#firefly)" />
-    <circle cx="1060" cy="215" r="2.8" fill="url(#firefly)" />
+  <!-- Right Evergreen Conifer Forest (Layered Framing) -->
+  <g fill="#082019">
+    <path d="M 1145 136 L 1137 162 L 1141 162 L 1132 188 L 1137 188 L 1127 216 L 1132 216 L 1120 255 L 1170 255 L 1158 216 L 1163 216 L 1153 188 L 1158 188 L 1149 162 L 1153 162 Z" />
+    <path d="M 1040 162 L 1034 182 L 1037 182 L 1030 202 L 1034 202 L 1026 226 L 1054 226 L 1046 202 L 1050 202 L 1043 182 L 1046 182 Z" />
+    <path d="M 975 180 L 970 198 L 973 198 L 967 218 L 983 218 L 977 198 L 980 198 Z" />
   </g>
-  <g class="firefly-anim-2">
-    <circle cx="170" cy="235" r="2.2" fill="url(#firefly)" />
-    <circle cx="340" cy="210" r="1.8" fill="url(#firefly)" />
-    <circle cx="890" cy="210" r="2.5" fill="url(#firefly)" />
-    <circle cx="1010" cy="195" r="2" fill="url(#firefly)" />
-    <circle cx="1120" cy="230" r="2.4" fill="url(#firefly)" />
+  <g fill="#03100c">
+    <path d="M 1095 125 L 1084 154 L 1089 154 L 1077 184 L 1083 184 L 1070 216 L 1076 216 L 1060 256 L 1130 256 L 1114 216 L 1120 216 L 1107 184 L 1113 184 L 1101 154 L 1106 154 Z" />
+    <path d="M 1178 155 L 1171 178 L 1174 178 L 1167 202 L 1189 202 L 1182 178 L 1185 178 Z" />
+    <path d="M 1005 186 L 999 206 L 1002 206 L 995 228 L 1015 228 L 1008 206 L 1011 206 Z" />
+    <path d="M 945 198 L 940 216 L 950 216 Z" />
   </g>
 
-  <!-- Typography Card Background (Soft Translucent Forest Mist Pill) -->
-  <rect x="300" y="85" width="600" height="120" rx="16" fill="#04120e" fill-opacity="0.65" stroke="#1d4e3f" stroke-width="1" stroke-opacity="0.5" />
+  <!-- Bioluminescent Fireflies Glowing in Pines -->
+  <g class="firefly-1">
+    <circle cx="85" cy="195" r="2.4" fill="url(#firefly)" />
+    <circle cx="215" cy="180" r="2.0" fill="url(#firefly)" />
+    <circle cx="270" cy="216" r="2.2" fill="url(#firefly)" />
+    <circle cx="960" cy="172" r="2.2" fill="url(#firefly)" />
+    <circle cx="1065" cy="204" r="2.8" fill="url(#firefly)" />
+  </g>
+  <g class="firefly-2">
+    <circle cx="150" cy="228" r="2.2" fill="url(#firefly)" />
+    <circle cx="345" cy="202" r="1.8" fill="url(#firefly)" />
+    <circle cx="895" cy="202" r="2.5" fill="url(#firefly)" />
+    <circle cx="1015" cy="186" r="2.0" fill="url(#firefly)" />
+    <circle cx="1125" cy="222" r="2.4" fill="url(#firefly)" />
+  </g>
 
-  <!-- Center Typography -->
+  <!-- Refined Frosted Mist Backdrop for Typography (Seamless Glassmorphic Vignette) -->
+  <rect x="295" y="74" width="610" height="132" rx="18" fill="url(#cardBg)" stroke="url(#cardBorder)" stroke-width="1.2" />
+
+  <!-- Center Typography & Living Systems Badge -->
   <g text-anchor="middle">
-    <!-- Full Name -->
-    <text x="600" y="125" class="title-text" font-size="28">NGUYỄN ANH DƯƠNG</text>
-    <!-- Core Identity -->
-    <text x="600" y="156" class="subtitle-text" font-size="15.5">AI Engineer &amp; Software Developer · Living Systems &amp; Agentic AI</text>
-    <!-- Academic & Location -->
-    <text x="600" y="184" class="meta-text" font-size="13">FPT University · Hanoi, Vietnam · Evolving Artificial Life &amp; Autonomous Agents</text>
+    <!-- Living Systems Eyebrow Pill -->
+    <rect x="500" y="86" width="200" height="18" rx="9" fill="#064e3b" fill-opacity="0.4" stroke="#10b981" stroke-width="0.8" stroke-opacity="0.6" />
+    <text x="600" y="98.5" class="badge-text">✦ LIVING SYSTEMS &amp; AI ✦</text>
+
+    <!-- Main Title -->
+    <text x="600" y="132" class="title-text" font-size="27">NGUYỄN ANH DƯƠNG</text>
+    
+    <!-- Subtitle -->
+    <text x="600" y="161" class="subtitle-text" font-size="14.5">AI Engineer &amp; Software Developer · Natural Selection &amp; Agentic AI</text>
+    
+    <!-- Meta -->
+    <text x="600" y="188" class="meta-text" font-size="12.5">FPT University · Hanoi, Vietnam · Evolving Artificial Life &amp; Autonomous Agents</text>
   </g>
 </svg>

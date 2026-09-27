@@ -1,0 +1,75 @@
+# ==============================================================================
+# Git Ignore Configuration: DuongNAD/DuongNAD Profile Ecosystem
+# ==============================================================================
+
+# --- Teamwork Multi-Agent Coordination Metadata ---
+.agents/
+
+# --- Python Bytecode and Compilation Artifacts ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# --- Virtual Environments ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Testing, Coverage & Analysis Caches ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# --- Environment Variables, Local Overrides & Secrets ---
+.env
+.env.*
+*.env
+.env.local
+
+# --- Log Files & Runtime Debugging ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Operating System Artifacts ---
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Editor and IDE Settings ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
