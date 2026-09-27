@@ -10,14 +10,14 @@
   &nbsp;
   <a href="https://drive.google.com/file/d/1Hl0qvEHIbgp6Fus2o0EukKZImMNrEr-I/view" target="_blank"><img src="https://img.shields.io/badge/HackerRank%20Orchestrate-Top%2016%25%20(Rank%20%23493%2F3062)-00EA64?style=for-the-badge&logo=hackerrank&logoColor=white" alt="HackerRank Orchestrate Top 16%" /></a>
   &nbsp;
-  <a href="https://github.com/DuongNAD/VN_AI_Innovation"><img src="https://img.shields.io/badge/Team%20Lead-MindSync%20·%20VAIC%202026-2563EB?style=for-the-badge&logo=target&logoColor=white" alt="MindSync Team Lead" /></a>
+  <a href="https://github.com/DuongNAD/VN_AI_Innovation"><img src="https://img.shields.io/badge/Team%20Lead-MindSync%20%C2%B7%20VAIC%202026-2563EB?style=for-the-badge&logo=target&logoColor=white" alt="MindSync Team Lead" /></a>
   &nbsp;
-  <a href="https://drive.google.com/file/d/1K1Sfw4AnxBfi7deHBIaIqpH9cJ-G3ti9/view" target="_blank"><img src="https://img.shields.io/badge/DENSO%20Factory%20Hacks-Top%204%20%26%20Promising%20Award-1D4ED8?style=for-the-badge&logo=denso&logoColor=white" alt="DENSO Award" /></a>
+  <a href="https://drive.google.com/file/d/1K1Sfw4AnxBfi7deHBIaIqpH9cJ-G3ti9/view" target="_blank"><img src="https://img.shields.io/badge/DENSO%20Factory%20Hacks-Top%204%20%26%20Promising%20Award-1D4ED8?style=for-the-badge&logo=ros&logoColor=white" alt="DENSO Award" /></a>
 
   <br><br>
 
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=19&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&multiline=false&width=900&height=45&lines=%F0%9F%A7%A0+AI+Engineer+%C2%B7+Autonomous+Multi-Agent+Cognitive+Architectures;%F0%9F%8F%86+Top+16%25+Globally+%C2%B7+HackerRank+Orchestrate+(Rank+%23493%2F3%2C062);%E2%9A%A1+Creator+of+LIVA+%C2%B7+5-Tier+Memory+%26+91+MCP+Tools+Assistant;%F0%9F%9B%A1%EF%B8%8F+Team+Lead+of+MindSync+%40+Vietnam+AI+Innovation+Challenge+2026;%F0%9F%A6%80+High-Performance+Rust+%C2%B7+Bevy+ECS+%C2%B7+Local+LLMs+(Llama.cpp);%F0%9F%A4%96+FastMCP+Tool+Servers+%C2%B7+Grounded+RAG+%C2%B7+Zero-Hallucination" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=19&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&multiline=false&width=900&height=45&lines=%F0%9F%A7%A0+AI+Engineer+%C2%B7+Autonomous+Multi-Agent+Cognitive+Architectures;%F0%9F%8F%86+Top+16%25+Globally+%C2%B7+HackerRank+Orchestrate+(Rank+%23493%2F3%2C062);%E2%9A%A1+Creator+of+LIVA+%C2%B7+5-Tier+Memory+%26+91+MCP+Tools+Assistant;%F0%9F%9B%A1%EF%B8%8F+Team+Lead+of+MindSync+%40+Vietnam+AI+Innovation+Challenge+2026;%F0%9F%A6%80+High-Performance+Rust+%C2%B7+Bevy+ECS+%C2%B7+Local+LLMs+(Llama.cpp);%F0%9F%A4%96+FastMCP+Tool+Servers+%C2%B7+Grounded+RAG+%C2%B7+Zero-Hallucination" width="100%" alt="Typing SVG" />
   </a>
 
   <p><i>"Architecting autonomous cognitive systems, FastMCP ecosystems, and deterministic AI infrastructure for scalable, real-world impact."</i></p>
@@ -107,10 +107,10 @@ Software Engineering student at **FPT University** & **APTECH (ADSE)** specializ
 <tr>
 <td width="50%" valign="top">
 
-### 📈 Buy or Wait? — AI Financial Reasoning Agent
+### 📈 [Buy or Wait? — AI Financial Reasoning Agent](https://drive.google.com/file/d/1Hl0qvEHIbgp6Fus2o0EukKZImMNrEr-I/view)
 <p align="center">
   <a href="https://drive.google.com/file/d/1Hl0qvEHIbgp6Fus2o0EukKZImMNrEr-I/view" target="_blank">
-    <img src="https://img.shields.io/badge/HackerRank%20Orchestrate-Top%2016%25%20Globally%20(Rank%20%23493%2F3%2C062)-00EA64?style=for-the-badge&logo=hackerrank&logoColor=white" width="100%" alt="HackerRank Badge" />
+    <img src="./assets/pin-buy-or-wait.svg" width="100%" alt="Buy or Wait? Project Pin" />
   </a>
 </p>
 
@@ -189,7 +189,7 @@ Software Engineering student at **FPT University** & **APTECH (ADSE)** specializ
   &nbsp;
   [![VAIC 2026 Bootcamp](https://img.shields.io/badge/Verified-VAIC%202026%20Bootcamp%20(AI%20For%20Vietnam)-2563EB?style=flat-square&logo=target&logoColor=white)](https://drive.google.com/file/d/1x8zT32FnxJ5GZxvohfV4F_Ey9QUNAUzZ/view)
   &nbsp;
-  [![DENSO Award](https://img.shields.io/badge/Verified-DENSO%20Factory%20Hacks%20Top%204-1D4ED8?style=flat-square&logo=denso&logoColor=white)](https://drive.google.com/file/d/1K1Sfw4AnxBfi7deHBIaIqpH9cJ-G3ti9/view)
+  [![DENSO Award](https://img.shields.io/badge/Verified-DENSO%20Factory%20Hacks%20Top%204-1D4ED8?style=flat-square&logo=ros&logoColor=white)](https://drive.google.com/file/d/1K1Sfw4AnxBfi7deHBIaIqpH9cJ-G3ti9/view)
   &nbsp;
   [![Google Gemini Academy](https://img.shields.io/badge/Certified-Gemini%20Academy%20for%20Students%20(Google)-4285F4?style=flat-square&logo=google&logoColor=white)](https://drive.google.com/drive/folders/1ReTN1dchOAJMWSwM_gW633iAOhdysV1H)
 
@@ -258,21 +258,20 @@ Software Engineering student at **FPT University** & **APTECH (ADSE)** specializ
 <div align="center">
 
   ### 🐍 Contribution Activity Stream
-  <img src="./assets/github-contribution-grid-snake-dark.svg" alt="Contribution Grid Snake" width="100%" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/github-contribution-grid-snake.svg">
+    <img src="./assets/github-contribution-grid-snake-dark.svg" alt="Contribution Grid Snake" width="100%" />
+  </picture>
 
   <br><br>
 
   ### ⚡ Productivity & Language Distribution
-  <table border="0">
-    <tr>
-      <td>
-        <img src="./assets/stats.svg" alt="GitHub Stats" height="195" />
-      </td>
-      <td>
-        <img src="./assets/top-langs.svg" alt="Top Languages" height="195" />
-      </td>
-    </tr>
-  </table>
+  <p align="center">
+    <img src="./assets/stats.svg" alt="GitHub Stats" height="195" />
+    &nbsp;&nbsp;
+    <img src="./assets/top-langs.svg" alt="Top Languages" height="195" />
+  </p>
 
   <br>
 

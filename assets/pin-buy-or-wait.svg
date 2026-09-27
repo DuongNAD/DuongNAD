@@ -1,0 +1,70 @@
+<svg
+  width="400"
+  height="150"
+  viewBox="0 0 400 150"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <style>
+    .header {
+      font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+      fill: #60A5FA;
+      animation: fadeInAnimation 0.8s ease-in-out forwards;
+    }
+    .description { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #E5E7EB; }
+    .gray { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #E5E7EB; }
+    .icon { fill: #3B82F6; }
+    .rank-badge { font: 700 11.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #34D399; }
+    @keyframes fadeInAnimation {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+  <rect
+    data-testid="card-bg"
+    x="0.5"
+    y="0.5"
+    rx="4.5"
+    height="99%"
+    stroke="#1E293B"
+    width="399"
+    fill="#0B1220"
+    stroke-opacity="0.7"
+  />
+
+  <g data-testid="card-title" transform="translate(25, 35)">
+    <g transform="translate(0, 0)">
+      <svg class="icon" x="0" y="-13" viewBox="0 0 16 16" width="16" height="16">
+        <path fill-rule="evenodd" d="M1.5 1.75a.75.75 0 00-1.5 0v12.5c0 .414.336.75.75.75h14.5a.75.75 0 000-1.5H1.5V1.75zm14.28 2.53a.75.75 0 00-1.06-1.06L10 7.94 7.53 5.47a.75.75 0 00-1.06 0L3.22 8.72a.75.75 0 001.06 1.06L7 7.06l2.47 2.47a.75.75 0 001.06 0l5.25-5.25z"/>
+      </svg>
+    </g>
+    <g transform="translate(25, 0)">
+      <text x="0" y="0" class="header" data-testid="header">Buy or Wait?</text>
+    </g>
+  </g>
+
+  <g data-testid="main-card-body" transform="translate(0, 55)">
+    <text class="description" x="25" y="-5">
+      <tspan dy="1.2em" x="25">Autonomous Financial Reasoning Agent with deterministic</tspan>
+      <tspan dy="1.2em" x="25">multi-horizon cashflow solvers &#38; mandatory reserve buffers.</tspan>
+      <tspan dy="1.2em" x="25">HackerRank Orchestrate Top 16% globally.</tspan>
+    </text>
+
+    <g transform="translate(0, 75)">
+      <g data-testid="primary-lang" transform="translate(30, 0)">
+        <circle data-testid="lang-color" cx="0" cy="-5" r="6" fill="#3572A5" />
+        <text data-testid="lang-name" class="gray" x="15">Python</text>
+      </g>
+
+      <g data-testid="rank-group" transform="translate(115, 0)">
+        <g transform="translate(0, 0)">
+          <svg y="-12" viewBox="0 0 16 16" width="16" height="16" fill="#00EA64">
+            <path d="M8 0l2.47 4.94 5.53.8-4 3.9 1 5.4-5-2.6-5 2.6 1-5.4-4-3.9 5.53-.8L8 0z"/>
+          </svg>
+          <text class="rank-badge" x="22">Top 16% · Rank #493 / 3,062</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -31,6 +31,8 @@ def main() -> int:
         "opacity: 1",
         text,
     )
+    text = re.sub(r'stroke=[\'"]#E4E2E2[\'"]', 'stroke="#1E293B"', text, flags=re.IGNORECASE)
+    text = re.sub(r'stroke-opacity=[\'"]1[\'"]', 'stroke-opacity="0.7"', text)
     dest.write_text(text, encoding="utf-8", newline="\n")
     return 0
 

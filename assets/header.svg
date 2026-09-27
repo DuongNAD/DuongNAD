@@ -72,20 +72,23 @@
       .font-sans {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
       }
-      @keyframes pulseGlow {
-        0%, 100% { opacity: 0.35; transform: scale(1); }
-        50% { opacity: 0.7; transform: scale(1.02); }
+      @keyframes pulseGlowCyan {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.75; }
       }
-      @keyframes laserScan {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(100%); }
+      @keyframes pulseGlowBlue {
+        0%, 100% { opacity: 0.35; }
+        50% { opacity: 0.8; }
       }
       @keyframes blinker {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.3; }
       }
-      .pulse-item {
-        animation: pulseGlow 4s ease-in-out infinite;
+      .pulse-cyan {
+        animation: pulseGlowCyan 6s ease-in-out infinite;
+      }
+      .pulse-blue {
+        animation: pulseGlowBlue 7s ease-in-out infinite alternate;
       }
       .blink-dot {
         animation: blinker 2s ease-in-out infinite;
@@ -97,8 +100,8 @@
   <rect width="1200" height="320" fill="url(#bg-canvas)" rx="14" />
   
   <!-- Ambient Radiance -->
-  <rect width="1200" height="320" fill="url(#glow-cyan)" rx="14" />
-  <rect width="1200" height="320" fill="url(#glow-blue)" rx="14" />
+  <rect width="1200" height="320" fill="url(#glow-cyan)" rx="14" class="pulse-cyan" />
+  <rect width="1200" height="320" fill="url(#glow-blue)" rx="14" class="pulse-blue" />
   <rect width="1200" height="320" fill="url(#glow-purple)" rx="14" />
 
   <!-- Cyber Grid Overlay -->

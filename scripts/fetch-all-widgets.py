@@ -38,6 +38,9 @@ def sanitize(text: str) -> str | None:
         "opacity: 1",
         text,
     )
+    # Sanitize stark light-mode borders to subtle dark slate cyberpunk borders
+    text = re.sub(r'stroke=[\'"]#E4E2E2[\'"]', 'stroke="#1E293B"', text, flags=re.IGNORECASE)
+    text = re.sub(r'stroke-opacity=[\'"]1[\'"]', 'stroke-opacity="0.7"', text)
     return text
 
 
