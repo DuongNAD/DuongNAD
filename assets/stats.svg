@@ -9,7 +9,7 @@
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-            fill: #60A5FA;
+            fill: #10B981;
             animation: fadeInAnimation 0.8s ease-in-out forwards;
           }
           
@@ -24,18 +24,18 @@
     
     .bold { font-weight: 700 }
     .icon {
-      fill: #3B82F6;
+      fill: #059669;
       display: block;
     }
     
     .rank-circle-rim {
-      stroke: #60A5FA;
+      stroke: #10B981;
       fill: none;
       stroke-width: 6;
       opacity: 0.2;
     }
     .rank-circle {
-      stroke: #60A5FA;
+      stroke: #10B981;
       stroke-dasharray: 250;
       fill: none;
       stroke-width: 6;
@@ -51,7 +51,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 101.09961274399528;
+        stroke-dashoffset: 99.34527846471885;
       }
     }
   
@@ -143,7 +143,7 @@
         x="150" 
         y="12.5" 
         data-testid="stars"
-      >274</text>
+      >283</text>
     </g>
   </g><g transform="translate(0, 25)">
     <g class="stagger" style="animation-delay: 600ms" transform="translate(25, 0)">
@@ -158,7 +158,7 @@
         x="150" 
         y="12.5" 
         data-testid="commits"
-      >3.2k</text>
+      >3.5k</text>
     </g>
   </g><g transform="translate(0, 50)">
     <g class="stagger" style="animation-delay: 750ms" transform="translate(25, 0)">
@@ -173,7 +173,7 @@
         x="150" 
         y="12.5" 
         data-testid="prs"
-      >48</text>
+      >51</text>
     </g>
   </g><g transform="translate(0, 75)">
     <g class="stagger" style="animation-delay: 900ms" transform="translate(25, 0)">
