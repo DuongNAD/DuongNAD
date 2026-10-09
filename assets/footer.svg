@@ -1,97 +1,186 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 90" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Nguyen Anh Duong - Nature &amp; Living Systems Profile Footer">
-  <defs>
-    <!-- Background Gradient: Deep Twilight Forest to Pine Shadow -->
-    <linearGradient id="footer-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#05120f" />
-      <stop offset="50%" stop-color="#0b241e" />
-      <stop offset="100%" stop-color="#05120f" />
-    </linearGradient>
-
-    <!-- Living Systems Axis / Organic Divider Gradient (Contract: leaf-accent) -->
-    <linearGradient id="leaf-accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#05120f" stop-opacity="0" />
-      <stop offset="15%" stop-color="#064e3b" stop-opacity="0.4" />
-      <stop offset="35%" stop-color="#059669" stop-opacity="0.7" />
-      <stop offset="50%" stop-color="#34d399" stop-opacity="0.95" />
-      <stop offset="65%" stop-color="#059669" stop-opacity="0.7" />
-      <stop offset="85%" stop-color="#064e3b" stop-opacity="0.4" />
-      <stop offset="100%" stop-color="#05120f" stop-opacity="0" />
-    </linearGradient>
-
-    <!-- Central Botanical Glow -->
-    <radialGradient id="leaf-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#34d399" stop-opacity="0.35" />
-      <stop offset="45%" stop-color="#10b981" stop-opacity="0.15" />
-      <stop offset="100%" stop-color="#05120f" stop-opacity="0" />
-    </radialGradient>
-
-    <style>
-      .quote-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
-        font-style: italic;
-        fill: #d1fae5;
-        letter-spacing: 0.5px;
-      }
-      .author-text {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
-        fill: #6ee7b7;
-        letter-spacing: 1px;
-      }
-      @keyframes softPulse {
-        0%, 100% { opacity: 0.45; transform: scale(1); }
-        50% { opacity: 0.85; transform: scale(1.08); }
-      }
-      .glow-spore {
-        animation: softPulse 4s ease-in-out infinite;
-        transform-origin: 600px 14px;
-      }
-    </style>
-  </defs>
-
-  <!-- Clean rounded card background -->
-  <rect width="1200" height="90" rx="10" fill="url(#footer-bg)" stroke="#134236" stroke-width="1" stroke-opacity="0.5" />
-
-  <!-- Organic network axis line -->
-  <line x1="80" y1="14" x2="1120" y2="14" stroke="url(#leaf-accent)" stroke-width="1.2" />
-
-  <!-- Botanical / Living Network Nodes along Axis -->
-  <g fill="#10b981" opacity="0.6">
-    <circle cx="280" cy="14" r="1.5" />
-    <circle cx="420" cy="14" r="2.0" />
-    <circle cx="520" cy="14" r="1.5" />
-    <circle cx="680" cy="14" r="1.5" />
-    <circle cx="780" cy="14" r="2.0" />
-    <circle cx="920" cy="14" r="1.5" />
-  </g>
-
-  <!-- Ambient Botanical Glow behind Central Motif -->
-  <circle cx="600" cy="14" r="28" fill="url(#leaf-glow)" class="glow-spore" />
-
-  <!-- Natural Emergent Intelligence: Minimalist Leaf Sprig Emblem -->
-  <g transform="translate(600, 14)">
-    <!-- Central upright shoot / bud -->
-    <path d="M 0 -11 C 3 -6, 3 0, 0 5 C -3 0, -3 -6, 0 -11 Z" fill="#34d399" opacity="0.95" />
-    <line x1="0" y1="-8" x2="0" y2="4" stroke="#064e3b" stroke-width="0.8" />
-
-    <!-- Left leaf: gentle curving arc -->
-    <path d="M -1 1 C -7 -1, -12 -5, -14 -9 C -11 -4, -6 -1, 0 3 Z" fill="#10b981" opacity="0.9" />
-    <path d="M -1 1 C -7 0, -11 -3, -13 -7" fill="none" stroke="#064e3b" stroke-width="0.6" />
-
-    <!-- Right leaf: symmetrical emergent arc -->
-    <path d="M 1 1 C 7 -1, 12 -5, 14 -9 C 11 -4, 6 -1, 0 3 Z" fill="#10b981" opacity="0.9" />
-    <path d="M 1 1 C 7 0, 11 -3, 13 -7" fill="none" stroke="#064e3b" stroke-width="0.6" />
-
-    <!-- Root seed node -->
-    <circle cx="0" cy="5" r="1.2" fill="#6ee7b7" />
-  </g>
-
-  <!-- Quote & Living Systems Signature -->
-  <g text-anchor="middle">
-    <text x="600" y="47" class="quote-text" font-size="14">
-      "In nature as in software: complex, living intelligence emerges from simple, elegant rules."
-    </text>
-    <text x="600" y="72" class="author-text" font-size="11.5" font-weight="500">
-      CRAFTED BY <tspan fill="#a7f3d0" font-weight="700">NGUYEN ANH DUONG (DuongNAD)</tspan> · FPT UNIVERSITY · HANOI, VIETNAM
-    </text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" width="1200" height="150" role="img" aria-labelledby="title desc">
+<title id="title">In nature as in code, complex intelligence emerges from simple, elegant rules.</title>
+<desc id="desc">Footer: a quote beside a small phyllotaxis spiral.</desc>
+<style>@font-face{font-family:'Geist';font-weight:400;font-style:italic;src:url(data:font/woff;base64,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) format('woff')}@font-face{font-family:'Geist Mono';font-weight:400;font-style:normal;src:url(data:font/woff;base64,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) format('woff')}.quote{font:italic 400 21px 'Geist','Segoe UI',system-ui,-apple-system,sans-serif;letter-spacing:-.005em;fill:#f1f5f9}.sign{font:400 11.5px 'Geist Mono',ui-monospace,'Cascadia Mono',Menlo,Consolas,monospace;letter-spacing:.16em;fill:#627187}.seeds circle{animation:wave 6s ease-in-out infinite}@keyframes wave{0%,100%{fill-opacity:.5}40%{fill-opacity:1}}.w1{animation-delay:0.35s}.w2{animation-delay:0.70s}.w3{animation-delay:1.05s}.w4{animation-delay:1.40s}.w5{animation-delay:1.75s}@media (prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<defs>
+<clipPath id="card"><rect width="1200" height="150" rx="22"/></clipPath>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05080d"/><stop offset="1" stop-color="#0a1119"/></linearGradient>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="0.9" fill="#fff" fill-opacity=".07"/></pattern>
+<radialGradient id="gSeed" cx="96" cy="75" r="230" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#10b981" stop-opacity="0.22"/><stop offset="1" stop-color="#10b981" stop-opacity="0"/></radialGradient>
+<radialGradient id="gRight" cx="1150" cy="170" r="300" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#22d3ee" stop-opacity="0.08"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></radialGradient>
+<linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a7f3d0" stop-opacity="0"/><stop offset=".22" stop-color="#a7f3d0" stop-opacity=".5"/><stop offset=".6" stop-color="#a7f3d0" stop-opacity="0"/></linearGradient>
+</defs>
+<g clip-path="url(#card)">
+<rect width="1200" height="150" fill="url(#bg)"/>
+<rect width="100%" height="100%" fill="url(#gSeed)"/>
+<rect width="100%" height="100%" fill="url(#gRight)"/>
+<rect width="1200" height="150" fill="url(#dots)" opacity=".6"/>
+<g class="seeds">
+<circle class="w0" cx="93.2" cy="77.6" r="0.48" fill="#e8fcf2" opacity="0.95"/>
+<circle class="w0" cx="96.5" cy="69.7" r="0.50" fill="#e4fcf0" opacity="0.95"/>
+<circle class="w0" cx="100.0" cy="80.2" r="0.51" fill="#e1fbed" opacity="0.95"/>
+<circle class="w0" cx="88.5" cy="73.7" r="0.53" fill="#ddfbea" opacity="0.95"/>
+<circle class="w0" cx="103.2" cy="70.4" r="0.55" fill="#d9fae7" opacity="0.95"/>
+<circle class="w0" cx="93.6" cy="84.0" r="0.56" fill="#d5fae5" opacity="0.95"/>
+<circle class="w0" cx="91.4" cy="66.1" r="0.58" fill="#d1f9e2" opacity="0.95"/>
+<circle class="w0" cx="106.1" cy="78.7" r="0.59" fill="#cdf9df" opacity="0.95"/>
+<circle class="w0" cx="85.5" cy="79.3" r="0.61" fill="#caf8dc" opacity="0.94"/>
+<circle class="w0" cx="101.1" cy="64.1" r="0.62" fill="#c6f8da" opacity="0.94"/>
+<circle class="w0" cx="99.8" cy="87.0" r="0.63" fill="#c2f7d7" opacity="0.94"/>
+<circle class="w0" cx="84.6" cy="68.4" r="0.65" fill="#bef7d4" opacity="0.94"/>
+<circle class="w0" cx="109.4" cy="72.1" r="0.66" fill="#baf6d1" opacity="0.94"/>
+<circle class="w0" cx="87.8" cy="86.6" r="0.67" fill="#b6f6cf" opacity="0.94"/>
+<circle class="w0" cx="94.1" cy="60.4" r="0.68" fill="#b3f5cc" opacity="0.94"/>
+<circle class="w0" cx="107.6" cy="84.8" r="0.70" fill="#aff5c9" opacity="0.94"/>
+<circle class="w0" cx="80.4" cy="75.6" r="0.71" fill="#abf4c6" opacity="0.94"/>
+<circle class="w0" cx="107.4" cy="63.6" r="0.72" fill="#a7f4c4" opacity="0.93"/>
+<circle class="w0" cx="95.2" cy="91.5" r="0.73" fill="#a3f3c1" opacity="0.93"/>
+<circle class="w0" cx="85.1" cy="62.0" r="0.74" fill="#a0f2be" opacity="0.93"/>
+<circle class="w0" cx="113.2" cy="77.3" r="0.76" fill="#9cf2bc" opacity="0.93"/>
+<circle class="w0" cx="81.4" cy="85.2" r="0.77" fill="#98f1b9" opacity="0.93"/>
+<circle class="w0" cx="100.0" cy="57.2" r="0.78" fill="#94f1b6" opacity="0.93"/>
+<circle class="w0" cx="105.2" cy="91.1" r="0.79" fill="#90f0b3" opacity="0.93"/>
+<circle class="w0" cx="77.9" cy="69.2" r="0.80" fill="#8cf0b1" opacity="0.92"/>
+<circle class="w0" cx="113.6" cy="66.9" r="0.81" fill="#89efae" opacity="0.92"/>
+<circle class="w1" cx="88.4" cy="93.2" r="0.82" fill="#85efac" opacity="0.92"/>
+<circle class="w1" cx="89.2" cy="56.1" r="0.83" fill="#82eeab" opacity="0.92"/>
+<circle class="w1" cx="114.1" cy="84.5" r="0.85" fill="#7fedaa" opacity="0.92"/>
+<circle class="w1" cx="75.9" cy="80.3" r="0.86" fill="#7cecaa" opacity="0.92"/>
+<circle class="w1" cx="107.4" cy="57.2" r="0.87" fill="#79eaa9" opacity="0.91"/>
+<circle class="w1" cx="99.6" cy="96.2" r="0.88" fill="#76e9a8" opacity="0.91"/>
+<circle class="w1" cx="78.8" cy="61.7" r="0.89" fill="#73e8a7" opacity="0.91"/>
+<circle class="w1" cx="118.1" cy="73.2" r="0.90" fill="#6fe7a7" opacity="0.91"/>
+<circle class="w1" cx="80.8" cy="91.5" r="0.91" fill="#6ce6a6" opacity="0.91"/>
+<circle class="w1" cx="96.1" cy="52.2" r="0.92" fill="#69e5a5" opacity="0.90"/>
+<circle class="w1" cx="111.5" cy="92.1" r="0.93" fill="#66e4a5" opacity="0.90"/>
+<circle class="w1" cx="72.7" cy="72.8" r="0.94" fill="#63e3a4" opacity="0.90"/>
+<circle class="w1" cx="114.9" cy="60.7" r="0.95" fill="#60e2a3" opacity="0.90"/>
+<circle class="w1" cx="91.7" cy="98.6" r="0.96" fill="#5de1a2" opacity="0.90"/>
+<circle class="w1" cx="83.1" cy="54.4" r="0.97" fill="#5ae0a2" opacity="0.89"/>
+<circle class="w1" cx="119.7" cy="81.5" r="0.98" fill="#57dfa1" opacity="0.89"/>
+<circle class="w1" cx="73.9" cy="86.4" r="0.99" fill="#54dea0" opacity="0.89"/>
+<circle class="w1" cx="104.8" cy="51.4" r="1.00" fill="#51dda0" opacity="0.89"/>
+<circle class="w1" cx="105.6" cy="98.6" r="1.01" fill="#4edc9f" opacity="0.88"/>
+<circle class="w1" cx="72.7" cy="64.0" r="1.02" fill="#4bdb9e" opacity="0.88"/>
+<circle class="w1" cx="120.9" cy="67.3" r="1.03" fill="#47da9e" opacity="0.88"/>
+<circle class="w1" cx="82.7" cy="97.7" r="1.04" fill="#44d99d" opacity="0.88"/>
+<circle class="w1" cx="90.4" cy="49.0" r="1.05" fill="#41d89c" opacity="0.87"/>
+<circle class="w1" cx="117.9" cy="90.5" r="1.06" fill="#3ed69b" opacity="0.87"/>
+<circle class="w1" cx="69.1" cy="78.4" r="1.07" fill="#3bd59b" opacity="0.87"/>
+<circle class="w1" cx="113.7" cy="54.2" r="1.08" fill="#38d49a" opacity="0.87"/>
+<circle class="w1" cx="97.0" cy="102.6" r="1.09" fill="#35d399" opacity="0.86"/>
+<circle class="w2" cx="76.4" cy="55.1" r="1.10" fill="#33d298" opacity="0.86"/>
+<circle class="w2" cx="124.1" cy="76.4" r="1.11" fill="#32d198" opacity="0.86"/>
+<circle class="w2" cx="74.1" cy="93.1" r="1.12" fill="#30d097" opacity="0.86"/>
+<circle class="w2" cx="100.0" cy="46.6" r="1.13" fill="#2fcf96" opacity="0.85"/>
+<circle class="w2" cx="112.4" cy="98.8" r="1.14" fill="#2ece95" opacity="0.85"/>
+<circle class="w2" cx="67.6" cy="68.5" r="1.15" fill="#2ccd94" opacity="0.85"/>
+<circle class="w2" cx="121.6" cy="60.5" r="1.16" fill="#2bcc93" opacity="0.85"/>
+<circle class="w2" cx="86.9" cy="103.2" r="1.17" fill="#2acc92" opacity="0.84"/>
+<circle class="w2" cx="83.6" cy="47.8" r="1.18" fill="#28cb91" opacity="0.84"/>
+<circle class="w2" cx="123.7" cy="86.8" r="1.19" fill="#27ca90" opacity="0.84"/>
+<circle class="w2" cx="67.4" cy="85.1" r="1.19" fill="#26c98f" opacity="0.83"/>
+<circle class="w2" cx="110.4" cy="48.0" r="1.20" fill="#24c88e" opacity="0.83"/>
+<circle class="w2" cx="103.7" cy="104.8" r="1.21" fill="#23c78e" opacity="0.83"/>
+<circle class="w2" cx="70.0" cy="58.1" r="1.22" fill="#22c68d" opacity="0.83"/>
+<circle class="w2" cx="126.9" cy="69.9" r="1.23" fill="#20c58c" opacity="0.82"/>
+<circle class="w2" cx="76.6" cy="99.8" r="1.24" fill="#1fc48b" opacity="0.82"/>
+<circle class="w2" cx="93.5" cy="43.3" r="1.25" fill="#1ec38a" opacity="0.82"/>
+<circle class="w2" cx="119.4" cy="96.8" r="1.26" fill="#1cc289" opacity="0.81"/>
+<circle class="w2" cx="63.8" cy="74.7" r="1.27" fill="#1bc188" opacity="0.81"/>
+<circle class="w2" cx="120.1" cy="53.3" r="1.28" fill="#19c087" opacity="0.81"/>
+<circle class="w2" cx="92.8" cy="107.5" r="1.29" fill="#18bf86" opacity="0.80"/>
+<circle class="w2" cx="76.3" cy="48.7" r="1.30" fill="#17be86" opacity="0.80"/>
+<circle class="w2" cx="128.5" cy="81.1" r="1.30" fill="#15bd85" opacity="0.80"/>
+<circle class="w2" cx="67.7" cy="92.6" r="1.31" fill="#14bc84" opacity="0.79"/>
+<circle class="w2" cx="105.0" cy="42.7" r="1.32" fill="#13bb83" opacity="0.79"/>
+<circle class="w2" cx="111.3" cy="105.1" r="1.33" fill="#11ba82" opacity="0.79"/>
+<circle class="w3" cx="64.2" cy="63.0" r="1.34" fill="#10b981" opacity="0.79"/>
+<circle class="w3" cx="127.7" cy="62.3" r="1.35" fill="#10b982" opacity="0.78"/>
+<circle class="w3" cx="81.1" cy="106.0" r="1.36" fill="#10b984" opacity="0.78"/>
+<circle class="w3" cx="86.0" cy="41.9" r="1.37" fill="#10b985" opacity="0.78"/>
+<circle class="w3" cx="125.9" cy="92.7" r="1.38" fill="#11b987" opacity="0.77"/>
+<circle class="w3" cx="61.8" cy="82.2" r="1.38" fill="#11b988" opacity="0.77"/>
+<circle class="w3" cx="116.5" cy="46.4" r="1.39" fill="#11b989" opacity="0.76"/>
+<circle class="w3" cx="100.2" cy="110.1" r="1.40" fill="#11b98b" opacity="0.76"/>
+<circle class="w3" cx="69.0" cy="51.8" r="1.41" fill="#11b98c" opacity="0.76"/>
+<circle class="w3" cx="131.8" cy="73.9" r="1.42" fill="#11b98d" opacity="0.75"/>
+<circle class="w3" cx="70.2" cy="100.1" r="1.43" fill="#12b98f" opacity="0.75"/>
+<circle class="w3" cx="98.0" cy="38.9" r="1.44" fill="#12b990" opacity="0.75"/>
+<circle class="w3" cx="119.0" cy="103.2" r="1.45" fill="#12b992" opacity="0.74"/>
+<circle class="w3" cx="59.8" cy="69.8" r="1.45" fill="#12b993" opacity="0.74"/>
+<circle class="w3" cx="126.4" cy="54.3" r="1.46" fill="#12b894" opacity="0.74"/>
+<circle class="w3" cx="87.5" cy="111.0" r="1.47" fill="#12b896" opacity="0.73"/>
+<circle class="w3" cx="77.8" cy="42.6" r="1.48" fill="#12b897" opacity="0.73"/>
+<circle class="w3" cx="131.5" cy="86.7" r="1.49" fill="#13b899" opacity="0.73"/>
+<circle class="w3" cx="61.7" cy="90.4" r="1.50" fill="#13b89a" opacity="0.72"/>
+<circle class="w3" cx="110.9" cy="40.3" r="1.51" fill="#13b89b" opacity="0.72"/>
+<circle class="w3" cx="108.5" cy="110.8" r="1.51" fill="#13b89d" opacity="0.71"/>
+<circle class="w3" cx="62.4" cy="56.9" r="1.52" fill="#13b89e" opacity="0.71"/>
+<circle class="w3" cx="133.2" cy="65.6" r="1.53" fill="#13b8a0" opacity="0.71"/>
+<circle class="w3" cx="74.9" cy="107.2" r="1.54" fill="#13b8a1" opacity="0.70"/>
+<circle class="w3" cx="89.8" cy="36.8" r="1.55" fill="#14b8a2" opacity="0.70"/>
+<circle class="w3" cx="126.5" cy="99.1" r="1.56" fill="#14b8a4" opacity="0.70"/>
+<circle class="w3" cx="57.0" cy="77.8" r="1.57" fill="#14b8a5" opacity="0.69"/>
+<circle class="w4" cx="122.9" cy="46.4" r="1.57" fill="#14b8a7" opacity="0.69"/>
+<circle class="w4" cx="95.4" cy="114.4" r="1.58" fill="#15b9aa" opacity="0.68"/>
+<circle class="w4" cx="69.7" cy="45.4" r="1.59" fill="#15baac" opacity="0.68"/>
+<circle class="w4" cx="135.6" cy="79.1" r="1.60" fill="#16bbaf" opacity="0.68"/>
+<circle class="w4" cx="63.9" cy="98.9" r="1.61" fill="#16bcb2" opacity="0.67"/>
+<circle class="w4" cx="103.6" cy="35.6" r="1.62" fill="#17bdb4" opacity="0.67"/>
+<circle class="w4" cx="117.2" cy="109.3" r="1.62" fill="#17beb7" opacity="0.66"/>
+<circle class="w4" cx="57.0" cy="63.9" r="1.63" fill="#18bfba" opacity="0.66"/>
+<circle class="w4" cx="132.4" cy="56.8" r="1.64" fill="#18c0bc" opacity="0.66"/>
+<circle class="w4" cx="81.4" cy="113.2" r="1.65" fill="#19c1bf" opacity="0.65"/>
+<circle class="w4" cx="80.9" cy="36.8" r="1.66" fill="#19c2c2" opacity="0.65"/>
+<circle class="w4" cx="133.1" cy="93.0" r="1.66" fill="#1ac3c5" opacity="0.64"/>
+<circle class="w4" cx="56.3" cy="86.8" r="1.67" fill="#1ac4c7" opacity="0.64"/>
+<circle class="w4" cx="117.4" cy="39.3" r="1.68" fill="#1bc6ca" opacity="0.63"/>
+<circle class="w4" cx="104.4" cy="115.9" r="1.69" fill="#1cc7cd" opacity="0.63"/>
+<circle class="w4" cx="62.1" cy="50.4" r="1.70" fill="#1cc8cf" opacity="0.63"/>
+<circle class="w4" cx="137.8" cy="70.2" r="1.71" fill="#1dc9d2" opacity="0.62"/>
+<circle class="w4" cx="68.3" cy="106.9" r="1.71" fill="#1dcad5" opacity="0.62"/>
+<circle class="w4" cx="94.9" cy="32.6" r="1.72" fill="#1ecbd8" opacity="0.61"/>
+<circle class="w4" cx="125.6" cy="105.6" r="1.73" fill="#1eccda" opacity="0.61"/>
+<circle class="w4" cx="53.3" cy="72.4" r="1.74" fill="#1fcddd" opacity="0.60"/>
+<circle class="w4" cx="129.4" cy="48.0" r="1.75" fill="#1fcee0" opacity="0.60"/>
+<circle class="w4" cx="89.6" cy="117.6" r="1.75" fill="#20cfe2" opacity="0.60"/>
+<circle class="w4" cx="71.8" cy="39.1" r="1.76" fill="#20d0e5" opacity="0.59"/>
+<circle class="w4" cx="138.2" cy="85.2" r="1.77" fill="#21d1e8" opacity="0.59"/>
+<circle class="w4" cx="57.9" cy="96.1" r="1.78" fill="#21d2ea" opacity="0.58"/>
+<circle class="w4" cx="109.9" cy="33.5" r="1.79" fill="#22d3ed" opacity="0.58"/>
+<circle class="w5" cx="113.8" cy="115.1" r="1.79" fill="#23d2ee" opacity="0.57"/>
+<circle class="w5" cx="55.6" cy="57.4" r="1.80" fill="#23d2ef" opacity="0.57"/>
+<circle class="w5" cx="137.9" cy="60.6" r="1.81" fill="#24d1ef" opacity="0.56"/>
+<circle class="w5" cx="74.8" cy="114.0" r="1.82" fill="#25d0ef" opacity="0.56"/>
+<circle class="w5" cx="85.3" cy="31.7" r="1.83" fill="#26cff0" opacity="0.56"/>
+<circle class="w5" cx="133.3" cy="99.7" r="1.83" fill="#27cef0" opacity="0.55"/>
+<circle class="w5" cx="51.6" cy="82.0" r="1.84" fill="#28cef0" opacity="0.55"/>
+<circle class="w5" cx="124.1" cy="39.8" r="1.85" fill="#28cdf1" opacity="0.54"/>
+<circle class="w5" cx="99.1" cy="120.1" r="1.86" fill="#29ccf1" opacity="0.54"/>
+<circle class="w5" cx="63.1" cy="43.7" r="1.87" fill="#2acbf2" opacity="0.53"/>
+<circle class="w5" cx="141.5" cy="75.9" r="1.87" fill="#2bcaf2" opacity="0.53"/>
+<circle class="w5" cx="61.7" cy="105.2" r="1.88" fill="#2cc9f2" opacity="0.52"/>
+<circle class="w5" cx="100.9" cy="29.4" r="1.89" fill="#2cc9f3" opacity="0.52"/>
+<circle class="w5" cx="123.3" cy="112.1" r="1.90" fill="#2dc8f3" opacity="0.51"/>
+<circle class="w5" cx="50.7" cy="66.1" r="1.91" fill="#2ec7f4" opacity="0.51"/>
+<circle class="w5" cx="135.6" cy="50.9" r="1.91" fill="#2fc6f4" opacity="0.50"/>
+<circle class="w5" cx="83.1" cy="119.6" r="1.92" fill="#30c5f4" opacity="0.50"/>
+<circle class="w5" cx="75.3" cy="33.2" r="1.93" fill="#31c4f5" opacity="0.49"/>
+<circle class="w5" cx="139.6" cy="91.9" r="1.94" fill="#31c4f5" opacity="0.49"/>
+<circle class="w5" cx="52.3" cy="92.1" r="1.95" fill="#32c3f5" opacity="0.48"/>
+<circle class="w5" cx="116.8" cy="32.7" r="1.95" fill="#33c2f6" opacity="0.48"/>
+<circle class="w5" cx="109.3" cy="120.3" r="1.96" fill="#34c1f6" opacity="0.47"/>
+<circle class="w5" cx="55.5" cy="50.4" r="1.97" fill="#35c0f6" opacity="0.47"/>
+<circle class="w5" cx="142.6" cy="65.7" r="1.98" fill="#36bff7" opacity="0.46"/>
+<circle class="w5" cx="67.8" cy="113.5" r="1.98" fill="#36bff7" opacity="0.46"/>
+<circle class="w5" cx="90.8" cy="27.4" r="1.99" fill="#37bef8" opacity="0.45"/>
+<circle class="w5" cx="132.1" cy="106.6" r="2.00" fill="#38bdf8" opacity="0.45"/>
+<animateTransform attributeName="transform" type="rotate" from="0 96 75" to="360 96 75" dur="90s" repeatCount="indefinite"/>
+</g>
+<text class="quote" x="178" y="72">In nature as in code, complex intelligence emerges from simple, elegant rules.</text>
+<text class="sign" x="178" y="104">— NGUYỄN ANH DƯƠNG · THANKS FOR STOPPING BY</text>
+<rect y="148.5" width="1200" height="1.5" fill="url(#edge)"/>
+</g>
+<rect x=".5" y=".5" width="1199" height="149" rx="21.5" fill="none" stroke="#fff" stroke-opacity=".09"/>
 </svg>

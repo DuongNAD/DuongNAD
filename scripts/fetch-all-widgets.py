@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch and sanitize all dynamic GitHub profile widgets and repository pin cards."""
+"""Fetch and sanitize the dynamic GitHub profile widgets."""
 import re
 import sys
 import urllib.request
@@ -13,11 +13,6 @@ WIDGETS = {
     "assets/streak.svg": "https://streak-stats.demolab.com?user=DuongNAD&theme=transparent&hide_border=true&background=0B1220&ring=0D9488&fire=10B981&currStreakLabel=10B981&sideLabels=E5E7EB&dates=94A3B8&sideNums=E5E7EB&currStreakNum=10B981",
     "assets/trophies.svg": "https://github-profile-trophy-eight.vercel.app/?username=DuongNAD&theme=algolia&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8",
     "assets/activity-graph.svg": "https://github-readme-activity-graph.vercel.app/graph?username=DuongNAD&theme=react-dark&hide_border=true&bg_color=0B1220&color=10B981&line=059669&point=ffffff",
-    "assets/pin-liva.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=LIVA&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
-    "assets/pin-smart-drive-os.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=smart-drive-os&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
-    "assets/pin-vn-ai.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=VN_AI_Innovation&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
-    "assets/pin-anima.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=Anima-Engine&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
-    "assets/pin-mcp-agy.svg": "https://github-readme-stats-eight-theta.vercel.app/api/pin/?username=DuongNAD&repo=mcp-agy&theme=transparent&hide_border=true&bg_color=0B1220&title_color=10B981&icon_color=059669&text_color=E5E7EB",
 }
 
 
