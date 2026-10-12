@@ -27,8 +27,14 @@ jobs:
         run: |
           python3 scripts/fetch-all-widgets.py
 
+      - name: Fetch repo and follower counts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 scripts/fetch-profile-stats.py
+
       - name: Render highlights panel
-        # Reads the refreshed stats/streak widgets; a failure must not block the widget refresh.
+        # Reads the refreshed widgets; a failure must not block the widget refresh.
         continue-on-error: true
         run: |
           pip install fonttools
@@ -38,7 +44,7 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add assets/stats.svg assets/top-langs.svg assets/streak.svg assets/trophies.svg assets/activity-graph.svg assets/highlights.svg
+          git add assets/stats.svg assets/top-langs.svg assets/streak.svg assets/activity-graph.svg assets/profile-stats.json assets/highlights.svg
           git commit -m "Refresh dynamic README widgets" || exit 0
           git pull --rebase origin main
           git push

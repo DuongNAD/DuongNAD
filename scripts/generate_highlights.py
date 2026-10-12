@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """Render assets/highlights.svg: GitHub stars, key numbers and achievement medals.
 
-The numbers are read from the widgets that scripts/fetch-all-widgets.py refreshes every
-day (assets/stats.svg and assets/streak.svg), so the panel never needs its own API token.
-Styling, fonts and helpers come from generate_banner.py, which keeps the panel in the same
-visual language as the header and the project cards.
+The numbers come from files the daily workflow already refreshes: assets/stats.svg and
+assets/streak.svg (scripts/fetch-all-widgets.py) and assets/profile-stats.json
+(scripts/fetch-profile-stats.py). Styling, fonts and helpers come from generate_banner.py,
+which keeps the panel in the same visual language as the header and the project cards.
 
     python scripts/generate_banner.py          # banners and cards
     python scripts/fetch-all-widgets.py        # refresh stats.svg / streak.svg
+    python scripts/fetch-profile-stats.py      # refresh repo and follower counts
     python scripts/generate_highlights.py      # this panel
 """
 from __future__ import annotations
 
+import json
 import logging
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -23,7 +25,7 @@ from generate_banner import (
 )
 
 CYAN = "#22d3ee"
-WIDTH, HEIGHT = 840, 410
+WIDTH, HEIGHT = 840, 480
 X0 = 32
 
 # Octicons (MIT) that ship inside the stats widget; every other glyph is drawn here.
@@ -95,6 +97,9 @@ def read_stats(assets: Path = ASSETS) -> dict[str, str]:
         "contribs": before("Total Contributions"),
         "streak": before("Longest Streak"),
     }
+    profile = json.loads((assets / "profile-stats.json").read_text(encoding="utf-8"))
+    stats["repos"] = f"{profile['repos']:,}"
+    stats["followers"] = f"{profile['followers']:,}"
     missing = [key for key, value in stats.items() if not value]
     if missing:
         raise ValueError(f"could not read {', '.join(missing)} from the stats widgets")
@@ -124,23 +129,26 @@ def build_highlights(stats: dict[str, str]) -> str:
         ("commit", CYAN, "Deep Committer", f"{stats['commits']} commits"),
         ("pull", CYAN, "Hyper Puller", f"{stats['prs']} pull requests"),
     )
+    # Row-major grid to the right of the star tile: (label, value, unit).
     tiles = (
         ("COMMITS", stats["commits"], ""),
         ("PULL REQUESTS", stats["prs"], ""),
         ("CONTRIBUTIONS", stats["contribs"], ""),
+        ("REPOSITORIES", stats["repos"], ""),
+        ("FOLLOWERS", stats["followers"], ""),
         ("BEST STREAK", stats["streak"], "days"),
     )
 
     label_size, label_track = 10.5, 0.1
-    num_size, hero_num_size = 34, 46
-    hero_x, hero_y, hero_w, tile_h = X0, 58, 196, 88
-    gap = 12
-    small_x0 = hero_x + hero_w + gap
-    small_w = (WIDTH - X0 - small_x0 - 3 * gap) / 4
+    num_size, hero_num_size = 34, 60
+    gap, tile_h = 12, 78
+    col_w = (WIDTH - 2 * X0 - 3 * gap) / 4
+    top = 58
+    hero_x, hero_y, hero_w, hero_h = X0, top, col_w, 2 * tile_h + gap
 
-    cell_gap, cell_h, cell_step = 16, 54, 66
+    cell_gap, cell_h, cell_step = 16, 52, 62
     cell_w = (WIDTH - 2 * X0 - cell_gap) / 2
-    cell_y0 = 194
+    cell_y0 = top + hero_h + 52
 
     layers = [
         '<rect width="100%" height="100%" fill="url(#gHero)"/>',
@@ -150,40 +158,41 @@ def build_highlights(stats: dict[str, str]) -> str:
         f'<text class="cap" x="{WIDTH - X0}" y="40" text-anchor="end">refreshed daily</text>',
     ]
 
-    # Hero tile: the star count.
-    fit("mono-500", "GITHUB STARS", label_size, hero_w - 60, label_track)
+    # Hero tile: the star count, two rows tall.
+    fit("mono-500", "GITHUB STARS", label_size, hero_w - 36, label_track)
     fit("sans-600", stars, hero_num_size, hero_w - 32)
+    star_size = 64
+    star_x, star_y = hero_x + hero_w - 18 - star_size, hero_y + 38
     layers += [
-        f'<rect x="{hero_x}" y="{hero_y}" width="{hero_w}" height="{tile_h}" rx="16" '
+        f'<rect x="{hero_x}" y="{hero_y}" width="{hero_w:.1f}" height="{hero_h}" rx="18" '
         'fill="url(#heroFill)" stroke="#34d399" stroke-opacity=".5"/>',
-        f'<text class="lbl" x="{hero_x + 18}" y="{hero_y + 27}">GITHUB STARS</text>',
-        f'<text class="num hero" x="{hero_x + 17}" y="{hero_y + 71}">{escape(stars)}</text>',
-        glyph("star", hero_x + hero_w - 48, hero_y + 14, 30, MINT),
+        f'<text class="lbl" x="{hero_x + 18}" y="{hero_y + 29}">GITHUB STARS</text>',
+        f'<text class="num hero" x="{hero_x + 16}" y="{hero_y + hero_h - 22}">{escape(stars)}</text>',
+        glyph("star", star_x, star_y, star_size, MINT),
     ]
-    for i, (dx, dy, scale) in enumerate(((20, 22, 1.0), (30, 66, 0.7), (60, 12, 0.55))):
+    for i, (dx, dy, scale) in enumerate(((-10, 6, 1.1), (4, 74, 0.7), (82, 6, 0.55), (-12, 48, 0.5))):
         layers.append(
-            f'<path class="sp" style="animation-delay:{i * 0.9:.1f}s" fill="#ecfdf5" '
-            f'transform="translate({hero_x + hero_w - dx} {hero_y + dy}) scale({scale})" d="{SPARKLE}"/>'
+            f'<path class="sp" style="animation-delay:{i * 0.8:.1f}s" fill="#ecfdf5" '
+            f'transform="translate({star_x + dx:.1f} {star_y + dy:.1f}) scale({scale})" d="{SPARKLE}"/>'
         )
 
     # The other number tiles.
     for i, (label, value, unit) in enumerate(tiles):
-        x = small_x0 + i * (small_w + gap)
-        fit("mono-500", label, label_size, small_w - 32, label_track)
+        col, row = i % 3 + 1, i // 3
+        x, y = X0 + col * (col_w + gap), top + row * (tile_h + gap)
+        fit("mono-500", label, label_size, col_w - 32, label_track)
         number_w = text_width("sans-600", value, num_size)
-        fit("sans-600", value, num_size, small_w - 32 - (28 if unit else 0))
+        fit("sans-600", value, num_size, col_w - 32 - (36 if unit else 0))
         layers += [
-            f'<rect x="{x:.1f}" y="{hero_y}" width="{small_w:.1f}" height="{tile_h}" rx="16" '
+            f'<rect x="{x:.1f}" y="{y}" width="{col_w:.1f}" height="{tile_h}" rx="16" '
             'fill="#10b981" fill-opacity=".05" stroke="#34d399" stroke-opacity=".2"/>',
-            f'<text class="lbl" x="{x + 16:.1f}" y="{hero_y + 27}">{escape(label)}</text>',
-            f'<text class="num" x="{x + 15:.1f}" y="{hero_y + 69}">{escape(value)}</text>',
+            f'<text class="lbl" x="{x + 16:.1f}" y="{y + 27}">{escape(label)}</text>',
+            f'<text class="num" x="{x + 15:.1f}" y="{y + 64}">{escape(value)}</text>',
         ]
         if unit:
-            layers.append(
-                f'<text class="unit" x="{x + 15 + number_w + 6:.1f}" y="{hero_y + 69}">{unit}</text>'
-            )
+            layers.append(f'<text class="unit" x="{x + 15 + number_w + 6:.1f}" y="{y + 64}">{unit}</text>')
 
-    # Achievement medals.
+    # Achievement medals: competitions on the left, GitHub trophies on the right.
     groups = ("ACHIEVEMENTS · COMPETITIONS", "TROPHIES · ON GITHUB")
     for col, heading in enumerate(groups):
         layers.append(
@@ -201,8 +210,8 @@ def build_highlights(stats: dict[str, str]) -> str:
             f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="18" fill="{accent}" fill-opacity=".12" '
             f'stroke="{accent}" stroke-opacity=".55"/>',
             glyph(icon, cx - 10, cy - 10, 20, accent),
-            f'<text class="mt" x="{x + 62:.1f}" y="{y + 24}">{escape(title)}</text>',
-            f'<text class="ms" x="{x + 62:.1f}" y="{y + 42}">{escape(sub)}</text>',
+            f'<text class="mt" x="{x + 62:.1f}" y="{y + 23}">{escape(title)}</text>',
+            f'<text class="ms" x="{x + 62:.1f}" y="{y + 41}">{escape(sub)}</text>',
         ]
 
     faces = {
@@ -228,7 +237,7 @@ def build_highlights(stats: dict[str, str]) -> str:
         ]
     )
     defs = [
-        glow("gHero", hero_x + 60, hero_y + 30, 300, "#10b981", 0.2),
+        glow("gHero", hero_x + 70, hero_y + 80, 320, "#10b981", 0.22),
         glow("gLow", WIDTH, HEIGHT, 340, "#22d3ee", 0.08),
         '<linearGradient id="heroFill" x1="0" y1="0" x2="1" y2="1">'
         '<stop offset="0" stop-color="#10b981" stop-opacity=".22"/>'
@@ -238,8 +247,8 @@ def build_highlights(stats: dict[str, str]) -> str:
         WIDTH, HEIGHT, 18, layers, defs, css,
         title="GitHub stars and achievements",
         desc=f"{stars} GitHub stars, {stats['commits']} commits, {stats['prs']} pull requests, "
-        f"{stats['contribs']} contributions, best streak {stats['streak']} days. "
-        + "; ".join(f"{m[2]} - {m[3]}" for m in medals),
+        f"{stats['contribs']} contributions, {stats['repos']} repositories, {stats['followers']} followers, "
+        f"best streak {stats['streak']} days. " + "; ".join(f"{m[2]} - {m[3]}" for m in medals),
     )
 
 

@@ -3,6 +3,7 @@
     python -m unittest discover tests      (or: pytest tests)
 """
 import importlib.util
+import json
 import re
 import sys
 import unittest
@@ -68,12 +69,24 @@ class ProfileTests(unittest.TestCase):
         finally:
             sys.path.remove(str(ROOT / "scripts"))
         stats = highlights.read_stats()
-        self.assertEqual(sorted(stats), ["commits", "contribs", "prs", "stars", "streak"])
+        self.assertEqual(sorted(stats), ["commits", "contribs", "followers", "prs", "repos", "stars", "streak"])
         svg = (ROOT / "assets" / "highlights.svg").read_text(encoding="utf-8")
         for key, value in stats.items():
             with self.subTest(stat=key):
                 self.assertRegex(value, r"^[\d.,]+k?$")
                 self.assertIn(f">{value}<", svg)
+
+
+    def test_profile_stats_fetcher_reads_the_api_payload(self):
+        spec = importlib.util.spec_from_file_location("fetch_profile_stats", ROOT / "scripts" / "fetch-profile-stats.py")
+        fetcher = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(fetcher)
+        payload = {"login": "DuongNAD", "public_repos": 63, "followers": 11, "following": 10}
+        self.assertEqual(fetcher.extract(payload), {"repos": 63, "followers": 11})
+        with self.assertRaises(KeyError):
+            fetcher.extract({"login": "DuongNAD"})
+        committed = json.loads((ROOT / "assets" / "profile-stats.json").read_text(encoding="utf-8"))
+        self.assertEqual(sorted(committed), ["followers", "repos"])
 
 
 if __name__ == "__main__":
