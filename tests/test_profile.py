@@ -4,13 +4,17 @@
 """
 import importlib.util
 import re
+import sys
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 README = (ROOT / "README.md").read_text(encoding="utf-8")
-GENERATED = ["header.svg", "footer.svg", "card-mcp-agy.svg", "card-smart-drive.svg", "card-aurora.svg", "card-mindsync.svg"]
+GENERATED = [
+    "header.svg", "footer.svg", "highlights.svg",
+    "card-mcp-agy.svg", "card-smart-drive.svg", "card-aurora.svg", "card-mindsync.svg",
+]
 
 
 class ProfileTests(unittest.TestCase):
@@ -37,16 +41,39 @@ class ProfileTests(unittest.TestCase):
 
     @unittest.skipUnless(importlib.util.find_spec("fontTools"), "fontTools is not installed")
     def test_committed_art_matches_generator(self):
-        spec = importlib.util.spec_from_file_location("generate_banner", ROOT / "scripts" / "generate_banner.py")
-        banner = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(banner)
+        sys.path.insert(0, str(ROOT / "scripts"))
+        try:
+            import generate_banner as banner
+            import generate_highlights as highlights
+        finally:
+            sys.path.remove(str(ROOT / "scripts"))
         built = {"header.svg": banner.build_header(), "footer.svg": banner.build_footer()}
         built.update({f"card-{card['slug']}.svg": banner.build_card(card) for card in banner.CARDS})
+        built["highlights.svg"] = highlights.build_highlights(highlights.read_stats())
         self.assertEqual(sorted(built), sorted(GENERATED))
         for name, svg in built.items():
             with self.subTest(svg=name):
                 committed = (ROOT / "assets" / name).read_text(encoding="utf-8")
-                self.assertEqual(svg, committed, f"assets/{name} is stale; run python scripts/generate_banner.py")
+                self.assertEqual(
+                    svg, committed,
+                    f"assets/{name} is stale; run python scripts/generate_banner.py "
+                    "and python scripts/generate_highlights.py",
+                )
+
+    @unittest.skipUnless(importlib.util.find_spec("fontTools"), "fontTools is not installed")
+    def test_highlights_show_the_stats_widget_numbers(self):
+        sys.path.insert(0, str(ROOT / "scripts"))
+        try:
+            import generate_highlights as highlights
+        finally:
+            sys.path.remove(str(ROOT / "scripts"))
+        stats = highlights.read_stats()
+        self.assertEqual(sorted(stats), ["commits", "contribs", "prs", "stars", "streak"])
+        svg = (ROOT / "assets" / "highlights.svg").read_text(encoding="utf-8")
+        for key, value in stats.items():
+            with self.subTest(stat=key):
+                self.assertRegex(value, r"^[\d.,]+k?$")
+                self.assertIn(f">{value}<", svg)
 
 
 if __name__ == "__main__":
