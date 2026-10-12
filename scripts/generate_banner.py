@@ -384,13 +384,31 @@ def build_footer() -> str:
 
 CARDS = (
     {
-        "slug": "liva",
-        "kicker": "LOCAL-FIRST AI ASSISTANT",
-        "title": "LIVA",
-        "desc": "Desktop voice and vision assistant. A Rust core runs llama.cpp in-process, "
-        "with hybrid sqlite-vec + FTS5 memory.",
-        "chips": ("18 ms TTFT on GPU", "650+ Rust tests", "Vietnamese ASR"),
-        "tags": "rust · tokio · tauri v2 · vue 3",
+        "slug": "mcp-agy",
+        "kicker": "AGENT TOOLING · MCP",
+        "title": "mcp-agy",
+        "desc": "MCP server that lets Claude Code, Cursor or Cline hand coding jobs to a "
+        "Google Antigravity worker.",
+        "chips": ("9 tools", "467 tests", "workspace locks"),
+        "tags": "python · fastmcp · pydantic",
+    },
+    {
+        "slug": "smart-drive",
+        "kicker": "STORAGE GOVERNANCE · MCP",
+        "title": "SmartDrive-OS",
+        "desc": "Keeps an external SSD agent-ready: SQLite FTS5 search, exFAT cluster-slack "
+        "guard and safe cleanup, exposed as MCP tools.",
+        "chips": ("9 MCP tools", "1,000+ tests", "zero pip deps"),
+        "tags": "python · sqlite fts5 · mcp · exfat",
+    },
+    {
+        "slug": "aurora",
+        "kicker": "LESSON AUTHORING · MCP",
+        "title": "Aurora Slides",
+        "desc": "MCP server that lets coding agents author Keynote-style interactive lessons "
+        "as a single offline HTML file.",
+        "chips": ("40 slide types", "offline HTML", "built-in self-test"),
+        "tags": "typescript · node 22 · mcp",
     },
     {
         "slug": "mindsync",
@@ -400,24 +418,6 @@ CARDS = (
         "documents, blocks invalid filings.",
         "chips": ("48-hour build", "rule engine", "138 tests · CI"),
         "tags": "next.js 16 · prisma · postgresql · fpt ai",
-    },
-    {
-        "slug": "anima",
-        "kicker": "ARTIFICIAL LIFE",
-        "title": "Anima Engine",
-        "desc": "Deterministic ecosystem simulator: terrain, hydrology, predator–prey ecology "
-        "and MAP-Elites evolution.",
-        "chips": ("seeded replay", "zero-alloc ticks", "877 Rust tests"),
-        "tags": "rust · bevy_ecs · burn · three.js",
-    },
-    {
-        "slug": "mcp-agy",
-        "kicker": "AGENT TOOLING · MCP",
-        "title": "mcp-agy",
-        "desc": "MCP server that lets Claude Code, Cursor or Cline hand coding jobs to a "
-        "Google Antigravity worker.",
-        "chips": ("9 tools", "467 tests", "workspace locks"),
-        "tags": "python · fastmcp · pydantic",
     },
 )
 

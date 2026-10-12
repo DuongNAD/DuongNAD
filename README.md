@@ -19,10 +19,10 @@ Software Engineering student at **FPT University**, Hanoi. I build **AI agents t
 ### Selected work
 
 <p align="center">
-  <a href="https://github.com/DuongNAD/LIVA"><img src="./assets/card-liva.svg?v=2026-10-10" width="49%" alt="LIVA — local-first desktop AI assistant"></a>
-  <a href="https://github.com/DuongNAD/VN_AI_Innovation"><img src="./assets/card-mindsync.svg?v=2026-10-10" width="49%" alt="MindSync — AI assistant for Vietnamese public services"></a>
-  <a href="https://github.com/DuongNAD/Anima-Engine"><img src="./assets/card-anima.svg?v=2026-10-10" width="49%" alt="Anima Engine — deterministic artificial-life simulator"></a>
-  <a href="https://github.com/DuongNAD/mcp-agy"><img src="./assets/card-mcp-agy.svg?v=2026-10-10" width="49%" alt="mcp-agy — MCP server that delegates coding jobs to a Google Antigravity worker"></a>
+  <a href="https://github.com/DuongNAD/mcp-agy"><img src="./assets/card-mcp-agy.svg?v=2026-10-12" width="49%" alt="mcp-agy — MCP server that delegates coding jobs to a Google Antigravity worker"></a>
+  <a href="https://github.com/DuongNAD/smart-drive-os"><img src="./assets/card-smart-drive.svg?v=2026-10-12" width="49%" alt="SmartDrive-OS — MCP server that keeps an external SSD agent-ready"></a>
+  <a href="https://github.com/DuongNAD/aurora-slides-mcp"><img src="./assets/card-aurora.svg?v=2026-10-12" width="49%" alt="Aurora Slides — MCP server that lets coding agents author interactive lessons"></a>
+  <a href="https://github.com/DuongNAD/VN_AI_Innovation"><img src="./assets/card-mindsync.svg?v=2026-10-12" width="49%" alt="MindSync — AI assistant for Vietnamese public services"></a>
 </p>
 
 ### Toolbox

@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 README = (ROOT / "README.md").read_text(encoding="utf-8")
-GENERATED = ["header.svg", "footer.svg", "card-liva.svg", "card-mindsync.svg", "card-anima.svg", "card-mcp-agy.svg"]
+GENERATED = ["header.svg", "footer.svg", "card-mcp-agy.svg", "card-smart-drive.svg", "card-aurora.svg", "card-mindsync.svg"]
 
 
 class ProfileTests(unittest.TestCase):
