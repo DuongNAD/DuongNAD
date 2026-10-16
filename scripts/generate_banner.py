@@ -389,7 +389,7 @@ CARDS = (
         "title": "mcp-agy",
         "desc": "MCP server that lets Claude Code, Cursor or Cline hand coding jobs to a "
         "Google Antigravity worker.",
-        "chips": ("9 tools", "467 tests", "workspace locks"),
+        "chips": ("9 tools", "494 tests", "workspace locks"),
         "tags": "python · fastmcp · pydantic",
     },
     {
@@ -416,7 +416,7 @@ CARDS = (
         "title": "MindSync",
         "desc": "AI assistant for Vietnamese public services: finds the procedure, lists the legal "
         "documents, blocks invalid filings.",
-        "chips": ("48-hour build", "rule engine", "138 tests · CI"),
+        "chips": ("48-hour build", "rule engine", "138 tests"),
         "tags": "next.js 16 · prisma · postgresql · fpt ai",
     },
 )
