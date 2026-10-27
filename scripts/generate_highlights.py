@@ -25,7 +25,7 @@ from generate_banner import (
 )
 
 CYAN = "#22d3ee"
-WIDTH, HEIGHT = 840, 480
+WIDTH, HEIGHT = 840, 542
 X0 = 32
 
 # Octicons (MIT) that ship inside the stats widget; every other glyph is drawn here.
@@ -121,14 +121,18 @@ def fit(face: str, text: str, size: float, limit: float, tracking: float = 0.0) 
 
 def build_highlights(stats: dict[str, str]) -> str:
     stars = stats["stars"]
-    medals = (
+    competitions = (
+        ("trophy", EMERALD, "#32 / 309", "ARC White-Box Estimation 2026 · Phase 2"),
         ("trophy", EMERALD, "#493 / 3,062", "HackerRank Orchestrate 2026"),
         ("medal", EMERALD, "Top 4 & Promising Award", "DENSO Factory Hacks 2025"),
         ("flag", EMERALD, "Team Lead · MindSync", "VAIC 2026 national final"),
+    )
+    trophies = (
         ("star", CYAN, "Stargazer", f"{stars} GitHub stars"),
         ("commit", CYAN, "Deep Committer", f"{stats['commits']} commits"),
         ("pull", CYAN, "Hyper Puller", f"{stats['prs']} pull requests"),
     )
+    medals = competitions + trophies
     # Row-major grid to the right of the star tile: (label, value, unit).
     tiles = (
         ("COMMITS", stats["commits"], ""),
@@ -198,8 +202,12 @@ def build_highlights(stats: dict[str, str]) -> str:
         layers.append(
             f'<text class="kick" x="{X0 + col * (cell_w + cell_gap):.1f}" y="{cell_y0 - 18}">{heading}</text>'
         )
-    for i, (icon, accent, title, sub) in enumerate(medals):
-        col, row = i // 3, i % 3
+    cells = [
+        (col, row, *medal)
+        for col, column in enumerate((competitions, trophies))
+        for row, medal in enumerate(column)
+    ]
+    for col, row, icon, accent, title, sub in cells:
         x, y = X0 + col * (cell_w + cell_gap), cell_y0 + row * cell_step
         fit("sans-600", title, 16, cell_w - 62 - 12)
         fit("sans-400", sub, 12, cell_w - 62 - 12)
