@@ -122,8 +122,8 @@ def fit(face: str, text: str, size: float, limit: float, tracking: float = 0.0) 
 def build_highlights(stats: dict[str, str]) -> str:
     stars = stats["stars"]
     competitions = (
+        ("trophy", EMERALD, "#50 / 4,090 · top 1.2%", "HackerRank Orchestrate · Oct 2026"),
         ("trophy", EMERALD, "#32 / 309", "ARC White-Box Estimation 2026 · Phase 2"),
-        ("trophy", EMERALD, "#493 / 3,062", "HackerRank Orchestrate 2026"),
         ("medal", EMERALD, "Top 4 & Promising Award", "DENSO Factory Hacks 2025"),
         ("flag", EMERALD, "Team Lead · MindSync", "VAIC 2026 national final"),
     )

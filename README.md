@@ -15,13 +15,14 @@ Software Engineering student at **FPT University**, Hanoi. I build **AI agents t
 ### Highlights
 
 <p align="center">
-  <img src="./assets/highlights.svg" width="100%" alt="GitHub stars and contribution numbers, plus achievements: #32 of 309 on the ARC White-Box Estimation Challenge 2026 Phase 2 leaderboard, #493 of 3,062 at HackerRank Orchestrate 2026 (AI agent challenge), Top 4 and Promising Award at DENSO Factory Hacks 2025, Team Lead at the Vietnam AI Innovation Challenge 2026 national final">
+  <img src="./assets/highlights.svg" width="100%" alt="GitHub stars and contribution numbers, plus achievements: #50 of 4,090 (top 1.2%) at HackerRank Orchestrate October 2026 (AI agent challenge), #32 of 309 on the ARC White-Box Estimation Challenge 2026 Phase 2 leaderboard, Top 4 and Promising Award at DENSO Factory Hacks 2025, Team Lead at the Vietnam AI Innovation Challenge 2026 national final">
 </p>
 
 <p align="center">
-  Certificates: <a href="https://drive.google.com/file/d/1Hl0qvEHIbgp6Fus2o0EukKZImMNrEr-I/view">HackerRank Orchestrate</a> &nbsp;·&nbsp;
+  Certificates: <a href="https://drive.google.com/file/d/1Hl0qvEHIbgp6Fus2o0EukKZImMNrEr-I/view">HackerRank Orchestrate (Sep 2026)</a> &nbsp;·&nbsp;
   <a href="https://drive.google.com/file/d/1K1Sfw4AnxBfi7deHBIaIqpH9cJ-G3ti9/view">DENSO Factory Hacks</a> &nbsp;·&nbsp;
-  Leaderboard: <a href="https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026/leaderboards?round=phase-2">ARC White-Box Estimation</a>
+  Leaderboards: <a href="https://www.hackerrank.com/contests/hackerrank-orchestrate-october26/challenges/ghost-data-still-exists/leaderboard?page=2">HackerRank Orchestrate (Oct 2026)</a> &nbsp;·&nbsp;
+  <a href="https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026/leaderboards?round=phase-2">ARC White-Box Estimation</a>
 </p>
 
 ### Selected work
