@@ -384,6 +384,15 @@ def build_footer() -> str:
 
 CARDS = (
     {
+        "slug": "oxideswarm",
+        "kicker": "DISTRIBUTED COMPUTE · RUST · MCP",
+        "title": "OxideSwarm",
+        "desc": "One Rust binary turns your Macs, Windows PCs and Linux boxes into a "
+        "build-and-test grid for you and your coding agents.",
+        "chips": ("cargo test 210 s → 7 s", "3 OS · P2P", "v0.1 released"),
+        "tags": "rust · tokio · iroh quic · blake3 · mcp",
+    },
+    {
         "slug": "mcp-agy",
         "kicker": "AGENT TOOLING · MCP",
         "title": "mcp-agy",

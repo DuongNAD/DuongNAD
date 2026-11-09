@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 README = (ROOT / "README.md").read_text(encoding="utf-8")
 GENERATED = [
     "header.svg", "footer.svg", "highlights.svg", "activity-graph.svg",
-    "card-mcp-agy.svg", "card-smart-drive.svg", "card-aurora.svg", "card-mindsync.svg",
+    "card-oxideswarm.svg", "card-mcp-agy.svg", "card-smart-drive.svg", "card-aurora.svg", "card-mindsync.svg",
 ]
 
 
