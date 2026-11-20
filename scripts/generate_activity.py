@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Render assets/activity-graph.svg: daily GitHub contributions over the last month.
+"""Render assets/activity-{dark,light}.svg: daily GitHub contributions over the last month.
 
-Replaces the third-party activity-graph widget, whose Vercel deployment answers 402. The
-numbers come from assets/activity.json (scripts/fetch-activity.py, GitHub GraphQL API).
-Styling, fonts and helpers come from generate_banner.py, like the highlights panel.
+The numbers come from assets/activity.json (scripts/fetch-activity.py, GitHub GraphQL API);
+the daily workflow refreshes both. Palettes, fonts and helpers come from generate_banner.py,
+so the graph matches the header and the project cards in either GitHub theme.
 
     python scripts/fetch-activity.py        # refresh the daily counts (needs GITHUB_TOKEN)
     python scripts/generate_activity.py     # this graph
@@ -18,15 +18,14 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 from generate_banner import (
-    ASSETS, BG_BOTTOM, EMERALD, INK, MINT, MONO_STACK, SANS_STACK, SLATE, SLATE_DIM,
-    card, font_face, glow, text_width,
+    ASSETS, MONO_STACK, SANS_STACK, THEMES,
+    document, fonts_css, glow, panel, panel_edge, text_width,
 )
-from generate_highlights import CYAN
 
-WIDTH, HEIGHT = 840, 320
+WIDTH, HEIGHT = 840, 300
 X0 = 32
 PLOT_LEFT, PLOT_RIGHT = X0 + 30, WIDTH - X0
-PLOT_TOP, PLOT_BOTTOM = 112, 272
+PLOT_TOP, PLOT_BOTTOM = 104, 254
 MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
 
@@ -74,7 +73,8 @@ def short_date(day: datetime.date) -> str:
     return f"{MONTHS[day.month - 1]} {day.day}"
 
 
-def build_activity(days: list[tuple[datetime.date, int]]) -> str:
+def build_activity(days: list[tuple[datetime.date, int]], theme_name: str) -> str:
+    theme = THEMES[theme_name]
     n = len(days)
     counts = [count for _, count in days]
     total, active = sum(counts), sum(1 for count in counts if count)
@@ -90,25 +90,33 @@ def build_activity(days: list[tuple[datetime.date, int]]) -> str:
     line = monotone_path(points)
     area = f"{line}L{points[-1][0]:.1f} {PLOT_BOTTOM}L{points[0][0]:.1f} {PLOT_BOTTOM}Z"
 
-    kicker = "CONTRIBUTION ACTIVITY"
+    kicker = "CONTRIBUTIONS"
     caption = f"last {n} days · refreshed daily"
     summary = (
         (f"{total:,}", "contributions"),
         (f"{active}", "active days"),
         (f"{peak}", f"best day · {short_date(peak_day)}"),
     )
-    value_size, label_size, group_gap = 22, 12, 28
+    value_size, label_size, group_gap = 24, 13.5, 28
     row_width = sum(
-        text_width("sans-600", value, value_size) + 6 + text_width("sans-400", label, label_size)
+        text_width("sans-600", value, value_size) + 7 + text_width("sans-400", label, label_size)
         for value, label in summary
     ) + group_gap * (len(summary) - 1)
     if row_width > WIDTH - 2 * X0:
         raise ValueError(f"summary row is {row_width:.0f}px wide but only {WIDTH - 2 * X0} fit")
 
-    layers = [
-        '<rect width="100%" height="100%" fill="url(#gHero)"/>',
-        '<rect width="100%" height="100%" fill="url(#gLow)"/>',
-        f'<rect width="{WIDTH}" height="{HEIGHT}" fill="url(#dots)" opacity=".55"/>',
+    defs, layers = panel(theme, 0, 0, WIDTH, HEIGHT, 18)
+    defs += [
+        glow("gCorner", WIDTH, 0, 380, theme["glow"], theme["glow_opacity"] * 0.6),
+        '<linearGradient id="aFill" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0" stop-color="{theme["accent"]}" stop-opacity=".26"/>'
+        f'<stop offset="1" stop-color="{theme["accent"]}" stop-opacity="0"/></linearGradient>',
+        f'<linearGradient id="aLine" gradientUnits="userSpaceOnUse" x1="{PLOT_LEFT}" y1="0" '
+        f'x2="{PLOT_RIGHT}" y2="0"><stop offset="0" stop-color="{theme["accent"]}"/>'
+        f'<stop offset="1" stop-color="{theme["accent2"]}"/></linearGradient>',
+    ]
+    layers += [
+        f'<rect width="{WIDTH}" height="{HEIGHT}" fill="url(#gCorner)"/>',
         f'<text class="kick" x="{X0}" y="40">{kicker}</text>',
         f'<text class="cap" x="{WIDTH - X0}" y="40" text-anchor="end">{escape(caption)}</text>',
     ]
@@ -117,21 +125,21 @@ def build_activity(days: list[tuple[datetime.date, int]]) -> str:
     for value, label in summary:
         value_w = text_width("sans-600", value, value_size)
         layers += [
-            f'<text class="sv" x="{x:.1f}" y="80">{escape(value)}</text>',
-            f'<text class="sl" x="{x + value_w + 6:.1f}" y="80">{escape(label)}</text>',
+            f'<text class="sv" x="{x:.1f}" y="76">{escape(value)}</text>',
+            f'<text class="sl" x="{x + value_w + 7:.1f}" y="76">{escape(label)}</text>',
         ]
-        x += value_w + 6 + text_width("sans-400", label, label_size) + group_gap
+        x += value_w + 7 + text_width("sans-400", label, label_size) + group_gap
 
     # Y grid and labels.
     ticks = []
     for value in range(0, top + 1, step):
         y = PLOT_BOTTOM - value / top * span_y
         ticks.append(str(value))
-        opacity = ".16" if value == 0 else ".07"
+        opacity = ".22" if value == 0 else ".09"
         layers += [
             f'<line x1="{PLOT_LEFT}" x2="{PLOT_RIGHT}" y1="{y:.1f}" y2="{y:.1f}" '
-            f'stroke="#fff" stroke-opacity="{opacity}"/>',
-            f'<text class="tick" x="{PLOT_LEFT - 10}" y="{y + 3.5:.1f}" text-anchor="end">{value}</text>',
+            f'stroke="{theme["dots"]}" stroke-opacity="{opacity}"/>',
+            f'<text class="tick" x="{PLOT_LEFT - 10}" y="{y + 4:.1f}" text-anchor="end">{value}</text>',
         ]
 
     # X labels: every seventh day counting back from today, so the latest date is always shown.
@@ -150,76 +158,67 @@ def build_activity(days: list[tuple[datetime.date, int]]) -> str:
         'stroke-linecap="round" stroke-linejoin="round"/>',
     ]
     for i, (px, py) in enumerate(points):
-        if i == peak_index or i == n - 1:
+        if i == peak_index or i == n - 1 or not counts[i]:
             continue
-        if counts[i]:
-            layers.append(
-                f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.8" fill="{BG_BOTTOM}" '
-                f'stroke="{EMERALD}" stroke-width="1.4"/>'
-            )
-        else:
-            layers.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="1.8" fill="{SLATE_DIM}" opacity=".7"/>')
+        layers.append(
+            f'<circle cx="{px:.1f}" cy="{py:.1f}" r="2.6" fill="{theme["bg_bottom"]}" '
+            f'stroke="{theme["accent"]}" stroke-width="1.4"/>'
+        )
 
     # Latest day, then the best day on top; they coincide when today is the peak.
     last_x, last_y = points[-1]
     peak_x, peak_y = points[peak_index]
     if peak_index != n - 1:
-        layers += [
-            f'<circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="9" fill="{CYAN}" opacity=".18"/>',
-            f'<circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="4" fill="{CYAN}"/>',
-        ]
-    peak_w = text_width("mono-500", str(peak), 11)
+        layers.append(
+            f'<circle cx="{last_x:.1f}" cy="{last_y:.1f}" r="4" fill="{theme["accent2"]}" '
+            f'stroke="{theme["bg_bottom"]}" stroke-width="2"/>'
+        )
+    peak_w = text_width("mono-500", str(peak), 12)
     label_x = min(max(peak_x, PLOT_LEFT + peak_w / 2), WIDTH - 8 - peak_w / 2)
     layers += [
-        f'<circle class="pulse" cx="{peak_x:.1f}" cy="{peak_y:.1f}" r="10" fill="{EMERALD}" opacity=".3"/>',
-        f'<circle cx="{peak_x:.1f}" cy="{peak_y:.1f}" r="5" fill="{MINT}"/>',
-        f'<text class="pk" x="{label_x:.1f}" y="{peak_y - 16:.1f}" text-anchor="middle">{peak}</text>',
+        f'<circle cx="{peak_x:.1f}" cy="{peak_y:.1f}" r="5" fill="{theme["accent"]}" '
+        f'stroke="{theme["bg_bottom"]}" stroke-width="2"/>',
+        f'<text class="pk" x="{label_x:.1f}" y="{peak_y - 14:.1f}" text-anchor="middle">{peak}</text>',
+        "</g>",
+        panel_edge(theme, 0, 0, WIDTH, HEIGHT, 18),
     ]
 
-    faces = {
-        "mono-500": f"{kicker} {caption} {peak}",
-        "mono-400": " ".join([*ticks, *dates]),
-        "sans-600": " ".join(value for value, _ in summary),
-        "sans-400": " ".join(label for _, label in summary),
-    }
     css = "".join(
         [
-            *(font_face(face, text) for face, text in faces.items()),
-            f".kick{{font:500 11px {MONO_STACK};letter-spacing:.16em;fill:{MINT}}}",
-            f".cap{{font:500 11px {MONO_STACK};letter-spacing:.06em;fill:{SLATE_DIM}}}",
-            f".sv{{font:600 {value_size}px {SANS_STACK};letter-spacing:-.02em;fill:{INK}}}",
-            f".sl{{font:400 {label_size}px {SANS_STACK};fill:{SLATE}}}",
-            f".tick{{font:400 10.5px {MONO_STACK};fill:{SLATE_DIM}}}",
-            f".pk{{font:500 11px {MONO_STACK};fill:{INK}}}",
-            ".pulse{animation:pulse 3.2s ease-in-out infinite;transform-box:fill-box;"
-            "transform-origin:center}",
-            "@keyframes pulse{0%,100%{opacity:.12;transform:scale(.8)}50%{opacity:.4;transform:scale(1.15)}}",
+            fonts_css(
+                {
+                    "mono-500": f"{kicker} {caption} {peak}",
+                    "mono-400": " ".join([*ticks, *dates]),
+                    "sans-600": " ".join(value for value, _ in summary),
+                    "sans-400": " ".join(label for _, label in summary),
+                }
+            ),
+            f".kick{{font:500 11px {MONO_STACK};letter-spacing:.16em;fill:{theme['kicker']}}}",
+            f".cap{{font:500 11px {MONO_STACK};letter-spacing:.06em;fill:{theme['dim']}}}",
+            f".sv{{font:600 {value_size}px {SANS_STACK};letter-spacing:-.02em;fill:{theme['ink']}}}",
+            f".sl{{font:400 {label_size}px {SANS_STACK};fill:{theme['slate']}}}",
+            f".tick{{font:400 11px {MONO_STACK};fill:{theme['dim']}}}",
+            f".pk{{font:500 12px {MONO_STACK};fill:{theme['ink']}}}",
         ]
     )
-    defs = [
-        glow("gHero", X0 + 60, 40, 340, "#10b981", 0.16),
-        glow("gLow", WIDTH, HEIGHT, 320, CYAN, 0.07),
-        '<linearGradient id="aFill" x1="0" y1="0" x2="0" y2="1">'
-        '<stop offset="0" stop-color="#10b981" stop-opacity=".32"/>'
-        '<stop offset="1" stop-color="#10b981" stop-opacity="0"/></linearGradient>',
-        f'<linearGradient id="aLine" gradientUnits="userSpaceOnUse" x1="{PLOT_LEFT}" y1="0" '
-        f'x2="{PLOT_RIGHT}" y2="0"><stop offset="0" stop-color="{EMERALD}"/>'
-        f'<stop offset="1" stop-color="{CYAN}"/></linearGradient>',
-    ]
-    return card(
-        WIDTH, HEIGHT, 18, layers, defs, css,
+    return document(
+        WIDTH, HEIGHT, layers, defs, css,
         title=f"Contribution activity over the last {n} days",
         desc=f"Daily GitHub contributions from {days[0][0]} to {days[-1][0]}: {total} in total on "
         f"{active} active days, best day {peak} on {short_date(peak_day)}.",
     )
 
 
+def build_all(days: list[tuple[datetime.date, int]]) -> dict[str, str]:
+    return {f"activity-{theme}.svg": build_activity(days, theme) for theme in THEMES}
+
+
 def main() -> None:
     logging.getLogger("fontTools.subset").setLevel(logging.ERROR)
-    svg = build_activity(read_activity())
-    path = ASSETS / "activity-graph.svg"
-    path.write_text(svg, encoding="utf-8", newline="\n")
-    print(f"wrote {path.relative_to(ASSETS.parent)} ({len(svg.encode('utf-8')) / 1024:.1f} KB)")
+    for filename, svg in build_all(read_activity()).items():
+        path = ASSETS / filename
+        path.write_text(svg, encoding="utf-8", newline="\n")
+        print(f"wrote {path.relative_to(ASSETS.parent)} ({len(svg.encode('utf-8')) / 1024:.1f} KB)")
 
 
 if __name__ == "__main__":
