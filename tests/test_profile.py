@@ -5,7 +5,6 @@
 import datetime
 import importlib
 import importlib.util
-import json
 import re
 import sys
 import unittest
@@ -14,10 +13,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 README = (ROOT / "README.md").read_text(encoding="utf-8")
-GENERATED = [
-    "header.svg", "footer.svg", "highlights.svg", "activity-graph.svg",
-    "card-oxideswarm.svg", "card-mcp-agy.svg", "card-smart-drive.svg", "card-aurora.svg", "card-mindsync.svg",
-]
+HAS_FONTTOOLS = importlib.util.find_spec("fontTools") is not None
+PICTURE = re.compile(r"<picture>(.*?)</picture>", re.S)
 
 
 def import_script(name):
@@ -29,12 +26,20 @@ def import_script(name):
         sys.path.remove(str(ROOT / "scripts"))
 
 
-class ProfileTests(unittest.TestCase):
-    def test_every_svg_is_well_formed(self):
-        for svg in sorted((ROOT / "assets").glob("*.svg")):
-            with self.subTest(svg=svg.name):
-                ET.parse(svg)
+def without_fonts(svg: str) -> str:
+    # The WOFF payload depends on the zlib build; the layout and the text must not.
+    return re.sub(r"data:font/woff;base64,[A-Za-z0-9+/=]+", "data:font/woff;base64,", svg)
 
+
+def generated() -> dict:
+    banner = import_script("generate_banner")
+    activity = import_script("generate_activity")
+    built = banner.build_all()
+    built.update(activity.build_all(activity.read_activity()))
+    return built
+
+
+class ReadmeTests(unittest.TestCase):
     def test_local_images_in_readme_exist(self):
         paths = re.findall(r'(?:src|srcset)="\./([^"?]+)', README)
         self.assertGreater(len(paths), 5)
@@ -42,66 +47,96 @@ class ProfileTests(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertTrue((ROOT / path).is_file(), f"README references missing file {path}")
 
-    def test_generated_art_is_self_contained(self):
-        # GitHub shows README images in an <img> sandbox: nothing external may be needed to render them.
-        for name in GENERATED:
-            with self.subTest(svg=name):
-                text = (ROOT / "assets" / name).read_text(encoding="utf-8")
-                self.assertIn("data:font/woff;base64,", text)
-                external = re.findall(r'(?:href|src)="(https?://[^"]+)"|url\((https?://[^)]+)\)', text)
-                self.assertEqual(external, [])
+    def test_every_asset_is_used(self):
+        for svg in sorted((ROOT / "assets").glob("*.svg")):
+            with self.subTest(svg=svg.name):
+                self.assertIn(f"./assets/{svg.name}", README, "orphaned asset; delete it or use it")
 
-    @unittest.skipUnless(importlib.util.find_spec("fontTools"), "fontTools is not installed")
+    def test_every_picture_has_a_dark_source_and_a_light_fallback(self):
+        pictures = PICTURE.findall(README)
+        self.assertGreaterEqual(len(pictures), 11)
+        for body in pictures:
+            sources = re.findall(r'<source media="([^"]+)" srcset="([^"]+)">', body)
+            imgs = re.findall(r'<img src="([^"]+)"', body)
+            with self.subTest(img=imgs):
+                self.assertEqual(len(sources), 1)
+                self.assertEqual(len(imgs), 1)
+                media, dark = sources[0]
+                self.assertEqual(media, "(prefers-color-scheme: dark)")
+                # srcset splits candidates on commas, so a comma in the URL breaks the dark image.
+                self.assertNotIn(",", dark)
+                self.assertEqual(dark.replace("dark", "light"), imgs[0])
+
+    def test_every_image_has_alt_text(self):
+        imgs = re.findall(r"<img [^>]*>", README)
+        self.assertGreater(len(imgs), 5)
+        for img in imgs:
+            with self.subTest(img=img[:60]):
+                alt = re.search(r'alt="([^"]*)"', img)
+                self.assertIsNotNone(alt)
+                self.assertGreater(len(alt.group(1)), 20)
+
+    def test_readme_features_the_four_cards_in_order(self):
+        banner = import_script("generate_banner")
+        shown = re.findall(r'<a href="https://github.com/DuongNAD/([^"]+)"><picture>.*?card-([a-z]+)-light\.svg', README)
+        self.assertEqual(shown, [(card["repo"], card["slug"]) for card in banner.CARDS])
+        self.assertEqual(len(shown), 4)
+
+    def test_achievement_tiles_link_to_their_proof(self):
+        banner = import_script("generate_banner")
+        shown = re.findall(r'<a href="([^"]+)"><picture>.*?award-([a-z]+)-light\.svg', README)
+        self.assertEqual(shown, [(award["href"], award["slug"]) for award in banner.AWARDS])
+
+    def test_cards_fit_two_per_row_in_the_profile_column(self):
+        # GitHub's profile README column is 846 px wide; a space separates inline images.
+        banner = import_script("generate_banner")
+        self.assertLessEqual(2 * banner.IMG_W + 6, 846)
+        for width in re.findall(r'card-[a-z]+-light\.svg" width="(\d+)"', README):
+            self.assertEqual(int(width), banner.IMG_W)
+
+
+@unittest.skipUnless(HAS_FONTTOOLS, "fontTools is not installed")
+class ArtTests(unittest.TestCase):
+    def test_every_svg_is_well_formed(self):
+        for svg in sorted((ROOT / "assets").glob("*.svg")):
+            with self.subTest(svg=svg.name):
+                ET.parse(svg)
+
     def test_committed_art_matches_generator(self):
-        sys.path.insert(0, str(ROOT / "scripts"))
-        try:
-            import generate_activity as activity
-            import generate_banner as banner
-            import generate_highlights as highlights
-        finally:
-            sys.path.remove(str(ROOT / "scripts"))
-        built = {"header.svg": banner.build_header(), "footer.svg": banner.build_footer()}
-        built.update({f"card-{card['slug']}.svg": banner.build_card(card) for card in banner.CARDS})
-        built["highlights.svg"] = highlights.build_highlights(highlights.read_stats())
-        built["activity-graph.svg"] = activity.build_activity(activity.read_activity())
-        self.assertEqual(sorted(built), sorted(GENERATED))
+        built = generated()
+        committed = sorted(path.name for path in (ROOT / "assets").glob("*.svg"))
+        self.assertEqual(sorted(built), committed)
         for name, svg in built.items():
             with self.subTest(svg=name):
-                committed = (ROOT / "assets" / name).read_text(encoding="utf-8")
+                on_disk = (ROOT / "assets" / name).read_text(encoding="utf-8")
                 self.assertEqual(
-                    svg, committed,
-                    f"assets/{name} is stale; run python scripts/generate_banner.py, "
-                    "python scripts/generate_highlights.py and python scripts/generate_activity.py",
+                    without_fonts(svg), without_fonts(on_disk),
+                    f"assets/{name} is stale; run python scripts/generate_banner.py "
+                    "and python scripts/generate_activity.py",
                 )
 
-    @unittest.skipUnless(importlib.util.find_spec("fontTools"), "fontTools is not installed")
-    def test_highlights_show_the_stats_widget_numbers(self):
-        sys.path.insert(0, str(ROOT / "scripts"))
-        try:
-            import generate_highlights as highlights
-        finally:
-            sys.path.remove(str(ROOT / "scripts"))
-        stats = highlights.read_stats()
-        self.assertEqual(sorted(stats), ["commits", "contribs", "followers", "prs", "repos", "stars", "streak"])
-        svg = (ROOT / "assets" / "highlights.svg").read_text(encoding="utf-8")
-        for key, value in stats.items():
-            with self.subTest(stat=key):
-                self.assertRegex(value, r"^[\d.,]+k?$")
-                self.assertIn(f">{value}<", svg)
+    def test_generated_art_is_self_contained(self):
+        # GitHub shows README images in an <img> sandbox: nothing external may be needed to render them.
+        for name, svg in generated().items():
+            with self.subTest(svg=name):
+                self.assertIn("data:font/woff;base64,", svg)
+                external = re.findall(r'(?:href|src)="(https?://[^"]+)"|url\((https?://[^)]+)\)', svg)
+                self.assertEqual(external, [])
+                self.assertIn("<title", svg)
+                self.assertIn("<desc", svg)
 
+    def test_light_and_dark_art_differ_only_in_color(self):
+        built = generated()
+        hexes = re.compile(r"#[0-9a-fA-F]{6}\b|stroke-opacity=\"[^\"]+\"|fill-opacity=\"[^\"]+\"|stop-opacity=\"[^\"]+\"")
+        for name in built:
+            if not name.endswith("-dark.svg"):
+                continue
+            light = name.replace("-dark.svg", "-light.svg")
+            with self.subTest(svg=name):
+                self.assertEqual(
+                    hexes.sub("", without_fonts(built[name])), hexes.sub("", without_fonts(built[light]))
+                )
 
-    def test_profile_stats_fetcher_reads_the_api_payload(self):
-        spec = importlib.util.spec_from_file_location("fetch_profile_stats", ROOT / "scripts" / "fetch-profile-stats.py")
-        fetcher = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(fetcher)
-        payload = {"login": "DuongNAD", "public_repos": 63, "followers": 11, "following": 10}
-        self.assertEqual(fetcher.extract(payload), {"repos": 63, "followers": 11})
-        with self.assertRaises(KeyError):
-            fetcher.extract({"login": "DuongNAD"})
-        committed = json.loads((ROOT / "assets" / "profile-stats.json").read_text(encoding="utf-8"))
-        self.assertEqual(sorted(committed), ["followers", "repos"])
-
-    @unittest.skipUnless(importlib.util.find_spec("fontTools"), "fontTools is not installed")
     def test_activity_graph_shows_the_fetched_numbers(self):
         activity = import_script("generate_activity")
         days = activity.read_activity()
@@ -109,18 +144,18 @@ class ProfileTests(unittest.TestCase):
             self.assertEqual(later - earlier, datetime.timedelta(days=1), "activity.json has a gap")
         counts = [count for _, count in days]
         _, peak_day = max((count, day) for day, count in days)
-        svg = (ROOT / "assets" / "activity-graph.svg").read_text(encoding="utf-8")
         expected = (
             f">{sum(counts):,}<",
             f">{sum(1 for count in counts if count)}<",
             f">{max(counts)}<",
             f"best day · {activity.short_date(peak_day)}<",
         )
-        for text in expected:
-            with self.subTest(text=text):
-                self.assertIn(text, svg)
+        for theme in ("dark", "light"):
+            svg = (ROOT / "assets" / f"activity-{theme}.svg").read_text(encoding="utf-8")
+            for text in expected:
+                with self.subTest(theme=theme, text=text):
+                    self.assertIn(text, svg)
 
-    @unittest.skipUnless(importlib.util.find_spec("fontTools"), "fontTools is not installed")
     def test_activity_axis_covers_the_peak_in_at_most_four_steps(self):
         activity = import_script("generate_activity")
         for peak in (0, 1, 4, 5, 17, 69, 100, 1234):
@@ -129,6 +164,8 @@ class ProfileTests(unittest.TestCase):
                 self.assertGreaterEqual(top, peak)
                 self.assertLessEqual(top // step, 4)
 
+
+class FetcherTests(unittest.TestCase):
     def test_activity_fetcher_reads_the_graphql_payload(self):
         spec = importlib.util.spec_from_file_location("fetch_activity", ROOT / "scripts" / "fetch-activity.py")
         fetcher = importlib.util.module_from_spec(spec)

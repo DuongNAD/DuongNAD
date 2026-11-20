@@ -1,0 +1,29 @@
+name: Check profile
+
+# Rebuilds every generated SVG in memory and compares it with the committed file, then runs
+# the README checks. Same Python and fontTools as the daily refresh.
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install fontTools
+        run: pip install fonttools==4.63.0
+
+      - name: Run the checks
+        run: python3 -m unittest discover -v tests
