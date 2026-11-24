@@ -504,7 +504,7 @@ AWARDS = (
     {
         "slug": "arc",
         "icon": "trophy",
-        "value": "#32 of 309",
+        "value": "#33 of 309 · final",
         "event": "ARC White-Box Estimation 2026 · Phase 2",
         "href": "https://www.aicrowd.com/challenges/arc-white-box-estimation-challenge-2026/leaderboards?round=phase-2",
     },
