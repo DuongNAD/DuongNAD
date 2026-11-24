@@ -34,8 +34,10 @@ def without_fonts(svg: str) -> str:
 def generated() -> dict:
     banner = import_script("generate_banner")
     activity = import_script("generate_activity")
+    stats = import_script("generate_stats")
     built = banner.build_all()
     built.update(activity.build_all(activity.read_activity()))
+    built.update(stats.build_all(stats.read_stats()))
     return built
 
 
@@ -156,6 +158,28 @@ class ArtTests(unittest.TestCase):
                 with self.subTest(theme=theme, text=text):
                     self.assertIn(text, svg)
 
+    def test_stats_panel_shows_the_fetched_numbers(self):
+        stats_module = import_script("generate_stats")
+        stats = stats_module.read_stats()
+        for theme in ("dark", "light"):
+            svg = (ROOT / "assets" / f"stats-{theme}.svg").read_text(encoding="utf-8")
+            for field, label, _, _ in stats_module.METRICS:
+                with self.subTest(theme=theme, field=field):
+                    self.assertIn(f">{stats_module.number(stats[field])}<", svg)
+                    self.assertIn(f">{label}<", svg)
+
+    def test_trophy_ranks_follow_the_milestones(self):
+        stats_module = import_script("generate_stats")
+        milestones = (1, 10, 30, 50, 100, 200, 500, 1000)
+        self.assertIsNone(stats_module.rank(0, milestones))
+        self.assertEqual(stats_module.RANKS[stats_module.rank(1, milestones)], "C")
+        self.assertEqual(stats_module.RANKS[stats_module.rank(410, milestones)], "S")
+        self.assertEqual(stats_module.RANKS[stats_module.rank(1000, milestones)], "SSS")
+        self.assertEqual(stats_module.RANKS[stats_module.rank(99999, milestones)], "SSS")
+        for _, _, _, steps in stats_module.TROPHIES:
+            self.assertEqual(len(steps), len(stats_module.RANKS))
+            self.assertEqual(list(steps), sorted(set(steps)))
+
     def test_activity_axis_covers_the_peak_in_at_most_four_steps(self):
         activity = import_script("generate_activity")
         for peak in (0, 1, 4, 5, 17, 69, 100, 1234):
@@ -191,6 +215,47 @@ class FetcherTests(unittest.TestCase):
             fetcher.window(datetime.date(2026, 10, 12)),
             (datetime.date(2026, 9, 12), datetime.date(2026, 10, 12)),
         )
+
+    def test_stats_fetcher_counts_streaks_and_totals(self):
+        spec = importlib.util.spec_from_file_location("fetch_stats", ROOT / "scripts" / "fetch-stats.py")
+        fetcher = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(fetcher)
+        today = datetime.date(2026, 11, 24)
+
+        def days(*pairs):
+            return {f"2026-11-{day:02d}": count for day, count in pairs}
+
+        # Best run of 3 (10-12); the current run of 2 ends yesterday because today is still quiet.
+        self.assertEqual(fetcher.streaks(days((10, 1), (11, 4), (12, 2), (13, 0), (22, 5), (23, 1), (24, 0)), today), (2, 3))
+        # A quiet yesterday ends the current streak.
+        self.assertEqual(fetcher.streaks(days((20, 1), (21, 1), (22, 1), (23, 0), (24, 0)), today), (0, 3))
+        # Today counts once it has a contribution; days after today are ignored.
+        self.assertEqual(fetcher.streaks(days((23, 1), (24, 2), (25, 9), (26, 9)), today), (2, 2))
+        self.assertEqual(fetcher.streaks({}, today), (0, 0))
+
+        def calendar(pairs):
+            return {"weeks": [{"contributionDays": [{"date": d, "contributionCount": c} for d, c in pairs]}]}
+
+        profile = {"data": {"user": {
+            "followers": {"totalCount": 14},
+            "pullRequests": {"totalCount": 738},
+            "contributionsCollection": {"contributionYears": [2026, 2025]},
+            "repositories": {"totalCount": 3, "nodes": [{"stargazerCount": 400}, {"stargazerCount": 9}, {"stargazerCount": 1}],
+                             "pageInfo": {"hasNextPage": False, "endCursor": None}},
+        }}}
+        years = {"data": {"user": {
+            "y2025": {"totalCommitContributions": 7, "contributionCalendar": {
+                "totalContributions": 10, **calendar([("2025-12-31", 10)])}},
+            "y2026": {"totalCommitContributions": 4902, "contributionCalendar": {
+                "totalContributions": 5897, **calendar([("2026-01-01", 3), ("2026-11-23", 6), ("2026-11-24", 1)])}},
+        }}}
+        self.assertEqual(fetcher.summarize([profile], years, today), {
+            "stars": 410, "commits": 4909, "pull_requests": 738, "contributions": 5907,
+            "repositories": 3, "followers": 14, "current_streak": 2, "best_streak": 2,
+        })
+        with self.assertRaises(ValueError):
+            fetcher.summarize([{"errors": [{"message": "Bad credentials"}]}], years, today)
+        self.assertIn('y2025:contributionsCollection(from:"2025-01-01T00:00:00Z"', fetcher.years_query([2025, 2026]))
 
 
 if __name__ == "__main__":

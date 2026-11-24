@@ -1,4 +1,4 @@
-<!-- Generated art, one light and one dark file per image: scripts/generate_banner.py renders the header, the project cards and the achievement tiles; scripts/generate_activity.py renders the activity graph from assets/activity.json, which the daily workflow refreshes. -->
+<!-- Generated art, one light and one dark file per image: scripts/generate_banner.py renders the header, the project cards and the achievement tiles; scripts/generate_activity.py renders the activity graph from assets/activity.json and scripts/generate_stats.py the stats panel from assets/stats.json, both refreshed by the daily workflow. -->
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg">
@@ -41,6 +41,11 @@ Software Engineering student at **FPT University**, Hanoi. I build **AI agents t
 </picture>
 
 ### Activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg">
+  <img src="./assets/stats-light.svg" width="100%" alt="GitHub stats: stars, commits, pull requests, contributions, public repositories, followers, current and best contribution streak, and trophy ranks for stars, commits, pull requests and streak; the numbers are in the image and refresh daily">
+</picture>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/activity-dark.svg">

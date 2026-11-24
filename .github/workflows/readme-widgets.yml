@@ -1,7 +1,8 @@
 name: Refresh README activity
 
-# Once a day: fetch the last month of contributions and redraw the activity graph in both
-# GitHub themes. Everything else in the README is static art from scripts/generate_banner.py.
+# Once a day: fetch the last month of contributions and the profile's GitHub numbers, then
+# redraw the activity graph and the stats panel in both GitHub themes. Everything else in the
+# README is static art from scripts/generate_banner.py.
 
 on:
   schedule:
@@ -36,18 +37,27 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 scripts/fetch-activity.py
 
-      - name: Render activity graph
-        run: python3 scripts/generate_activity.py
+      - name: Fetch GitHub stats
+        # Keeps the existing assets/stats.json when the API call fails.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/fetch-stats.py
+
+      - name: Render activity graph and stats panel
+        run: |
+          python3 scripts/generate_activity.py
+          python3 scripts/generate_stats.py
 
       - name: Check the profile
-        # A broken graph is never committed.
+        # A broken graph or panel is never committed.
         run: python3 -m unittest discover -v tests
 
       - name: Commit & Push
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add assets/activity.json assets/activity-dark.svg assets/activity-light.svg
-          git commit -m "Refresh activity graph" || exit 0
+          git add assets/activity.json assets/activity-dark.svg assets/activity-light.svg \
+            assets/stats.json assets/stats-dark.svg assets/stats-light.svg
+          git commit -m "Refresh activity graph and stats" || exit 0
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin HEAD:"${GITHUB_REF_NAME}"
