@@ -339,7 +339,7 @@ CARDS = (
         "kicker": "RUST · TOKIO · IROH QUIC",
         "desc": "One Rust binary turns your Macs, Windows PCs and Linux boxes into a build-and-test grid.",
         "chips": ("v0.4.4", "macOS · Windows · Linux", "MCP"),
-        "glyph": "swarm",
+        "glyph": "logo",
     },
     {
         "slug": "mindsync",
@@ -386,16 +386,7 @@ def line_glyph(kind: str, theme: dict, x: float, y: float) -> str:
         f'stroke="{theme["accent"]}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"'
     )
     stroke = f'fill="none" {pen}'
-    if kind == "swarm":
-        nodes = ((22, 12), (11, 30), (33, 30))
-        links = "".join(f"M22 22L{nx} {ny}" for nx, ny in nodes) + "M22 12L11 30L33 30Z"
-        body = [f'<path d="{links}" {stroke} stroke-opacity=".55"/>']
-        body += [
-            f'<rect x="{nx - 4.5}" y="{ny - 3.5}" width="9" height="7" rx="2" fill="{theme["bg_top"]}" {pen}/>'
-            for nx, ny in nodes
-        ]
-        body.append(f'<circle cx="22" cy="22" r="3.2" fill="{theme["accent"]}"/>')
-    elif kind == "chat":
+    if kind == "chat":
         body = [
             f'<path d="M14 11h16a5 5 0 0 1 5 5v9a5 5 0 0 1-5 5h-9l-6 5v-5h-1a5 5 0 0 1-5-5v-9a5 5 0 0 1 5-5z" {stroke}/>',
             f'<path d="M16.5 20.5l3.5 3.5 7-7" {stroke}/>',
@@ -412,7 +403,8 @@ def line_glyph(kind: str, theme: dict, x: float, y: float) -> str:
     return f'<g transform="translate({x} {y})">{"".join(body)}</g>'
 
 
-def badge(theme: dict, kind: str, x: float, y: float, size: float = 44) -> list[str]:
+def badge(theme: dict, kind: str, x: float, y: float, size: float = 44, slug: str = "") -> list[str]:
+    """A tinted square holding the project's mark: its own logo (kind "logo"), or a drawn glyph."""
     out = [
         f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="12" fill="{theme["tint"]}" '
         f'fill-opacity="{theme["tint_opacity"]}" stroke="{theme["tint_edge"]}" '
@@ -420,6 +412,16 @@ def badge(theme: dict, kind: str, x: float, y: float, size: float = 44) -> list[
     ]
     if kind == "creature":
         out.append(creature_glyph(theme, x + size / 2, y + size / 2))
+    elif kind == "logo":
+        mark = logo_mark(slug)
+        if mark is None:
+            raise ValueError(f"{slug}: glyph 'logo' needs scripts/logos/{slug}.svg")
+        viewbox, inner = mark
+        inset = 4
+        out.append(
+            f'<svg class="logo-badge" x="{x + inset}" y="{y + inset}" width="{size - 2 * inset}" '
+            f'height="{size - 2 * inset}" viewBox="{viewbox}">{inner}</svg>'
+        )
     else:
         out.append(line_glyph(kind, theme, x, y))
     return out
@@ -450,8 +452,10 @@ LOGO_STRENGTH = {"dark": ".22", "light": ".18"}
 # Logos whose colours depend on the theme style them through classes; the card supplies them.
 LOGO_CSS = {
     "oxideswarm": {
-        "dark": ".ox-shell{fill:#ffffff;stroke:#64748b;stroke-width:2;stroke-linejoin:round}",
-        "light": ".ox-shell{fill:#ffffff;stroke:#64748b;stroke-width:2;stroke-linejoin:round}",
+        "dark": ".ox-shell{fill:#ffffff;stroke:#64748b;stroke-width:2;stroke-linejoin:round}"
+                ".logo-badge .ox-shell{stroke-width:5}",
+        "light": ".ox-shell{fill:#ffffff;stroke:#64748b;stroke-width:2;stroke-linejoin:round}"
+                 ".logo-badge .ox-shell{stroke-width:5}",
     },
 }
 
@@ -514,7 +518,7 @@ def build_card(spec: dict, theme_name: str) -> str:
     layers += [
         f'<rect x="{ox}" y="{oy}" width="{w}" height="{h}" fill="url(#gCorner)"/>',
         *logo_layers,
-        *badge(theme, spec["glyph"], ox + PAD, oy + PAD),
+        *badge(theme, spec["glyph"], ox + PAD, oy + PAD, slug=spec["slug"]),
         f'<text class="title" x="{text_x - 1}" y="{oy + 45}">{escape(spec["title"])}</text>',
         f'<text class="kick" x="{text_x}" y="{oy + 65}">{escape(spec["kicker"])}</text>',
         outbound(theme, ox + w - PAD, oy + PAD + 4),

@@ -1,5 +1,5 @@
-<!-- OxideSwarm icon. Source: DuongNAD/OxideSwarm, assets/icon.svg; the shell colours come from the card (.ox-shell) -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<!-- OxideSwarm icon. Source: DuongNAD/OxideSwarm, assets/icon.svg, viewBox cropped to the egg; the shell colours come from the card (.ox-shell) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="19 12 171 171">
 <g transform="translate(100,108) scale(1.55) translate(-100,-105)">
     <path class="ox-shell" d="M66,95 L76,85 L88,97 L100,83 L112,97 L124,85 L134,95 C138,115 134,152 100,152 C66,152 62,115 66,95 Z"/>
     <g transform="translate(-6,-14) rotate(-14,100,95)">
