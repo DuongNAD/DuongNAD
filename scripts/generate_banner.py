@@ -2,7 +2,8 @@
 """Render the static profile artwork, once per GitHub theme.
 
     assets/header-{dark,light}.svg         name and role beside a phyllotaxis spiral
-    assets/card-<slug>-{dark,light}.svg    the four project cards
+    assets/card-<slug>-{dark,light}.svg    the four project cards, each with its project's logo
+                                           (scripts/logos/<slug>.svg) faint in the background
     assets/award-<slug>-{dark,light}.svg   the four achievement tiles
 
 The README shows each pair through <picture>, so a reader on GitHub's light theme gets the
@@ -25,6 +26,7 @@ import base64
 import io
 import logging
 import math
+import re
 import unicodedata
 from functools import lru_cache
 from pathlib import Path
@@ -37,6 +39,7 @@ logging.getLogger("fontTools.subset").setLevel(logging.ERROR)  # "meta NOT subse
 
 SCRIPTS = Path(__file__).resolve().parent
 FONTS = SCRIPTS / "fonts"
+LOGOS = SCRIPTS / "logos"
 ASSETS = SCRIPTS.parent / "assets"
 
 GOLDEN_ANGLE = math.pi * (3 - math.sqrt(5))  # 137.508 degrees
@@ -439,6 +442,59 @@ def chips_markup(theme: dict, labels: tuple[str, ...], x0: float, y: float, limi
     return out
 
 
+# A project that has its own logo shows it large and faint behind the right side of its
+# card, fading out towards the text. scripts/logos/<slug>.svg holds the logo as it appears in
+# that project's repository, minus any background tile; a project without one gets no backdrop.
+LOGO_SIZE = 176
+LOGO_STRENGTH = {"dark": ".22", "light": ".18"}
+# Logos whose colours depend on the theme style them through classes; the card supplies them.
+LOGO_CSS = {
+    "oxideswarm": {
+        "dark": ".ox-shell{fill:#ffffff;stroke:#64748b;stroke-width:2;stroke-linejoin:round}",
+        "light": ".ox-shell{fill:#ffffff;stroke:#64748b;stroke-width:2;stroke-linejoin:round}",
+    },
+}
+
+
+@lru_cache(maxsize=None)
+def logo_mark(slug: str) -> tuple[str, str] | None:
+    """(viewBox, inner markup) of scripts/logos/<slug>.svg, or None when the project has no logo."""
+    path = LOGOS / f"{slug}.svg"
+    if not path.is_file():
+        return None
+    text = re.sub(r"<!--.*?-->", "", path.read_text(encoding="utf-8"), flags=re.S)
+    match = re.search(r'<svg[^>]*\bviewBox="([^"]+)"[^>]*>(.*)</svg>', text, re.S)
+    if match is None:
+        raise ValueError(f"{path} needs a root <svg> with a viewBox")
+    return match.group(1), match.group(2).strip()
+
+
+def logo_backdrop(slug: str, theme_name: str, ox: float, oy: float, w: float, h: float
+                  ) -> tuple[list[str], list[str]]:
+    """(defs, layers) for the project's logo behind the card's right side; empty without one."""
+    mark = logo_mark(slug)
+    if mark is None:
+        return [], []
+    viewbox, inner = mark
+    size = LOGO_SIZE
+    # Low on the right, below the small kicker line, a little of it running off the right edge.
+    x, y = ox + w - size * 0.78, oy + h / 2 + 28 - size / 2
+    # The strength rides on stop-opacity so the light and dark files differ only in colour.
+    defs = [
+        f'<linearGradient id="logoFade" x1="{x - size * 0.2:.1f}" y1="0" x2="{x + size * 0.3:.1f}" y2="0" '
+        'gradientUnits="userSpaceOnUse">'
+        '<stop offset="0" stop-color="#ffffff" stop-opacity="0"/>'
+        f'<stop offset="1" stop-color="#ffffff" stop-opacity="{LOGO_STRENGTH[theme_name]}"/></linearGradient>',
+        f'<mask id="logoMask" maskUnits="userSpaceOnUse" x="{ox}" y="{oy}" width="{w}" height="{h}">'
+        f'<rect x="{ox}" y="{oy}" width="{w}" height="{h}" fill="url(#logoFade)"/></mask>',
+    ]
+    layers = [
+        f'<g mask="url(#logoMask)"><svg x="{x:.1f}" y="{y:.1f}" width="{size}" height="{size}" '
+        f'viewBox="{viewbox}">{inner}</svg></g>'
+    ]
+    return defs, layers
+
+
 def build_card(spec: dict, theme_name: str) -> str:
     theme = THEMES[theme_name]
     ox, oy, w, h, radius = MARGIN, MARGIN, PANEL_W, 196, 16
@@ -453,8 +509,11 @@ def build_card(spec: dict, theme_name: str) -> str:
 
     defs, layers = panel(theme, ox, oy, w, h, radius)
     defs.append(glow("gCorner", ox + w, oy, 260, theme["glow"], theme["glow_opacity"] * 0.6))
+    logo_defs, logo_layers = logo_backdrop(spec["slug"], theme_name, ox, oy, w, h)
+    defs += logo_defs
     layers += [
         f'<rect x="{ox}" y="{oy}" width="{w}" height="{h}" fill="url(#gCorner)"/>',
+        *logo_layers,
         *badge(theme, spec["glyph"], ox + PAD, oy + PAD),
         f'<text class="title" x="{text_x - 1}" y="{oy + 45}">{escape(spec["title"])}</text>',
         f'<text class="kick" x="{text_x}" y="{oy + 65}">{escape(spec["kicker"])}</text>',
@@ -481,6 +540,7 @@ def build_card(spec: dict, theme_name: str) -> str:
             f".kick{{font:500 10.5px {MONO_STACK};letter-spacing:.12em;fill:{theme['dim']}}}",
             f".desc{{font:400 16px {SANS_STACK};fill:{theme['slate']}}}",
             f".chip{{font:500 12.5px {SANS_STACK};fill:{theme['chip_text']}}}",
+            LOGO_CSS.get(spec["slug"], {}).get(theme_name, ""),
         ]
     )
     return document(
