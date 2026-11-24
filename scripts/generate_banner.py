@@ -348,7 +348,7 @@ CARDS = (
         "kicker": "NEXT.JS · POSTGRESQL · FPT AI",
         "desc": "AI assistant for Vietnamese public services: lists the papers, blocks invalid filings.",
         "chips": ("VAIC 2026 national final", "team lead"),
-        "glyph": "chat",
+        "glyph": "logo",
     },
     {
         "slug": "smartdrive",
@@ -386,12 +386,7 @@ def line_glyph(kind: str, theme: dict, x: float, y: float) -> str:
         f'stroke="{theme["accent"]}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"'
     )
     stroke = f'fill="none" {pen}'
-    if kind == "chat":
-        body = [
-            f'<path d="M14 11h16a5 5 0 0 1 5 5v9a5 5 0 0 1-5 5h-9l-6 5v-5h-1a5 5 0 0 1-5-5v-9a5 5 0 0 1 5-5z" {stroke}/>',
-            f'<path d="M16.5 20.5l3.5 3.5 7-7" {stroke}/>',
-        ]
-    elif kind == "drive":
+    if kind == "drive":
         body = [
             f'<rect x="9" y="12" width="26" height="20" rx="4" {stroke}/>',
             f'<path d="M9 24h26" {stroke}/>',
@@ -417,6 +412,8 @@ def badge(theme: dict, kind: str, x: float, y: float, size: float = 44, slug: st
         if mark is None:
             raise ValueError(f"{slug}: glyph 'logo' needs scripts/logos/{slug}.svg")
         viewbox, inner = mark
+        # The backdrop draws the same logo, so the badge's copy gets its own ids.
+        inner = re.sub(r'(id="|url\(#)', r"\1badge-", inner)
         inset = 4
         out.append(
             f'<svg class="logo-badge" x="{x + inset}" y="{y + inset}" width="{size - 2 * inset}" '
